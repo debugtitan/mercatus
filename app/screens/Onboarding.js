@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import React from "react";
-import Onboarding from "react-native-onboarding-swiper";
+import { OnboardFlow } from "react-native-onboard";
 import PageLayout from "../PageLayout";
 import { COLOR, IMAGES, STYLES } from "../constants";
 
