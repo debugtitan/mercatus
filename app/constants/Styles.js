@@ -1,25 +1,25 @@
 import { StyleSheet } from "react-native";
 
 export const STYLES = StyleSheet.create({
-  imageContainer: {
-    justifyContent: "center",
-    alignItems: "stretch",
-  },
+
   ImageContainer: {
     alignSelf: "center",
     width: 300,
     height: 290,
+    marginVertical:55
   },
+
   textContainer: {
-    width: 291,
-    height: 80,
+    width: 271,
+    height: 70,
   },
+
   paragraphContainer: {
     width: 290,
     height: 38,
   },
   paragraph: {
-    fontSize: 16,
+    fontSize: 17,
     lineHeight: 19,
     fontWeight: "400",
   },
@@ -37,9 +37,6 @@ export const STYLES = StyleSheet.create({
     lineHeight: 40,
     color: "#FFFFFF",
     fontWeight: "600",
-    width: 301,
-    height: 80,
-    textAlign: "left",
   },
 
   button: {
