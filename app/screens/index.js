@@ -1,3 +1,3 @@
 
-import Onboarding from "./Onboarding";
-export  {Onboarding}
+import OnboardingScreen from "./Onboarding";
+export  {OnboardingScreen}

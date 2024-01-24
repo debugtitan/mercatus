@@ -1,11 +1,11 @@
 import { View } from "react-native";
-import { Onboarding } from "./app/screens";
+import { OnboardingScreen } from "./app/screens";
 
 
 export default function App() {
   return (
     <View>
-      <Onboarding />
+      <OnboardingScreen />
     </View>
   );
 }

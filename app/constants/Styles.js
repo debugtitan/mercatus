@@ -1,6 +1,10 @@
 import { StyleSheet } from "react-native";
 
 export const STYLES = StyleSheet.create({
+  imageContainer: {
+    justifyContent: "center",
+    alignItems: "stretch",
+  },
   ImageContainer: {
     alignSelf: "center",
     width: 300,
@@ -27,13 +31,15 @@ export const STYLES = StyleSheet.create({
     fontWeight: "400",
   },
 
-
-  Heading: {
+  title: {
     //fontFamily: "Inter",
     fontSize: 33,
     lineHeight: 40,
     color: "#FFFFFF",
     fontWeight: "600",
+    width: 301,
+    height: 80,
+    textAlign: "left",
   },
 
   button: {
@@ -48,4 +54,5 @@ export const STYLES = StyleSheet.create({
     padding: 14,
     paddingHorizontal: 20,
   },
+ 
 });
