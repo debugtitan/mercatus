@@ -34,6 +34,7 @@ export default function OnboardingScreen() {
                 
             },
             {
+              showFooter:false,
               imageComponent: <Onboarding2/>,
               title: <Text  style={STYLES.title}>Bank - Grade Security</Text>,
               titleStyle:{width:200,height:70},
@@ -61,7 +62,7 @@ export default function OnboardingScreen() {
           <Text>Get started</Text>
         </TouchableOpacity>
       </View>
-      <View style={{ width: 300, height: 20, alignItems: "center", left: 25 }}>
+      <View style={{ width: 300, height: 20, alignItems: "center", left: 40 }}>
         <Text style={STYLES.regularParagraph}>
           Already have an account?{" "}
           <Text style={STYLES.paragraph} className="text-[#07FFB1]">

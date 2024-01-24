@@ -21,7 +21,8 @@ export const STYLES = StyleSheet.create({
   paragraph: {
     fontSize: 17,
     lineHeight: 19,
-    fontWeight: "400",
+    fontWeight: "500",
+    fontFamily: 'Inter'
   },
 
   regularParagraph: {
@@ -36,7 +37,7 @@ export const STYLES = StyleSheet.create({
     fontSize: 33,
     lineHeight: 40,
     color: "#FFFFFF",
-    fontWeight: "600",
+    fontWeight: "700",
   },
 
   button: {
