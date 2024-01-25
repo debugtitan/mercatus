@@ -1,18 +1,23 @@
 import { StatusBar } from "expo-status-bar";
 import * as NavigationBar from 'expo-navigation-bar';
 import { View, SafeAreaView, ScrollView } from "react-native";
-import { COLOR } from "./constants";
+import { DARK,LIGHT } from "./constants";
+import {useTheme} from "./helpers/ThemeProvider"
 
 
 NavigationBar.setVisibilityAsync("hidden");
+
+
 export default function ({ children }) {
     NavigationBar.setBehaviorAsync('overlay-swipe')
+    const { isDarkMode } = useTheme();
+    const theme = isDarkMode ? DARK : LIGHT;
   return (
     <View
       className="flex relative h-full"
-      style={{ backgroundColor: COLOR.BACKGROUND }}
+      style={{ backgroundColor: theme.BACKGROUND }}
     >
-      <StatusBar style="light" />
+      <StatusBar style={isDarkMode ? 'light' : 'dark'} />
       <SafeAreaView className="mt-10">
         <ScrollView>{children}</ScrollView>
       </SafeAreaView>

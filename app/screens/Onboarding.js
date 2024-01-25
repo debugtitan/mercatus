@@ -1,57 +1,79 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { OnboardFlow } from "react-native-onboard";
 import PageLayout from "../PageLayout";
-import { COLOR, IMAGES, STYLES,Onboarding1,Onboarding2,Onboarding3,Footer } from "../constants";
+import {
+  DARK,
+  LIGHT,
+  STYLES,
+  Onboarding1,
+  Onboarding2,
+  Onboarding3,
+  Footer,
+} from "../constants";
+import { useTheme } from "../helpers/ThemeProvider";
 
+export default function OnboardingScreen({ navigation }) {
+  const { isDarkMode } = useTheme();
+  const theme = isDarkMode ? DARK : LIGHT;
+  const styles = STYLES();
 
-export default function OnboardingScreen({navigation}) {
   return (
     <PageLayout>
       <View className="mx-4">
         <View className="justify-end items-end mt-4">
           <TouchableOpacity onPress={() => navigation.navigate("skip")}>
-            <Text style={{ color: COLOR.NEUTRAL, fontSize: 14 }}>Skip</Text>
+            <Text style={{ color: theme.NEUTRAL, fontSize: 14 }}>Skip</Text>
           </TouchableOpacity>
         </View>
       </View>
 
       <View className="flex flex-1 mx-4">
         <OnboardFlow
-        textStyle={STYLES.textContainer}
-        //autoPlay={true}
-        
-        paginationSelectedColor="#07FFB1"
-        textAlign="left"
-        FooterComponent={Footer}
-        
+          textStyle={styles.textContainer}
+          //autoPlay={true}
+
+          paginationSelectedColor={isDarkMode ? "#07FFB1" : "#006042"}
+          textAlign="left"
+          FooterComponent={Footer}
           pages={[
             {
-              imageComponent: <Onboarding1/>,
-              title: <Text style={STYLES.title}>Keep up with investment trends</Text>,
-              titleStyle:STYLES.textContainer,
-              subtitleStyle:STYLES.paragraphContainer,
-              subtitle:
-                <Text style={STYLES.paragraph}>No more switching between apps to stay updated, it's all right here</Text>,
-                
+              imageComponent: <Onboarding1 />,
+              title: (
+                <Text style={styles.title}>Keep up with investment trends</Text>
+              ),
+              titleStyle: styles.textContainer,
+              subtitleStyle: styles.paragraphContainer,
+              subtitle: (
+                <Text style={styles.paragraph}>
+                  No more switching between apps to stay updated, it's all right
+                  here
+                </Text>
+              ),
             },
             {
-              imageComponent: <Onboarding2/>,
-              title: <Text  style={STYLES.title}>Bank - Grade Security</Text>,
-              titleStyle:{width:200,height:70},
-              subtitleStyle:{width:310,height:57,marginBottom:25},
-              subtitle:
-                <Text style={STYLES.paragraph}>256-bit encryption, 2FA & Biometrics, all to ensure only 1 person has access - that’s YOU!</Text>,
-               
+              imageComponent: <Onboarding2 />,
+              title: <Text style={styles.title}>Bank - Grade Security</Text>,
+              titleStyle: { width: 200, height: 70 },
+              subtitleStyle: { width: 310, height: 57, marginBottom: 25 },
+              subtitle: (
+                <Text style={styles.paragraph}>
+                  256-bit encryption, 2FA & Biometrics, all to ensure only 1
+                  person has access - that’s YOU!
+                </Text>
+              ),
             },
             {
-              imageComponent: <Onboarding3/>,
-              title: <Text  style={STYLES.title}>Unlock the Global Market</Text>,
-              titleStyle:{width:200,height:70},
-              subtitleStyle:{width:310,height:57},
-              subtitle:
-                <Text style={STYLES.paragraph}>Unrestricted access to the massive opportunities in the U.S. stock market - the world’s largest stock market</Text>,
-                
+              imageComponent: <Onboarding3 />,
+              title: <Text style={styles.title}>Unlock the Global Market</Text>,
+              titleStyle: { width: 200, height: 70 },
+              subtitleStyle: { width: 310, height: 57 },
+              subtitle: (
+                <Text style={styles.paragraph}>
+                  Unrestricted access to the massive opportunities in the U.S.
+                  stock market - the world’s largest stock market
+                </Text>
+              ),
             },
           ]}
           type="inline"
@@ -59,14 +81,14 @@ export default function OnboardingScreen({navigation}) {
       </View>
 
       <View className="mx-4 my-5">
-        <TouchableOpacity style={STYLES.button} className="">
-          <Text style={STYLES.paragraph}>Get started</Text>
+        <TouchableOpacity style={styles.button} className="">
+          <Text style={styles.paragraph}>Get started</Text>
         </TouchableOpacity>
       </View>
       <View style={{ width: 300, height: 20, alignItems: "center", left: 40 }}>
-        <Text style={STYLES.regularParagraph}>
+        <Text style={styles.regularParagraph}>
           Already have an account?{" "}
-          <Text style={STYLES.paragraph} className="text-[#07FFB1]">
+          <Text style={(styles.paragraph, { color: theme.PRIMARY })}>
             Log in
           </Text>
         </Text>

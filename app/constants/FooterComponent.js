@@ -1,7 +1,8 @@
 import React from "react";
 import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { IMAGES } from "./Medias";
-
+import { useTheme } from "../helpers/ThemeProvider";
+import { DARK,LIGHT } from "./Theme";
 export const Footer = ({
   style,
   Components,
@@ -19,8 +20,8 @@ export const Footer = ({
   ...props
 }) => {
   const totalPages = pages?.length ?? 0;
-
-
+  const {isDarkMode} =useTheme()
+  const theme = isDarkMode ? DARK : LIGHT
   return (
     <View
       style={{
