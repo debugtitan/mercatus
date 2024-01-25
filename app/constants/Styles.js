@@ -22,7 +22,7 @@ export const STYLES = StyleSheet.create({
     fontSize: 17,
     lineHeight: 19,
     fontWeight: "500",
-    fontFamily: 'Inter'
+    //fontFamily: 'Inter'
   },
 
   regularParagraph: {

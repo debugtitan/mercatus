@@ -2,8 +2,8 @@ import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import React from "react";
 import { OnboardFlow } from "react-native-onboard";
 import PageLayout from "../PageLayout";
-import { COLOR, IMAGES, STYLES,Onboarding1,Onboarding2,Onboarding3 } from "../constants";
-
+import { COLOR, IMAGES, STYLES,Onboarding1,Onboarding2,Onboarding3,Footer } from "../constants";
+import { DotPagination } from "react-native-onboard";
 export default function OnboardingScreen() {
   
   
@@ -23,6 +23,8 @@ export default function OnboardingScreen() {
         //autoPlay={true}
         paginationSelectedColor="#07FFB1"
         textAlign="left"
+        FooterComponent={Footer}
+        
           pages={[
             {
               imageComponent: <Onboarding1/>,
@@ -34,7 +36,6 @@ export default function OnboardingScreen() {
                 
             },
             {
-              showFooter:false,
               imageComponent: <Onboarding2/>,
               title: <Text  style={STYLES.title}>Bank - Grade Security</Text>,
               titleStyle:{width:200,height:70},
@@ -59,7 +60,7 @@ export default function OnboardingScreen() {
 
       <View className="mx-4 my-5">
         <TouchableOpacity style={STYLES.button} className="">
-          <Text>Get started</Text>
+          <Text style={STYLES.paragraph}>Get started</Text>
         </TouchableOpacity>
       </View>
       <View style={{ width: 300, height: 20, alignItems: "center", left: 40 }}>

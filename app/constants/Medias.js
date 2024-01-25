@@ -6,6 +6,10 @@ export const IMAGES = {
         INVESTMENT: require("../../assets/media/onboarding/investment-data.png"),
         CONNECTED_WORLD: require("../../assets/media/onboarding/connected-world.png"),
         ENCRYPTION: require("../../assets/media/onboarding/amico.png")
+    },
+    ICONS:{
+      TOGGLE_FORWARD: require("../../assets/icons/toggle-forward.png"),
+      TOGGLE_BACK: require("../../assets/icons/toggle-back.png"),
     }
 }
 
