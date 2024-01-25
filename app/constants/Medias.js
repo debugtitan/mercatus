@@ -22,8 +22,8 @@ export const IMAGES = {
       TOGGLE_BACK: require("../../assets/icons/toggle-back.png"),
     },
     LIGHT: {
-      TOGGLE_FORWARD: require("../../assets/icons/toggle-forward.png"),
-      TOGGLE_BACK: require("../../assets/icons/toggle-back.png"),
+      TOGGLE_FORWARD: require("../../assets/icons/light-toggle-right.png"),
+      TOGGLE_BACK: require("../../assets/icons/light-toggle-left.png"),
     },
   },
 };
@@ -37,7 +37,12 @@ export const Onboarding1 = () => {
           ? IMAGES.ONBOARDING.DARK.INVESTMENT
           : IMAGES.ONBOARDING.LIGHT.INVESTMENT
       }
-      style={STYLES.ImageContainer}
+      style={{
+        alignSelf: "center",
+        width: 310,
+        height: 315,
+        marginVertical: 55,
+      }}
     />
   );
 };
@@ -70,7 +75,12 @@ export const Onboarding3 = () => {
           ? IMAGES.ONBOARDING.DARK.CONNECTED_WORLD
           : IMAGES.ONBOARDING.LIGHT.CONNECTED_WORLD
       }
-      style={STYLES.ImageContainer}
+      style={{
+        alignSelf: "center",
+        width: 310,
+        height: 315,
+        marginVertical: 55,
+      }}
     />
   );
 };

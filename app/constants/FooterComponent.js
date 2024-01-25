@@ -41,8 +41,8 @@ export const Footer = ({
           activeOpacity={0.3}
         >
           <Image
-            source={IMAGES.ICONS.TOGGLE_BACK}
-            style={{ tintColor: "#ECEFEE" }}
+            source={isDarkMode ? IMAGES.ICONS.DARK.TOGGLE_BACK : IMAGES.ICONS.LIGHT.TOGGLE_BACK}
+            style={{ tintColor: isDarkMode ? "#ECEFEE"  : "#B2BEBB" }}
           />
         </TouchableOpacity>
       ) : currentPage === 2 ? (
@@ -51,7 +51,7 @@ export const Footer = ({
           onPress={goToPreviousPage}
           activeOpacity={0.3}
         >
-          <Image source={IMAGES.ICONS.TOGGLE_BACK} />
+          <Image source={isDarkMode ? IMAGES.ICONS.DARK.TOGGLE_BACK : IMAGES.ICONS.LIGHT.TOGGLE_BACK} />
         </TouchableOpacity>
       ) : null}
 
@@ -68,7 +68,7 @@ export const Footer = ({
           onPress={goToNextPage}
           activeOpacity={0.3}
         >
-          <Image source={IMAGES.ICONS.TOGGLE_FORWARD} />
+          <Image source={isDarkMode ? IMAGES.ICONS.DARK.TOGGLE_FORWARD : IMAGES.ICONS.LIGHT.TOGGLE_FORWARD} />
         </TouchableOpacity>
       )}
     </View>

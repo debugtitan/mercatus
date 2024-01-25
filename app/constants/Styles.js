@@ -12,6 +12,7 @@ export const STYLES = () => {
       marginVertical: 55,
     },
 
+
     textContainer: {
       width: 271,
       height: 70,
@@ -22,9 +23,9 @@ export const STYLES = () => {
       height: 38,
     },
     paragraph: {
-      fontSize: 17,
+      fontSize: 18,
       lineHeight: 19,
-      fontWeight: "500",
+      fontWeight: "600",
       //fontFamily: 'Inter'
     },
 
@@ -48,9 +49,6 @@ export const STYLES = () => {
       backgroundColor: isDarkMode ? "#07FFB1" : "#006042",
       borderRadius: 50,
       alignItems: "center",
-      fontWeight: "600",
-      color: isDarkMode ? "#00100B" : "#FFFFF",
-      fontSize: 18,
       lineHeight: 22,
       padding: 14,
       paddingHorizontal: 20,

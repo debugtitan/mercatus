@@ -82,7 +82,9 @@ export default function OnboardingScreen({ navigation }) {
 
       <View className="mx-4 my-5">
         <TouchableOpacity style={styles.button} className="">
-          <Text style={styles.paragraph}>Get started</Text>
+          <Text style={(styles.paragraph, { color: theme.SHADES })}>
+            Get started
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={{ width: 300, height: 20, alignItems: "center", left: 40 }}>
