@@ -20,7 +20,6 @@ export const Footer = ({
 }) => {
   const totalPages = pages?.length ?? 0;
 
-  console.log(props, goToPreviousPage);
 
   return (
     <View
