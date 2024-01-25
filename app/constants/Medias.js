@@ -40,7 +40,7 @@ export const Onboarding1 = () => {
       style={{
         alignSelf: "center",
         width: 310,
-        height: 315,
+        height: 300,
         marginVertical: 55,
       }}
     />

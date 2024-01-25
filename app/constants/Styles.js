@@ -14,8 +14,8 @@ export const STYLES = () => {
 
 
     textContainer: {
-      width: 271,
-      height: 70,
+      width: 240,
+      height: 80,
     },
 
     paragraphContainer: {

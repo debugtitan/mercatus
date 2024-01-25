@@ -2,7 +2,7 @@ export const DARK = {
     BACKGROUND: '#080F0D',
     NEUTRAL: '#7F938D',
     PRIMARY: "#07FFB1",
-    SHADES:  "#07FFB1",
+    SHADES:  "#00100B",
 
 }
 
