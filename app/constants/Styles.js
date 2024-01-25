@@ -4,8 +4,8 @@ export const STYLES = StyleSheet.create({
 
   ImageContainer: {
     alignSelf: "center",
-    width: 300,
-    height: 290,
+    width: 350,
+    height: 340,
     marginVertical:55
   },
 

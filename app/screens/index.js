@@ -1,3 +1,4 @@
 
 import OnboardingScreen from "./Onboarding";
-export  {OnboardingScreen}
+import Profile from "./profile/Profile"
+export  {OnboardingScreen,Profile}

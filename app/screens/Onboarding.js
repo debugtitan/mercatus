@@ -5,12 +5,12 @@ import PageLayout from "../PageLayout";
 import { COLOR, IMAGES, STYLES,Onboarding1,Onboarding2,Onboarding3,Footer } from "../constants";
 
 
-export default function OnboardingScreen() {
+export default function OnboardingScreen({navigation}) {
   return (
     <PageLayout>
       <View className="mx-4">
         <View className="justify-end items-end mt-4">
-          <TouchableOpacity onPress={() => alert("Skip pressed")}>
+          <TouchableOpacity onPress={() => navigation.navigate("skip")}>
             <Text style={{ color: COLOR.NEUTRAL, fontSize: 14 }}>Skip</Text>
           </TouchableOpacity>
         </View>
