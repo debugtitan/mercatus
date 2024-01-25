@@ -14,12 +14,13 @@ export const Footer = ({
   setCanContinue,
   showFooter = true,
   primaryButtonStyle,
+  goToPreviousPage,
   primaryButtonTextStyle,
   ...props
 }) => {
   const totalPages = pages?.length ?? 0;
 
-  console.log(props)
+  console.log(props, goToPreviousPage);
 
   return (
     <View
@@ -36,6 +37,8 @@ export const Footer = ({
       {currentPage === 1 ? (
         <TouchableOpacity
           style={styles.toggle_left}
+          onPress={goToPreviousPage}
+          activeOpacity={0.3}
         >
           <Image
             source={IMAGES.ICONS.TOGGLE_BACK}
@@ -43,7 +46,11 @@ export const Footer = ({
           />
         </TouchableOpacity>
       ) : currentPage === 2 ? (
-        <TouchableOpacity style={styles.toggle_left}>
+        <TouchableOpacity
+          style={styles.toggle_left}
+          onPress={goToPreviousPage}
+          activeOpacity={0.3}
+        >
           <Image source={IMAGES.ICONS.TOGGLE_BACK} />
         </TouchableOpacity>
       ) : null}
@@ -56,8 +63,12 @@ export const Footer = ({
       />
 
       {currentPage !== totalPages - 1 && (
-        <TouchableOpacity style={styles.toggle_right} onPress={goToNextPage}  activeOpacity={0.3}>
-            <Image source={IMAGES.ICONS.TOGGLE_FORWARD} />
+        <TouchableOpacity
+          style={styles.toggle_right}
+          onPress={goToNextPage}
+          activeOpacity={0.3}
+        >
+          <Image source={IMAGES.ICONS.TOGGLE_FORWARD} />
         </TouchableOpacity>
       )}
     </View>
@@ -65,14 +76,14 @@ export const Footer = ({
 };
 
 const styles = StyleSheet.create({
-    toggle_right:{
-        position: 'absolute',
-        bottom:32,
-        right:35
-    },
-    toggle_left:{
-        position: 'absolute',
-        bottom:30,
-        left:35
-    }
+  toggle_right: {
+    position: "absolute",
+    bottom: 32,
+    right: 35,
+  },
+  toggle_left: {
+    position: "absolute",
+    bottom: 30,
+    left: 35,
+  },
 });

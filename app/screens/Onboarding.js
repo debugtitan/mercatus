@@ -3,10 +3,9 @@ import React from "react";
 import { OnboardFlow } from "react-native-onboard";
 import PageLayout from "../PageLayout";
 import { COLOR, IMAGES, STYLES,Onboarding1,Onboarding2,Onboarding3,Footer } from "../constants";
-import { DotPagination } from "react-native-onboard";
+
+
 export default function OnboardingScreen() {
-  
-  
   return (
     <PageLayout>
       <View className="mx-4">
@@ -21,6 +20,7 @@ export default function OnboardingScreen() {
         <OnboardFlow
         textStyle={STYLES.textContainer}
         //autoPlay={true}
+        
         paginationSelectedColor="#07FFB1"
         textAlign="left"
         FooterComponent={Footer}
