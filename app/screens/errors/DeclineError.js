@@ -1,7 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import PageLayout from "../../PageLayout";
-import { IMAGES, DARK, LIGHT, STYLES } from "../../constants";
+import { IMAGES, DARK, LIGHT, STYLES,RoutePaths } from "../../constants";
 import { useTheme } from "../../helpers/ThemeProvider";
 
 export default function({navigation}) {
@@ -32,7 +32,7 @@ export default function({navigation}) {
         </View>
       </View>
       <View className=" mt-48">
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('network-error')}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(RoutePaths.LOGIN)}>
           <Text style={(styles.regularParagraph, { color: theme.SHADES })}>Retry</Text>
         </TouchableOpacity>
       </View>

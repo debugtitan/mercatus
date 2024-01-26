@@ -9,6 +9,7 @@ import {
   NetworkError,
   DeclineError,
   NotFound,
+  Login,
 } from "./app/screens";
 import { ThemeProvider } from "./app/helpers/ThemeProvider";
 import { useTheme } from "./app/helpers/ThemeProvider";
@@ -161,15 +162,17 @@ export default function App() {
   return (
     <ThemeProvider>
       <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{ headerShown: false }}
-          initialRouteName="network-error"
-        >
+        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="auth-login">
+          {/*     ONBOARDING NAVIGATION */}
           <Stack.Screen name="onboarding" component={OnboardingScreen} />
           <Stack.Screen name="skip" component={MercatusBottomTabs} />
+
+          {/*     ERROR NAVIGATION */}
           <Stack.Screen name="network-error" component={NetworkError} />
           <Stack.Screen name="not-found-error" component={NotFound} />
           <Stack.Screen name="decline-error" component={DeclineError} />
+          {/*     AUTH NAVIGATION */}
+          <Stack.Screen name="auth-login" component={Login} options={{headerShown:true,}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>

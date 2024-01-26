@@ -10,6 +10,7 @@ import {
   Onboarding2,
   Onboarding3,
   Footer,
+  RoutePaths
 } from "../constants";
 import { useTheme } from "../helpers/ThemeProvider";
 
@@ -22,7 +23,7 @@ export default function OnboardingScreen({ navigation }) {
     <PageLayout>
       <View className="">
         <View className="justify-end items-end mt-4">
-          <TouchableOpacity onPress={() => navigation.navigate("skip")}>
+          <TouchableOpacity onPress={() => navigation.navigate(RoutePaths.HOME_PAGE)}>
             <Text style={{ color: theme.NEUTRAL, fontSize: 14 }}>Skip</Text>
           </TouchableOpacity>
         </View>
@@ -81,7 +82,7 @@ export default function OnboardingScreen({ navigation }) {
       </View>
 
       <View className=" my-5">
-        <TouchableOpacity style={styles.button} className="">
+        <TouchableOpacity style={styles.button} className="" onPress={()=> navigation.navigate(RoutePaths.NETWORK_ERROR_PAGE)}>
           <Text style={(styles.paragraph, { color: theme.SHADES })}>
             Get started
           </Text>
