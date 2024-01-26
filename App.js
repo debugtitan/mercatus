@@ -27,7 +27,7 @@ const MercatusBottomTabs = () => {
           elevation: 0,
           borderTopWidth: 0,
           backgroundColor: theme.BOTTOM_TABS,
-          ...styles.shadow,
+          //...styles.shadow,
         },
         tabBarShowLabel: false,
       }}
@@ -37,7 +37,7 @@ const MercatusBottomTabs = () => {
         component={Profile}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View className="items-center justify-center">
+            <View className="items-center justify-center ">
               <Image
                 source={IMAGES.ICONS.BOTTOM_TABS.HOME}
                 resizeMode="contain"
@@ -66,7 +66,7 @@ const MercatusBottomTabs = () => {
         component={Profile}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View className="items-center justify-center">
+            <View className="items-center justify-center ">
               <Image
                 source={IMAGES.ICONS.BOTTOM_TABS.MARKET}
                 resizeMode="contain"
@@ -95,7 +95,7 @@ const MercatusBottomTabs = () => {
         component={Profile}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View className="items-center justify-center">
+            <View className="items-center justify-center ">
               <Image
                 source={IMAGES.ICONS.BOTTOM_TABS.LEARN}
                 resizeMode="contain"
@@ -124,7 +124,7 @@ const MercatusBottomTabs = () => {
         component={Profile}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View className="items-center justify-center">
+            <View className="items-center justify-center ">
               <Image
                 source={IMAGES.ICONS.BOTTOM_TABS.PROFILE}
                 resizeMode="contain"
