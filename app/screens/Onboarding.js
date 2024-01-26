@@ -67,7 +67,7 @@ export default function OnboardingScreen({ navigation }) {
               imageComponent: <Onboarding3 />,
               title: <Text style={styles.title}>Unlock the Global Market</Text>,
               titleStyle: { width: 200, height: 70 },
-              subtitleStyle: { width: 310, height: 57 },
+              subtitleStyle: { width: 350, height: 57 },
               subtitle: (
                 <Text style={styles.paragraph}>
                   Unrestricted access to the massive opportunities in the U.S.

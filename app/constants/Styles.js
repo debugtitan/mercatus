@@ -53,5 +53,14 @@ export const STYLES = () => {
       padding: 14,
       paddingHorizontal: 20,
     },
+    shadow: {
+      shadowColor: '#000000',
+      shadowOffset: {
+        width: 0,
+        height: 10
+      },
+      shadowOpacity: 0.25,
+      elevation: 5
+    }
   });
 };

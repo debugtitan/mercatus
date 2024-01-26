@@ -25,6 +25,12 @@ export const IMAGES = {
       TOGGLE_FORWARD: require("../../assets/icons/light-toggle-right.png"),
       TOGGLE_BACK: require("../../assets/icons/light-toggle-left.png"),
     },
+    BOTTOM_TABS:{
+      HOME: require("../../assets/icons/home.png"),
+      MARKET: require("../../assets/icons/market.png"),
+      LEARN: require("../../assets/icons/learn.png"),
+      PROFILE: require("../../assets/icons/profile.png"),
+    }
   },
 };
 
