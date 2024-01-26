@@ -32,6 +32,18 @@ export const IMAGES = {
       PROFILE: require("../../assets/icons/profile.png"),
     }
   },
+  ERROR:{
+    DARK: {
+      NETWORK: require("../../assets/media/error/network-error-dark.png"),
+      NOT_FOUND: require("../../assets/media/error/not-found-dark.png"),
+      DECLINED: require("../../assets/media/error/declined-dark.png"),
+    },
+    LIGHT:  {
+      NETWORK: require("../../assets/media/error/network-error-light.png"),
+      NOT_FOUND: require("../../assets/media/error/not-found-light.png"),
+      DECLINED: require("../../assets/media/error/declined-light.png"),
+    }
+  }
 };
 
 export const Onboarding1 = () => {
