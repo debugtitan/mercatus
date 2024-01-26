@@ -12,6 +12,17 @@ export const STYLES = () => {
       marginVertical: 55,
     },
 
+    ErrorImageContainer: {
+      width:380.39,
+      height: 364,
+      alignSelf: 'center'
+    },
+
+    ErrorContainer:{
+      width:288.59,
+      height: 80,
+    },
+
 
     textContainer: {
       width: 240,

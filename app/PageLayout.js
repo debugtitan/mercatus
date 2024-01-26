@@ -18,7 +18,7 @@ export default function ({ children }) {
       style={{ backgroundColor: theme.BACKGROUND }}
     >
       <StatusBar style={isDarkMode ? 'light' : 'dark'} />
-      <SafeAreaView className="mt-10">
+      <SafeAreaView className="mt-10 mx-4">
         <ScrollView>{children}</ScrollView>
       </SafeAreaView>
     </View>

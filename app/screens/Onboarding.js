@@ -20,7 +20,7 @@ export default function OnboardingScreen({ navigation }) {
 
   return (
     <PageLayout>
-      <View className="mx-4">
+      <View className="">
         <View className="justify-end items-end mt-4">
           <TouchableOpacity onPress={() => navigation.navigate("skip")}>
             <Text style={{ color: theme.NEUTRAL, fontSize: 14 }}>Skip</Text>
@@ -28,7 +28,7 @@ export default function OnboardingScreen({ navigation }) {
         </View>
       </View>
 
-      <View className="flex flex-1 mx-4">
+      <View className="flex flex-1 ">
         <OnboardFlow
           textStyle={styles.textContainer}
           //autoPlay={true}
@@ -80,7 +80,7 @@ export default function OnboardingScreen({ navigation }) {
         />
       </View>
 
-      <View className="mx-4 my-5">
+      <View className=" my-5">
         <TouchableOpacity style={styles.button} className="">
           <Text style={(styles.paragraph, { color: theme.SHADES })}>
             Get started
