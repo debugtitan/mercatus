@@ -90,7 +90,14 @@ export default function OnboardingScreen({ navigation }) {
       <View style={{ width: 300, height: 20, alignItems: "center", left: 40 }}>
         <Text style={styles.regularParagraph}>
           Already have an account?{" "}
-          <Text style={(styles.paragraph, { color: theme.PRIMARY })}>
+          <Text
+            style={{
+              fontSize: 19,
+              lineHeight: 19,
+              fontWeight: "600",
+              color: theme.PRIMARY//isDarkMode ? "#FFFFFF" : "#00100B",
+            }}
+          >
             Log in
           </Text>
         </Text>

@@ -5,6 +5,7 @@ export const DARK = {
   SHADES: "#00100B",
   BOTTOM_TABS: "#141B19",
   TABS_INACTIVE: "#B2BEBB",
+  PRIMARY2: "#FFFFFF"
 };
 
 export const LIGHT = {
@@ -14,4 +15,5 @@ export const LIGHT = {
   SHADES: "#FFFFFF",
   BOTTOM_TABS: "#FFFFFF",
   TABS_INACTIVE: "#B2BEBB",
+  PRIMARY2: "#00100B"
 };

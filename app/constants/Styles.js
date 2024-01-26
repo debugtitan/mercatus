@@ -4,7 +4,6 @@ import { useTheme } from "../helpers/ThemeProvider";
 export const STYLES = () => {
   const { isDarkMode } = useTheme();
   return StyleSheet.create({
-
     ImageContainer: {
       alignSelf: "center",
       width: 290,
@@ -13,16 +12,18 @@ export const STYLES = () => {
     },
 
     ErrorImageContainer: {
-      width:380.39,
+      width: 380.39,
       height: 364,
-      alignSelf: 'center'
+      alignSelf: "center",
     },
 
-    ErrorContainer:{
-      width:288.59,
+    ErrorContainer: {
+      flex: 1,
+      width: 288.59,
       height: 80,
+      paddingHorizontal: 8,
+      paddingVertical: 0,
     },
-
 
     textContainer: {
       width: 240,
@@ -34,15 +35,16 @@ export const STYLES = () => {
       height: 38,
     },
     paragraph: {
-      fontSize: 18,
+      fontSize: 17,
       lineHeight: 19,
-      fontWeight: "600",
+      fontWeight: "500",
+      color: isDarkMode ? "#FFFFFF" : "#00100B",
       //fontFamily: 'Inter'
     },
 
     regularParagraph: {
-      fontSize: 14,
-      lineHeight: 14,
+      fontSize: 19,
+      lineHeight: 19,
       color: isDarkMode ? "#FFFFFF" : "#00100B",
       fontWeight: "400",
     },
@@ -65,13 +67,13 @@ export const STYLES = () => {
       paddingHorizontal: 20,
     },
     shadow: {
-      shadowColor: '#000000',
+      shadowColor: "#000000",
       shadowOffset: {
         width: 0,
-        height: 10
+        height: 10,
       },
       shadowOpacity: 0.25,
-      elevation: 5
-    }
+      elevation: 5,
+    },
   });
 };

@@ -15,25 +15,24 @@ export default function({navigation}) {
           <Image
             source={
               isDarkMode
-                ? IMAGES.ERROR.DARK.NETWORK
-                : IMAGES.ERROR.LIGHT.NETWORK
+                ? IMAGES.ERROR.DARK.DECLINED
+                : IMAGES.ERROR.LIGHT.DECLINED
             }
           />
         </View>
       </View>
       <View style={styles.ErrorContainer} className='mt-14'>
-        <View style={{width:240, height:80}}>
-          <Text style={styles.title}>Something went wrong</Text>
+        <View style={{width:338, height:40}}>
+          <Text style={styles.title}>Transaction Declined</Text>
         </View>
         <View style={styles.paragraphContainer}>
           <Text style={styles.paragraph}>
-            We suspect your network connection is weak. Please check it and try
-            again.
+          Card rejected! Please enter your card details again, or use another card. 
           </Text>
         </View>
       </View>
       <View className=" mt-48">
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("not-found-error")}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('network-error')}>
           <Text style={(styles.regularParagraph, { color: theme.SHADES })}>Retry</Text>
         </TouchableOpacity>
       </View>

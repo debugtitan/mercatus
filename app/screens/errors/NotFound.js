@@ -15,25 +15,24 @@ export default function({navigation}) {
           <Image
             source={
               isDarkMode
-                ? IMAGES.ERROR.DARK.NETWORK
-                : IMAGES.ERROR.LIGHT.NETWORK
+                ? IMAGES.ERROR.DARK.NOT_FOUND
+                : IMAGES.ERROR.LIGHT.NOT_FOUND
             }
           />
         </View>
       </View>
       <View style={styles.ErrorContainer} className='mt-14'>
-        <View style={{width:240, height:80}}>
-          <Text style={styles.title}>Something went wrong</Text>
+        <View style={{width:240, height:40}}>
+          <Text style={styles.title}>Item not found</Text>
         </View>
         <View style={styles.paragraphContainer}>
           <Text style={styles.paragraph}>
-            We suspect your network connection is weak. Please check it and try
-            again.
+          Confirm that the item was spelt correctly.
           </Text>
         </View>
       </View>
       <View className=" mt-48">
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("not-found-error")}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('decline-error')}>
           <Text style={(styles.regularParagraph, { color: theme.SHADES })}>Retry</Text>
         </TouchableOpacity>
       </View>

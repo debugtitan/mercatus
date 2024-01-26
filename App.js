@@ -3,7 +3,13 @@ import { Image, View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { OnboardingScreen, Profile,NetworkError } from "./app/screens";
+import {
+  OnboardingScreen,
+  Profile,
+  NetworkError,
+  DeclineError,
+  NotFound,
+} from "./app/screens";
 import { ThemeProvider } from "./app/helpers/ThemeProvider";
 import { useTheme } from "./app/helpers/ThemeProvider";
 import { DARK, LIGHT, IMAGES, STYLES } from "./app/constants";
@@ -155,10 +161,15 @@ export default function App() {
   return (
     <ThemeProvider>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="network-error">
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+          initialRouteName="network-error"
+        >
           <Stack.Screen name="onboarding" component={OnboardingScreen} />
           <Stack.Screen name="skip" component={MercatusBottomTabs} />
-          <Stack.Screen name="network-error" component={NetworkError}/>
+          <Stack.Screen name="network-error" component={NetworkError} />
+          <Stack.Screen name="not-found-error" component={NotFound} />
+          <Stack.Screen name="decline-error" component={DeclineError} />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>
