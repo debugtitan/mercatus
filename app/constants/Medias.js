@@ -25,33 +25,37 @@ export const IMAGES = {
       TOGGLE_FORWARD: require("../../assets/icons/light-toggle-right.png"),
       TOGGLE_BACK: require("../../assets/icons/light-toggle-left.png"),
     },
-    BOTTOM_TABS:{
+    BOTTOM_TABS: {
       HOME: require("../../assets/icons/home.png"),
       MARKET: require("../../assets/icons/market.png"),
       LEARN: require("../../assets/icons/learn.png"),
       PROFILE: require("../../assets/icons/profile.png"),
-    }
+    },
   },
-  ERROR:{
+  ERROR: {
     DARK: {
       NETWORK: require("../../assets/media/error/network-error-dark.png"),
       NOT_FOUND: require("../../assets/media/error/not-found-dark.png"),
       DECLINED: require("../../assets/media/error/declined-dark.png"),
     },
-    LIGHT:  {
+    LIGHT: {
       NETWORK: require("../../assets/media/error/network-error-light.png"),
       NOT_FOUND: require("../../assets/media/error/not-found-light.png"),
       DECLINED: require("../../assets/media/error/declined-light.png"),
-    }
-  },
-  AUTH:{
-    DARK: {
-      CANCEL: require("../../assets/media/auth/cancel.png")
     },
-    LIGHT:{
-      CANCEL: require("../../assets/media/auth/cancel-light.png")
-    }
-  }
+  },
+  AUTH: {
+    DARK: {
+      CANCEL: require("../../assets/media/auth/cancel.png"),
+      KEYPAD_CANCEL: require("../../assets/media/auth/keypad-cancel-dark.png"),
+      FINGERPRINT: require("../../assets/media/auth/fingerprint-dark.png"),
+    },
+    LIGHT: {
+      CANCEL: require("../../assets/media/auth/cancel-light.png"),
+      KEYPAD_CANCEL: require("../../assets/media/auth/keypad-cancel-light.png"),
+      FINGERPRINT: require("../../assets/media/auth/fingerprint-light.png"),
+    },
+  },
 };
 
 export const Onboarding1 = () => {

@@ -61,7 +61,7 @@ export default function OnboardingScreen({ navigation }) {
                 imageComponent: <Onboarding2 />,
                 title: <Text style={styles.title}>Bank - Grade Security</Text>,
                 titleStyle: { width: 200, height: 70 },
-                subtitleStyle: { width: 310, height: 57, marginBottom: 25 },
+                subtitleStyle: { width: 310, height: 58, marginBottom: 25 },
                 subtitle: (
                   <Text style={styles.paragraph}>
                     256-bit encryption, 2FA & Biometrics, all to ensure only 1

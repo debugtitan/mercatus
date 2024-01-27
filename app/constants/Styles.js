@@ -1,8 +1,10 @@
 import { StyleSheet } from "react-native";
 import { useTheme } from "../helpers/ThemeProvider";
+import { DARK, LIGHT } from "./Theme";
 
 export const STYLES = () => {
   const { isDarkMode } = useTheme();
+  const theme = isDarkMode ? DARK : LIGHT;
   return StyleSheet.create({
     ImageContainer: {
       alignSelf: "center",
@@ -32,11 +34,11 @@ export const STYLES = () => {
 
     paragraphContainer: {
       width: 290,
-      height: 38,
+      height: 78,
     },
     paragraph: {
       fontSize: 14,
-      lineHeight: 16,
+      lineHeight: 20,
       fontWeight: "400",
       color: isDarkMode ? "#FFFFFF" : "#00100B",
       //fontFamily: 'Inter'
@@ -75,5 +77,33 @@ export const STYLES = () => {
       shadowOpacity: 0.25,
       elevation: 5,
     },
+    textLabel: {
+      color: theme.PRIMARY2,
+      fontSize: 14,
+      fontWeight: "400",
+    },
+    textInputContainer: {
+      borderRadius: 4,
+      borderColor: theme.PRIMARY,
+      borderWidth: 2,
+    },
+    textInput: {
+      paddingVertical: 0,
+      paddingLeft: 10,
+      paddingRight: 12,
+      backgroundColor: isDarkMode ? "#F9FAF9" : "#FFFFFF",
+    },
+    resetAccount: {
+      fontSize: 14,
+      lineHeight: 19,
+      color: isDarkMode ? "#B2BEBB" : "#7F938D",
+      fontWeight: "400",
+    },
+    resetPassword:{
+      fontSize: 16,
+      lineHeight: 19,
+      fontWeight: "600",
+      color: theme.PRIMARY,
+    }
   });
 };
