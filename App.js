@@ -194,9 +194,14 @@ const MercatusStackNavigator = () => {
         options={{
           headerShown: true,
           title: "Log In",
-          headerBackImageSource: isDarkMode
-            ? IMAGES.AUTH.DARK.CANCEL
-            : IMAGES.AUTH.LIGHT.CANCEL,
+          headerLeft: () => (
+            <Image
+              source={
+                isDarkMode ? IMAGES.AUTH.DARK.CANCEL : IMAGES.AUTH.LIGHT.CANCEL
+              }
+              style={{width:24,height:24,marginRight:15}}
+            />
+          ),
         }}
       />
     </Stack.Navigator>

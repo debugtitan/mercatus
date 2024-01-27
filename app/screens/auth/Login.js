@@ -6,7 +6,7 @@ export default function ({ navigation }) {
   return (
     <PageLayout>
       <View>
-        <Text>Login</Text>
+        <Text>hi</Text>
       </View>
     </PageLayout>
   );

@@ -10,6 +10,7 @@ export default function({navigation}) {
   const styles = STYLES();
   return (
     <PageLayout>
+      <View className='mt-12'>
       <View className="flex flex-1 justify-center items-center mt-10">
         <View style={styles.ErrorImageContainer}>
           <Image
@@ -36,6 +37,7 @@ export default function({navigation}) {
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(RoutePaths.NOT_FOUND_ERROR_PAGE)}>
           <Text style={(styles.regularParagraph, { color: theme.SHADES })}>Retry</Text>
         </TouchableOpacity>
+      </View>
       </View>
     </PageLayout>
   );
