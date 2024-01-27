@@ -36,17 +36,17 @@ export const STYLES = () => {
     },
     paragraph: {
       fontSize: 14,
-      lineHeight: 19,
+      lineHeight: 16,
       fontWeight: "400",
       color: isDarkMode ? "#FFFFFF" : "#00100B",
       //fontFamily: 'Inter'
     },
 
     regularParagraph: {
-      fontSize: 19,
+      fontSize: 16,
       lineHeight: 19,
       color: isDarkMode ? "#FFFFFF" : "#00100B",
-      fontWeight: "400",
+      fontWeight: "600",
     },
 
     title: {

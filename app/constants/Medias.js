@@ -43,6 +43,14 @@ export const IMAGES = {
       NOT_FOUND: require("../../assets/media/error/not-found-light.png"),
       DECLINED: require("../../assets/media/error/declined-light.png"),
     }
+  },
+  AUTH:{
+    DARK: {
+      CANCEL: require("../../assets/media/auth/cancel.png")
+    },
+    LIGHT:{
+      CANCEL: require("../../assets/media/auth/cancel-light.png")
+    }
   }
 };
 

@@ -158,22 +158,56 @@ const MercatusBottomTabs = () => {
     </Tab.Navigator>
   );
 };
+
+const MercatusStackNavigator = () => {
+  const { isDarkMode } = useTheme();
+  const theme = isDarkMode ? DARK : LIGHT;
+  return (
+    <Stack.Navigator
+      //initialRouteName="auth-login"
+      screenOptions={{
+        headerShown: false,
+        headerStyle: {
+          backgroundColor: theme.BACKGROUND,
+          color: isDarkMode ? "#FFFFFF" : "#00100B",
+        },
+        headerTitleStyle: {
+          color: isDarkMode ? "#FFFFFF" : "#00100B",
+          fontSize: 19,
+          fontWeight: "600",
+        },
+        headerShadowVisible: false,
+      }}
+    >
+      {/*     ONBOARDING NAVIGATION */}
+      <Stack.Screen name="onboarding" component={OnboardingScreen} />
+      <Stack.Screen name="skip" component={MercatusBottomTabs} />
+
+      {/*     ERROR NAVIGATION */}
+      <Stack.Screen name="network-error" component={NetworkError} />
+      <Stack.Screen name="not-found-error" component={NotFound} />
+      <Stack.Screen name="decline-error" component={DeclineError} />
+      {/*     AUTH NAVIGATION */}
+      <Stack.Screen
+        name="auth-login"
+        component={Login}
+        options={{
+          headerShown: true,
+          title: "Log In",
+          headerBackImageSource: isDarkMode
+            ? IMAGES.AUTH.DARK.CANCEL
+            : IMAGES.AUTH.LIGHT.CANCEL,
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
+
 export default function App() {
   return (
     <ThemeProvider>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          {/*     ONBOARDING NAVIGATION */}
-          <Stack.Screen name="onboarding" component={OnboardingScreen} />
-          <Stack.Screen name="skip" component={MercatusBottomTabs} />
-
-          {/*     ERROR NAVIGATION */}
-          <Stack.Screen name="network-error" component={NetworkError} />
-          <Stack.Screen name="not-found-error" component={NotFound} />
-          <Stack.Screen name="decline-error" component={DeclineError} />
-          {/*     AUTH NAVIGATION */}
-          <Stack.Screen name="auth-login" component={Login} options={{headerShown:true, title: "Log In"}}/>
-        </Stack.Navigator>
+        <MercatusStackNavigator />
       </NavigationContainer>
     </ThemeProvider>
   );

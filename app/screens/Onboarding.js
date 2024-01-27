@@ -92,6 +92,7 @@ export default function OnboardingScreen({ navigation }) {
         <Text style={styles.regularParagraph}>
           Already have an account?{" "}
           <Text
+          onPress={() => navigation.navigate(RoutePaths.LOGIN)}
             style={{
               fontSize: 19,
               lineHeight: 19,
