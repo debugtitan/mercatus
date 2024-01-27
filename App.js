@@ -162,7 +162,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="auth-login">
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
           {/*     ONBOARDING NAVIGATION */}
           <Stack.Screen name="onboarding" component={OnboardingScreen} />
           <Stack.Screen name="skip" component={MercatusBottomTabs} />
@@ -172,7 +172,7 @@ export default function App() {
           <Stack.Screen name="not-found-error" component={NotFound} />
           <Stack.Screen name="decline-error" component={DeclineError} />
           {/*     AUTH NAVIGATION */}
-          <Stack.Screen name="auth-login" component={Login} options={{headerShown:true,}}/>
+          <Stack.Screen name="auth-login" component={Login} options={{headerShown:true, title: "Log In"}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>

@@ -22,7 +22,7 @@ export default function OnboardingScreen({ navigation }) {
   return (
     <PageLayout>
       <View className="">
-        <View className="justify-end items-end mt-4">
+        <View className="justify-end items-end mt-3">
           <TouchableOpacity onPress={() => navigation.navigate(RoutePaths.HOME_PAGE)}>
             <Text style={{ color: theme.NEUTRAL, fontSize: 14 }}>Skip</Text>
           </TouchableOpacity>
@@ -81,14 +81,14 @@ export default function OnboardingScreen({ navigation }) {
         />
       </View>
 
-      <View className=" my-5">
+      <View className="mb-5">
         <TouchableOpacity style={styles.button} className="" onPress={()=> navigation.navigate(RoutePaths.NETWORK_ERROR_PAGE)}>
           <Text style={(styles.paragraph, { color: theme.SHADES })}>
             Get started
           </Text>
         </TouchableOpacity>
       </View>
-      <View style={{ width: 300, height: 20, alignItems: "center", left: 40 }}>
+      <View style={{ width: 300, height: 20, alignItems: "center", left: 0 }} className='mb-2'>
         <Text style={styles.regularParagraph}>
           Already have an account?{" "}
           <Text

@@ -29,7 +29,7 @@ export const Footer = ({
         flexDirection: "row",
         justifyContent: "space-evenly",
         alignItems: "center",
-        height: 70,
+        height: 50,
         paddingHorizontal: 1,
       }}
       {...props}
@@ -78,12 +78,12 @@ export const Footer = ({
 const styles = StyleSheet.create({
   toggle_right: {
     position: "absolute",
-    bottom: 32,
+    bottom: 22,
     right: 35,
   },
   toggle_left: {
     position: "absolute",
-    bottom: 30,
+    bottom: 20,
     left: 35,
   },
 });

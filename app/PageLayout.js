@@ -19,7 +19,7 @@ export default function ({ children }) {
     >
       <StatusBar style={isDarkMode ? 'light' : 'dark'} />
       <SafeAreaView className="mt-10 mx-4">
-        <ScrollView>{children}</ScrollView>
+        <ScrollView >{children}</ScrollView>
       </SafeAreaView>
     </View>
   );

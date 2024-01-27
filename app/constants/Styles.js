@@ -35,9 +35,9 @@ export const STYLES = () => {
       height: 38,
     },
     paragraph: {
-      fontSize: 17,
+      fontSize: 14,
       lineHeight: 19,
-      fontWeight: "500",
+      fontWeight: "400",
       color: isDarkMode ? "#FFFFFF" : "#00100B",
       //fontFamily: 'Inter'
     },

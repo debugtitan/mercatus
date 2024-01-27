@@ -32,7 +32,7 @@ export default function({navigation}) {
           </Text>
         </View>
       </View>
-      <View className=" mt-48">
+      <View className=" mt-36">
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(RoutePaths.NOT_FOUND_ERROR_PAGE)}>
           <Text style={(styles.regularParagraph, { color: theme.SHADES })}>Retry</Text>
         </TouchableOpacity>
