@@ -1,6 +1,7 @@
 import React from "react";
-import { Image, View, Text } from "react-native";
+import { Image, View, Text, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
@@ -160,6 +161,7 @@ const MercatusBottomTabs = () => {
 };
 
 const MercatusStackNavigator = () => {
+  const navigation = useNavigation();
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   return (
@@ -194,14 +196,23 @@ const MercatusStackNavigator = () => {
         options={{
           headerShown: true,
           title: "Log In",
-          headerLeft: () => (
-            <Image
-              source={
-                isDarkMode ? IMAGES.AUTH.DARK.CANCEL : IMAGES.AUTH.LIGHT.CANCEL
-              }
-              style={{width:24,height:24,marginRight:15}}
-            />
-          ),
+          headerLeft: (...props) => {
+            //console.log(props);
+            return (
+              <TouchableOpacity
+                onPress={() => navigation.navigate("onboarding")}
+              >
+                <Image
+                  source={
+                    isDarkMode
+                      ? IMAGES.AUTH.DARK.CANCEL
+                      : IMAGES.AUTH.LIGHT.CANCEL
+                  }
+                  style={{ width: 24, height: 24, marginRight: 15 }}
+                />
+              </TouchableOpacity>
+            );
+          },
         }}
       />
     </Stack.Navigator>
