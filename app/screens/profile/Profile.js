@@ -1,15 +1,19 @@
-import { View, Text, Switch } from "react-native";
+import { View, Text, Button } from "react-native";
 import React, { useState } from "react";
 import { useTheme } from "../../helpers/ThemeProvider";
 import PageLayout from "../../PageLayout";
 
 export default function () {
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { toggleTheme,selectedTheme  } = useTheme();
   return (
     <PageLayout>
-      <View className='mx-4'>
-        <Text>profile</Text>
-        <Switch value={isDarkMode} onValueChange={() => toggleTheme()} />
+      <View className="mt-10">
+        <View>
+          <Button title="Dark" onPress={() => toggleTheme("dark")} />
+          <Button title="Light" onPress={() => toggleTheme("light")} />
+          <Button title="Automatic" onPress={() => toggleTheme("automatic")} />
+          <Text>Selected Theme: {selectedTheme}</Text>
+        </View>
       </View>
     </PageLayout>
   );
