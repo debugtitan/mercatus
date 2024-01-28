@@ -11,6 +11,7 @@ import {
   DeclineError,
   NotFound,
   Login,
+  Signup,
 } from "./app/screens";
 import { ThemeProvider } from "./app/helpers/ThemeProvider";
 import { useTheme } from "./app/helpers/ThemeProvider";
@@ -167,7 +168,6 @@ const MercatusStackNavigator = () => {
   const theme = isDarkMode ? DARK : LIGHT;
   return (
     <Stack.Navigator
-    initialRouteName="auth-login"
       screenOptions={{
         headerShown: false,
         headerStyle: {
@@ -180,6 +180,7 @@ const MercatusStackNavigator = () => {
           fontWeight: "600",
         },
         headerShadowVisible: false,
+        headerTintColor: isDarkMode ? "#FFFFFF" : "#00100B",
       }}
     >
       {/*     ONBOARDING NAVIGATION */}
@@ -190,6 +191,7 @@ const MercatusStackNavigator = () => {
       <Stack.Screen name="network-error" component={NetworkError} />
       <Stack.Screen name="not-found-error" component={NotFound} />
       <Stack.Screen name="decline-error" component={DeclineError} />
+
       {/*     AUTH NAVIGATION */}
       <Stack.Screen
         name="auth-login"
@@ -214,6 +216,16 @@ const MercatusStackNavigator = () => {
               </TouchableOpacity>
             );
           },
+        }}
+      />
+      {/* SIGNUP STACK */}
+     
+      <Stack.Screen
+        name="auth-signup"
+        component={Signup}
+        options={{
+          headerShown: true,
+          title: "Account details",
         }}
       />
     </Stack.Navigator>

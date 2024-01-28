@@ -4,5 +4,6 @@ export const RoutePaths = Object.freeze({
     NETWORK_ERROR_PAGE: "network-error",
     DECLINE_ERROR_PAGE: "decline-error",
     NOT_FOUND_ERROR_PAGE: "not-found-error",
-    LOGIN: "auth-login"
+    LOGIN: "auth-login",
+    SIGNUP: "auth-signup"
 })

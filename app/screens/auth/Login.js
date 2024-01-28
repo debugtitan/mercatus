@@ -77,9 +77,9 @@ export default function ({ navigation }) {
             className="mb-2"
           >
             <Text style={styles.paragraph}>
-              Already have an account?{" "}
+              Don't have an account?{" "}
               <Text
-                onPress={() => navigation.navigate(RoutePaths.LOGIN)}
+                onPress={() => navigation.navigate(RoutePaths.SIGNUP)}
                 style={{
                   fontSize: 16,
                   lineHeight: 19,

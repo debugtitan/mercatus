@@ -92,7 +92,7 @@ export default function OnboardingScreen({ navigation }) {
           <TouchableOpacity
             style={styles.button}
             className=""
-            onPress={() => navigation.navigate(RoutePaths.NETWORK_ERROR_PAGE)}
+            onPress={() => navigation.navigate(RoutePaths.SIGNUP)}
           >
             <Text style={(styles.paragraph, { color: theme.SHADES })}>
               Get started
