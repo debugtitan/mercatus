@@ -86,12 +86,14 @@ export const STYLES = () => {
       borderRadius: 4,
       borderColor: theme.PRIMARY,
       borderWidth: 2,
+      backgroundColor: isDarkMode ? "#F9FAF9" : "#FFFFFF",
+      height:37
     },
     textInput: {
-      paddingVertical: 0,
+      paddingVertical: 7,
       paddingLeft: 10,
       paddingRight: 12,
-      backgroundColor: isDarkMode ? "#F9FAF9" : "#FFFFFF",
+      color: theme.TABS_INACTIVE
     },
     resetAccount: {
       fontSize: 14,

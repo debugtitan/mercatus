@@ -15,7 +15,6 @@ import {
 import { ThemeProvider } from "./app/helpers/ThemeProvider";
 import { useTheme } from "./app/helpers/ThemeProvider";
 import { DARK, LIGHT, IMAGES, STYLES } from "./app/constants";
-import Keyboard from "./app/Keyboard";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -162,17 +161,13 @@ const MercatusBottomTabs = () => {
   );
 };
 
-
-
-
-
 const MercatusStackNavigator = () => {
   const navigation = useNavigation();
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   return (
     <Stack.Navigator
-      initialRouteName="keyboard"
+    initialRouteName="auth-login"
       screenOptions={{
         headerShown: false,
         headerStyle: {
@@ -221,8 +216,6 @@ const MercatusStackNavigator = () => {
           },
         }}
       />
-      {/*    CUSTOM KEYBOARD */}
-      <Stack.Screen name="keyboard" component={Keyboard} />
     </Stack.Navigator>
   );
 };
