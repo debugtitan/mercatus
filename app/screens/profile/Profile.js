@@ -1,6 +1,6 @@
 import { View, Text, Button } from "react-native";
 import React, { useState } from "react";
-import { useTheme } from "../../helpers/ThemeProvider";
+import { useTheme } from "../../components/ThemeProvider";
 import PageLayout from "../../PageLayout";
 
 export default function () {

@@ -13,8 +13,8 @@ import {
   Login,
   Signup,
 } from "./app/screens";
-import { ThemeProvider } from "./app/helpers/ThemeProvider";
-import { useTheme } from "./app/helpers/ThemeProvider";
+import { ThemeProvider } from "./app/components/ThemeProvider";
+import { useTheme } from "./app/components/ThemeProvider";
 import { DARK, LIGHT, IMAGES, STYLES } from "./app/constants";
 
 const Stack = createNativeStackNavigator();

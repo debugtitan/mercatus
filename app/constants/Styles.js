@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { useTheme } from "../helpers/ThemeProvider";
+import { useTheme } from "../components/ThemeProvider";
 import { DARK, LIGHT } from "./Theme";
 
 export const STYLES = () => {

@@ -1,10 +1,10 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import PageLayout from "../../PageLayout";
-import { useTheme } from "../../helpers/ThemeProvider";
+import { useTheme } from "../../components/ThemeProvider";
 import { DARK, LIGHT, STYLES, RoutePaths } from "../../constants";
-import Keyboard from "../../helpers/Keyboard";
-import Password from "../../helpers/Password";
+import Keyboard from "../../components/Keyboard";
+import Password from "../../components/Password";
 export default function ({ navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;

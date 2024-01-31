@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import PageLayout from "../../PageLayout";
-import { useTheme } from "../../helpers/ThemeProvider";
+import { useTheme } from "../../components/ThemeProvider";
 import { DARK, LIGHT, STYLES, RoutePaths } from "../../constants";
 import DateTimePicker from "@react-native-community/datetimepicker";
 

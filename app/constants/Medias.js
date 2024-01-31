@@ -1,6 +1,6 @@
 import { Image } from "react-native";
 import { STYLES } from "./Styles";
-import { useTheme } from "../helpers/ThemeProvider";
+import { useTheme } from "../components/ThemeProvider";
 
 export const IMAGES = {
   LOGO: require("../../assets/media/Logo.png"),

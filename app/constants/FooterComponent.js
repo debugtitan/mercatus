@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { IMAGES } from "./Medias";
-import { useTheme } from "../helpers/ThemeProvider";
+import { useTheme } from "../components/ThemeProvider";
 import { DARK,LIGHT } from "./Theme";
 export const Footer = ({
   style,
