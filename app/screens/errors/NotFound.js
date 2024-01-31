@@ -2,7 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import PageLayout from "../../PageLayout";
 import { IMAGES, DARK, LIGHT, STYLES, RoutePaths } from "../../constants";
-import { useTheme } from "../../helpers/ThemeProvider";
+import { useTheme } from "../../components/ThemeProvider";
 
 export default function ({ navigation }) {
   const { isDarkMode } = useTheme();

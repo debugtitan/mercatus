@@ -12,7 +12,7 @@ import {
   Footer,
   RoutePaths,
 } from "../constants";
-import { useTheme } from "../helpers/ThemeProvider";
+import { useTheme } from "../components/ThemeProvider";
 
 export default function OnboardingScreen({ navigation }) {
   const { isDarkMode } = useTheme();

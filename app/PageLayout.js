@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import * as NavigationBar from 'expo-navigation-bar';
 import { View, SafeAreaView, ScrollView } from "react-native";
 import { DARK,LIGHT } from "./constants";
-import {useTheme} from "./helpers/ThemeProvider"
+import {useTheme} from "./components/ThemeProvider"
 
 
 NavigationBar.setVisibilityAsync("hidden");
