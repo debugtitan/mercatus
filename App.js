@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Image, View, Text, TouchableOpacity } from "react-native";
+//import * as SplashScreen from "expo-splash-screen";
 import { NavigationContainer } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import * as SplashScreen from "expo-splash-screen";
 import {
   OnboardingScreen,
   Profile,
@@ -12,10 +14,14 @@ import {
   NotFound,
   Login,
   Signup,
+  SplashScreenComponent,
 } from "./app/screens";
 import { ThemeProvider } from "./app/components/ThemeProvider";
 import { useTheme } from "./app/components/ThemeProvider";
 import { DARK, LIGHT, IMAGES, STYLES } from "./app/constants";
+
+// Keep the splash screen visible while we fetch resources
+//SplashScreen.preventAutoHideAsync();
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -219,7 +225,7 @@ const MercatusStackNavigator = () => {
         }}
       />
       {/* SIGNUP STACK */}
-     
+
       <Stack.Screen
         name="auth-signup"
         component={Signup}
@@ -233,11 +239,26 @@ const MercatusStackNavigator = () => {
 };
 
 export default function App() {
-  return (
+  const [isAppReady, setAppReady] = useState(false);
+  const onImageLoaded = useCallback(async () => {
+    //console.log("animation done");
+    try {
+      await SplashScreen.hideAsync();
+      await new Promise(resolve => setTimeout(resolve, 4000));
+    } catch (e) {
+      //console.log(e);
+    } finally {
+      setAppReady(true);
+    }
+  }, []);
+
+  return isAppReady ? (
     <ThemeProvider>
       <NavigationContainer>
         <MercatusStackNavigator />
       </NavigationContainer>
     </ThemeProvider>
+  ) : (
+    <SplashScreenComponent onLoadEnd={onImageLoaded} />
   );
 }
