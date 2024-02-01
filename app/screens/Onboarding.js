@@ -1,6 +1,17 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { OnboardFlow } from "react-native-onboard";
+import Reanimated, {
+  BounceIn,
+  useSharedValue,
+  Easing,
+  interpolate,
+  withTiming,
+  useAnimatedStyle,
+  FlipOutEasyY,
+  BounceInLeft,
+  BounceInRight,
+} from "react-native-reanimated";
 import PageLayout from "../PageLayout";
 import {
   DARK,
@@ -10,6 +21,7 @@ import {
   Onboarding2,
   Onboarding3,
   Footer,
+  Header,
   RoutePaths,
 } from "../constants";
 import { useTheme } from "../components/ThemeProvider";
@@ -19,9 +31,25 @@ export default function OnboardingScreen({ navigation }) {
   const theme = isDarkMode ? DARK : LIGHT;
   const styles = STYLES();
 
+  const progress = useSharedValue(0);
+  useEffect(() => {
+    console.log("Updating progress for page");
+    progress.value = withTiming(1, {
+      duration: 2000,
+      easing: Easing.inOut(Easing.ease),
+    });
+  }, [progress]);
+
+  const animatedStyle = useAnimatedStyle(() => {
+    const translateY = interpolate(progress.value, [0, 1], [200, 0]);
+    return {
+      transform: [{ translateY }],
+    };
+  });
+
   return (
     <PageLayout>
-      <View className="mt-10">
+      <View className="mt-10" >
         <View className="">
           <View className="justify-end items-end mt-3">
             <TouchableOpacity
@@ -32,13 +60,12 @@ export default function OnboardingScreen({ navigation }) {
           </View>
         </View>
 
-        <View className="flex flex-1 ">
+        <Reanimated.View className="flex flex-1 " entering={BounceInRight} style={[animatedStyle]} >
           <OnboardFlow
             textStyle={styles.textContainer}
-            //autoPlay={true}
-
             paginationSelectedColor={isDarkMode ? "#07FFB1" : "#006042"}
             textAlign="left"
+            enableScroll={false}
             FooterComponent={Footer}
             pages={[
               {
@@ -86,24 +113,20 @@ export default function OnboardingScreen({ navigation }) {
             ]}
             type="inline"
           />
-        </View>
+        </Reanimated.View>
 
-        <View className="mb-5">
+        <View className="mb-5 justify-center items-center">
           <TouchableOpacity
             style={styles.button}
-            className=""
+            className="w-full mb-8"
             onPress={() => navigation.navigate(RoutePaths.SIGNUP)}
           >
             <Text style={(styles.paragraph, { color: theme.SHADES })}>
               Get started
             </Text>
           </TouchableOpacity>
-        </View>
-        <View
-          style={{ width: 300, height: 20, alignItems: "center", left: 0 }}
-          className="mb-2"
-        >
-          <Text style={styles.regularParagraph}>
+
+          <Text style={styles.regularParagraph} className="text-center">
             Already have an account?{" "}
             <Text
               onPress={() => navigation.navigate(RoutePaths.LOGIN)}
