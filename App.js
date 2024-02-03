@@ -16,8 +16,8 @@ import {
   Signup,
   SplashScreenComponent,
 } from "./app/screens";
-import { ThemeProvider } from "./app/components/ThemeProvider";
-import { useTheme } from "./app/components/ThemeProvider";
+import { ThemeProvider,useTheme } from "./app/components/ThemeProvider";
+import Keyboard from "./app/components/Keyboard";
 import { DARK, LIGHT, IMAGES, STYLES } from "./app/constants";
 
 // Keep the splash screen visible while we fetch resources
@@ -190,6 +190,7 @@ const MercatusStackNavigator = () => {
       }}
     >
       {/*     ONBOARDING NAVIGATION */}
+      <Stack.Screen name='key' component={Keyboard} />
       <Stack.Screen name="onboarding" component={OnboardingScreen} />
       <Stack.Screen name="skip" component={MercatusBottomTabs} />
 

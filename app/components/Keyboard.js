@@ -14,112 +14,99 @@ export default function ({ onKeyPress, onClear }) {
   };
 
   return (
-      <View style={styles.keyboardContainer}>
-        <View style={styles.textContainer}>
-          <TouchableOpacity
-            style={styles.borderContainer}
-            onPress={() => handleKeyPress("1")}
-          >
-            <Text style={styles.text}>1</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.borderContainer}
-            onPress={() => handleKeyPress("2")}
-          >
-            <Text style={styles.text}>2</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.borderContainer}
-            onPress={() => handleKeyPress("3")}
-          >
-            <Text style={styles.text}>3</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.textContainer}>
-          <TouchableOpacity
-            style={styles.borderContainer}
-            onPress={() => handleKeyPress("4")}
-          >
-            <Text style={styles.text}>4</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.borderContainer}
-            onPress={() => handleKeyPress("5")}
-          >
-            <Text style={styles.text}>5</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.borderContainer}
-            onPress={() => handleKeyPress("6")}
-          >
-            <Text style={styles.text}>6</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.textContainer}>
-          <TouchableOpacity
-            style={styles.borderContainer}
-            onPress={() => handleKeyPress("7")}
-          >
-            <Text style={styles.text}>7</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.borderContainer}
-            onPress={() => handleKeyPress("8")}
-          >
-            <Text style={styles.text}>8</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.borderContainer}
-            onPress={() => handleKeyPress("9")}
-          >
-            <Text style={styles.text}>9</Text>
+    <View className="m-3 mt-20">
+      <View style={styles.container}>
+        <View>
+          <TouchableOpacity onPress={() => handleKeyPress("1")}>
+            <Text style={styles.buttonLabel}>1</Text>
           </TouchableOpacity>
         </View>
 
-        {/*  FINGERPRINT SECTION */}
-        <View style={styles.textContainer}>
-          <TouchableOpacity>
-            <Image
-              source={
-                isDarkMode
-                  ? IMAGES.AUTH.DARK.FINGERPRINT
-                  : IMAGES.AUTH.LIGHT.FINGERPRINT
-              }
-              style={styles.image}
-            />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={{
-              width: 56,
-              borderBottomWidth: 1,
-              borderColor: "#C5CECC",
-            }}
-            onPress={() => handleKeyPress('0')}
-          >
-            <Text style={styles.text}>0</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => onClear()}>
-            <Image
-              source={
-                isDarkMode
-                  ? IMAGES.AUTH.DARK.KEYPAD_CANCEL
-                  : IMAGES.AUTH.LIGHT.KEYPAD_CANCEL
-              }
-              style={{ width: 24, height: 24, marginVertical: 25 }}
-            />
+        <View>
+          <TouchableOpacity onPress={() => handleKeyPress("2")}>
+            <Text style={styles.buttonLabel}>2</Text>
           </TouchableOpacity>
         </View>
-        
+        <View>
+          <TouchableOpacity onPress={() => handleKeyPress("3")}>
+            <Text style={styles.buttonLabel}>3</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    
+
+      <View style={styles.container}>
+        <View>
+          <TouchableOpacity onPress={() => handleKeyPress("4")}>
+            <Text style={styles.buttonLabel}>4</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View>
+          <TouchableOpacity onPress={() => handleKeyPress("5")}>
+            <Text style={styles.buttonLabel}>5</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity onPress={() => handleKeyPress("6")}>
+            <Text style={styles.buttonLabel}>6</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <View style={styles.container}>
+        <View>
+          <TouchableOpacity onPress={() => handleKeyPress("7")}>
+            <Text style={styles.buttonLabel}>7</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View>
+          <TouchableOpacity onPress={() => handleKeyPress("8")}>
+            <Text style={styles.buttonLabel}>8</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity onPress={() => handleKeyPress("9")}>
+            <Text style={styles.buttonLabel}>9</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/*  FINGERPRINT SECTION */}
+      <View style={styles.container}>
+        <TouchableOpacity>
+          <Image
+            source={
+              isDarkMode
+                ? IMAGES.AUTH.DARK.FINGERPRINT
+                : IMAGES.AUTH.LIGHT.FINGERPRINT
+            }
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{
+            width: 56,
+            borderBottomWidth: 1,
+            borderColor: "#C5CECC",
+          }}
+          onPress={() => handleKeyPress("0")}
+        >
+          <Text>0</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => onClear()}>
+          <Image
+            source={
+              isDarkMode
+                ? IMAGES.AUTH.DARK.KEYPAD_CANCEL
+                : IMAGES.AUTH.LIGHT.KEYPAD_CANCEL
+            }
+            style={{ width: 24, height: 24, marginVertical: 25 }}
+          />
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 
@@ -127,32 +114,25 @@ const STYLES = () => {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   return StyleSheet.create({
-    keyboardContainer: {
-      //height: 376,
-      marginTop: 22,
-      //padding: 24,
-    },
-    borderContainer: {
-      width: 45,
-      borderBottomWidth: 1,
-      borderColor: "#C5CECC",
-    },
-    textContainer: {
+    container: {
       flexDirection: "row",
-      justifyContent: 'space-around',
+      justifyContent: "space-evenly",
+      alignItems: "center",
     },
-    text: {
-      fontWeight: "700",
+
+    buttonLabel: {
+      fontWeight: "500",
       fontSize: 20,
       lineHeight: 24,
       alignSelf: "center",
       color: theme.PRIMARY2,
-      marginVertical: 35,
-    },
-    image: {
-      marginVertical: 25,
-      width: 24,
-      height: 26.69,
+      borderBottomWidth: 0.5,
+      borderColor: "#C5CECC",
+      padding: 10,
+      textAlign: "center",
+      justifyContent: "center",
+      paddingTop: 13,
+      paddingBottom: 13,
     },
   });
 };
