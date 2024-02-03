@@ -81,18 +81,15 @@ export default function ({ onKeyPress, onClear }) {
                 ? IMAGES.AUTH.DARK.FINGERPRINT
                 : IMAGES.AUTH.LIGHT.FINGERPRINT
             }
+            style={{width:24,height:26.69}}
           />
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={{
-            width: 56,
-            borderBottomWidth: 1,
-            borderColor: "#C5CECC",
-          }}
+          
           onPress={() => handleKeyPress("0")}
         >
-          <Text>0</Text>
+          <Text style={styles.buttonLabel}>0</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => onClear()}>
@@ -102,7 +99,7 @@ export default function ({ onKeyPress, onClear }) {
                 ? IMAGES.AUTH.DARK.KEYPAD_CANCEL
                 : IMAGES.AUTH.LIGHT.KEYPAD_CANCEL
             }
-            style={{ width: 24, height: 24, marginVertical: 25 }}
+            style={{ width: 22, height: 16}}
           />
         </TouchableOpacity>
       </View>
@@ -123,6 +120,7 @@ const STYLES = () => {
     buttonLabel: {
       fontWeight: "500",
       fontSize: 20,
+      fontFamily: 'Inter',
       lineHeight: 24,
       alignSelf: "center",
       color: theme.PRIMARY2,
@@ -131,8 +129,8 @@ const STYLES = () => {
       padding: 10,
       textAlign: "center",
       justifyContent: "center",
-      paddingTop: 13,
-      paddingBottom: 13,
+      paddingTop: 29,
+      paddingBottom: 29,
     },
   });
 };

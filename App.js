@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
 import {
   OnboardingScreen,
   Profile,
@@ -17,7 +18,6 @@ import {
   SplashScreenComponent,
 } from "./app/screens";
 import { ThemeProvider,useTheme } from "./app/components/ThemeProvider";
-import Keyboard from "./app/components/Keyboard";
 import { DARK, LIGHT, IMAGES, STYLES } from "./app/constants";
 
 // Keep the splash screen visible while we fetch resources
@@ -190,7 +190,6 @@ const MercatusStackNavigator = () => {
       }}
     >
       {/*     ONBOARDING NAVIGATION */}
-      <Stack.Screen name='key' component={Keyboard} />
       <Stack.Screen name="onboarding" component={OnboardingScreen} />
       <Stack.Screen name="skip" component={MercatusBottomTabs} />
 
@@ -240,6 +239,9 @@ const MercatusStackNavigator = () => {
 };
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    'Inter': require('./assets/fonts/Inter.ttf'),
+  });
   const [isAppReady, setAppReady] = useState(false);
   const onImageLoaded = useCallback(async () => {
     //console.log("animation done");
