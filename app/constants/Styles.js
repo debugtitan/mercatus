@@ -41,7 +41,7 @@ export const STYLES = () => {
       lineHeight: 20,
       fontWeight: "400",
       color: isDarkMode ? "#FFFFFF" : "#00100B",
-      //fontFamily: 'Inter'
+      fontFamily: 'Inter'
     },
 
     regularParagraph: {
@@ -49,10 +49,11 @@ export const STYLES = () => {
       lineHeight: 19,
       color: isDarkMode ? "#FFFFFF" : "#00100B",
       fontWeight: "600",
+      fontFamily: 'Inter',
     },
 
     title: {
-      //fontFamily: "Inter",
+      fontFamily: "Inter",
       fontSize: 33,
       lineHeight: 40,
       color: isDarkMode ? "#FFFFFF" : "#00100B",
@@ -81,6 +82,7 @@ export const STYLES = () => {
       color: theme.PRIMARY2,
       fontSize: 14,
       fontWeight: "400",
+      fontFamily: 'Inter',
     },
     textInputContainer: {
       borderRadius: 4,
@@ -98,12 +100,14 @@ export const STYLES = () => {
     resetAccount: {
       fontSize: 14,
       lineHeight: 19,
+      fontFamily: 'Inter',
       color: isDarkMode ? "#B2BEBB" : "#7F938D",
       fontWeight: "400",
     },
     resetPassword:{
       fontSize: 16,
       lineHeight: 19,
+      fontFamily: 'Inter',
       fontWeight: "600",
       color: theme.PRIMARY,
     }

@@ -115,7 +115,7 @@ export default function OnboardingScreen({ navigation }) {
           />
         </Reanimated.View>
 
-        <View className="mb-5 justify-center items-center">
+        <View className="mb-2 justify-center items-center">
           <TouchableOpacity
             style={styles.button}
             className="w-full mb-8"
@@ -134,6 +134,7 @@ export default function OnboardingScreen({ navigation }) {
                 fontSize: 19,
                 lineHeight: 19,
                 fontWeight: "600",
+                fontFamily: 'Inter',
                 color: theme.PRIMARY, //isDarkMode ? "#FFFFFF" : "#00100B",
               }}
             >
