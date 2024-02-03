@@ -4,6 +4,7 @@ import { useTheme } from "../components/ThemeProvider";
 
 export const IMAGES = {
   LOGO: require("../../assets/media/Logo.png"),
+  CHECKBOX: require("../../assets/icons/checkbox.png"),
   ONBOARDING: {
     DARK: {
       INVESTMENT: require("../../assets/media/onboarding/investment-data.png"),
