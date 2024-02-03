@@ -1,63 +1,41 @@
-import { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import {CheckCircleIcon} from "react-native-heroicons/outline"
+import { useState } from "react";
+import { Pressable, View } from "react-native";
+import { CheckCircleIcon, CheckIcon } from "react-native-heroicons/outline";
 
-function Checkbox({type='radio', checkColor="#006042"}) {
-  const [checked, setChecked] = useState(false);
+function Checkbox({
+  checked = false,
+  onSelect = null,
+  boxOutlineColor = "#006042",
+}) {
   return (
     <Pressable
-      style={[styles.checkboxBase, checked && styles.checkboxChecked]}
-      onPress={() => setChecked(!checked)}>
-      {checked && <CheckCircleIcon color={checkColor} size={24} />}
+      style={{
+        width: 24,
+        height: 24,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 4,
+        borderWidth: 2,
+        borderColor: boxOutlineColor,
+        borderColor: boxOutlineColor,
+        //backgroundColor: "transparent",
+      }}
+      onPress={() => onSelect()}
+    >
+      {checked && <CheckIcon color={boxOutlineColor} size={24} />}
     </Pressable>
   );
 }
 
 export default function CheckboxApp() {
+  const [checked, setChecked] = useState(true);
+
+  const onSelect = () => {
+    setChecked(!checked);
+  };
   return (
-    <View style={styles.appContainer}>
-      <Text style={styles.appTitle}>Checkbox Example</Text>
-      <View style={styles.checkboxContainer}>
-        <Checkbox />
-        <Text style={styles.checkboxLabel}>{`⬅️ Click!`}</Text>
-      </View>
+    <View>
+      <Checkbox onSelect={onSelect} checked={checked} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-
-
-  checkboxBase: {
-    width: 24,
-    height: 24,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 4,
-    borderWidth: 2,
-    borderColor: 'coral',
-    backgroundColor: 'transparent',
-  },
-  checkboxChecked: {
-    backgroundColor: 'coral',
-  },
-  appContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  appTitle: {
-    marginVertical: 16,
-    fontWeight: 'bold',
-    fontSize: 24,
-  },
-  checkboxContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  checkboxLabel: {
-    marginLeft: 8,
-    fontWeight: 500,
-    fontSize: 18,
-  },
-});
