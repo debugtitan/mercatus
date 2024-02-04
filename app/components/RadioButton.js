@@ -1,8 +1,7 @@
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View,Pressable, StyleSheet } from "react-native";
 import React from "react";
-import { CheckCircleIcon, CheckIcon } from "react-native-heroicons/outline";
+
 export default function RadioButton({
-  //data,
   selected = false,
   onSelect = () => null,
   radioBackground = "#006042",

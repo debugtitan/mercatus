@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { Pressable, StyleSheet, View, Image } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
 import { CheckIcon } from "react-native-heroicons/outline";
-import RadioButton from "./RadioButton";
-import { IMAGES } from "../constants";
-function Checkbox({
+
+
+export default function Checkbox({
   checked = false,
   onSelect = () => null,
   size = 24,
@@ -26,57 +25,6 @@ function Checkbox({
   );
 }
 
-export default function CheckboxApp() {
-  const [checked, setChecked] = useState(true);
-  const [selected, setSelected] = useState(true);
-  const [selectedItem, setSelectedItem] = useState(null);
-
-  const onSelect = () => {
-    setChecked(!checked);
-  };
-
-  onCheckSelect = () => {
-    setSelected(!selected);
-  };
-
-  const data = [
-    {
-      label: "data 1",
-    },
-    {
-      label: "data 2",
-    },
-  ];
-
-  const handleSelect = (index) => {
-    setSelectedItem(index);
-  };
-
-  return (
-    <View>
-      <Checkbox
-        onSelect={onSelect}
-        checked={checked}
-        checkedImage={
-          <Image source={IMAGES.CHECKBOX} style={{ width: 28, height: 28 }} />
-        }
-      />
-      <View>
-        {data.map((item, index) => (
-          <View key={index}>
-            <RadioButton
-              selected={selectedItem === index}
-              onSelect={() => handleSelect(index)}
-              label={item.label}
-            />
-            {/* You can also display the label if needed */}
-            {/* <Text>{item.label}</Text> */}
-          </View>
-        ))}
-      </View>
-    </View>
-  );
-}
 
 const styles = StyleSheet.create({
   CheckBoxSquare: (size, checkColor) => ({

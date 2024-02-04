@@ -15,9 +15,9 @@ import {
   Login,
   Signup,
   SplashScreenComponent,
+  CustomCountryPicker,
 } from "./app/screens";
-import { ThemeProvider,useTheme } from "./app/components/ThemeProvider";
-import CheckboxApp from "./app/components/CheckBox"
+import { ThemeProvider, useTheme } from "./app/components/ThemeProvider";
 import { DARK, LIGHT, IMAGES, STYLES } from "./app/constants";
 
 // Keep the splash screen visible while we fetch resources
@@ -174,6 +174,7 @@ const MercatusStackNavigator = () => {
   const theme = isDarkMode ? DARK : LIGHT;
   return (
     <Stack.Navigator
+    initialRouteName="country"
       screenOptions={{
         headerShown: false,
         headerStyle: {
@@ -190,7 +191,6 @@ const MercatusStackNavigator = () => {
       }}
     >
       {/*     ONBOARDING NAVIGATION */}
-      <Stack.Screen name="check" component={CheckboxApp} />
       <Stack.Screen name="onboarding" component={OnboardingScreen} />
       <Stack.Screen name="skip" component={MercatusBottomTabs} />
 
@@ -225,6 +225,15 @@ const MercatusStackNavigator = () => {
           },
         }}
       />
+
+      <Stack.Screen
+        name="country"
+        component={CustomCountryPicker}
+        options={{
+          headerShown: true,
+          title: "Select country",
+        }}
+      />
       {/* SIGNUP STACK */}
 
       <Stack.Screen
@@ -241,14 +250,14 @@ const MercatusStackNavigator = () => {
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    'Inter': require('./assets/fonts/Inter.ttf'),
+    Inter: require("./assets/fonts/Inter.ttf"),
   });
   const [isAppReady, setAppReady] = useState(false);
   const onImageLoaded = useCallback(async () => {
     //console.log("animation done");
     try {
       await SplashScreen.hideAsync();
-      await new Promise(resolve => setTimeout(resolve, 4000));
+      await new Promise((resolve) => setTimeout(resolve, 4000));
     } catch (e) {
       //console.log(e);
     } finally {
