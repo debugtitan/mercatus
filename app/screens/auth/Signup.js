@@ -11,18 +11,27 @@ import { useTheme } from "../../components/ThemeProvider";
 import { DARK, LIGHT, STYLES, RoutePaths } from "../../constants";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Picker } from "@react-native-picker/picker";
-
+import CountryPicker from 'react-native-country-picker-modal'
+import CheckBox from "../../components/CheckBox"
 export default function ({ route, navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   const styles = STYLES();
+  
 
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
 
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
-  const { countryCode } = route.params;
+
+  const [country, setCountry] = useState()
+  const [countryCode,setCountryCode] = useState(route.params.countryCode);
+
+  const onSelect = (country) => {
+    setCountryCode(country.cca2)
+    setCountry(country)
+  }
 
   const onChange = ({ type }, selectedDate) => {
     const currentDate = selectedDate;
@@ -122,18 +131,24 @@ export default function ({ route, navigation }) {
         <View className="mb-4">
           <TouchableOpacity>
             <Text style={styles.textLabel}>Country</Text>
-
             <View style={styles.textInputContainer}>
-              <View style={styles.textInput}></View>
+              <View style={styles.textInput}>
+                <CountryPicker countryCode={countryCode} withCountryNameButton={true} withCloseButton={false} onSelect={onSelect}/>
+              </View>
             </View>
           </TouchableOpacity>
         </View>
 
         {/* CHECKBOX */}
-        <View className="mb-5"></View>
+        <View className=" mt-48 flex-row items-center">
+          <CheckBox />
+          <View style={{width:290}} className='ml-4'>
+          <Text style={styles.paragraph}> I agree to Mercatus <Text style={styles.terms}>Terms of Use</Text> and <Text style={styles.terms}>Privacy Policy</Text>.</Text>
+          </View>
+        </View>
 
         {/*BUTTON */}
-        <View className="mt-8">
+        <View className="mb-1">
           <View className="my-5">
             <TouchableOpacity
               style={styles.button}

@@ -7,7 +7,7 @@ import { DARK, LIGHT, countries,RoutePaths,STYLES } from "../../constants";
 
 export default function CountryRadioPicker({navigation}) {
   const [selectedCountry, setSelectedCountry] = useState(0);
-  const [countryCode, setCountryCode] = useState("+234");
+  const [countryCode, setCountryCode] = useState("NG");
 
   const handleSelect = (index,item) => {
     //console.log(index,item.code)

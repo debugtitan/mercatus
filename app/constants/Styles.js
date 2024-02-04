@@ -38,7 +38,7 @@ export const STYLES = () => {
     },
     paragraph: {
       fontSize: 14,
-      lineHeight: 20,
+      lineHeight: 17,
       fontWeight: "400",
       color: isDarkMode ? "#FFFFFF" : "#00100B",
       fontFamily: 'Inter'
@@ -139,6 +139,14 @@ export const STYLES = () => {
       alignItems: "center",
       flexWrap: "wrap",
       //justifyContent: "center",
+    },
+    terms:{
+      fontSize: 14,
+      lineHeight: 17,
+      fontFamily: 'Inter',
+      fontWeight: "bold",
+      color: theme.PRIMARY,
+      textDecorationLine: 'underline'
     },
   });
   
