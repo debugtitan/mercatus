@@ -1,14 +1,14 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image,TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import PageLayout from "../../PageLayout";
 import RadioButton from "../../components/RadioButton";
 import { useTheme } from "../../components/ThemeProvider";
-import { DARK, LIGHT, countries,RoutePaths } from "../../constants";
+import { DARK, LIGHT, countries,RoutePaths,STYLES } from "../../constants";
 
 export default function CountryRadioPicker({navigation}) {
   const [selectedCountry, setSelectedCountry] = useState(0);
   const [countryCode, setCountryCode] = useState("+234");
-  con
+
   const handleSelect = (index,item) => {
     console.log(index,item)
     setSelectedCountry(index);
@@ -16,6 +16,8 @@ export default function CountryRadioPicker({navigation}) {
 
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
+
+  const styles = STYLES()
 
   return (
     <PageLayout>
@@ -57,34 +59,3 @@ export default function CountryRadioPicker({navigation}) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    flexWrap: "wrap",
-    marginVertical: 3,
-    paddingHorizontal: 0,
-    paddingVertical: 10,
-    height: 56,
-    gap: 15,
-  },
-  label: (color) => ({
-    fontFamily: "Inter",
-    fontWeight: "400",
-    fontSize: 16,
-    lineHeight: 19,
-    color: color,
-  }),
-  image: {
-    width: 24,
-    height: 24,
-    marginLeft: 145,
-  },
-  countryInfo: {
-    marginLeft: 15,
-    flexDirection: "row",
-    alignItems: "center",
-    flexWrap: "wrap",
-    //justifyContent: "center",
-  },
-});

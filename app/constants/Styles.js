@@ -110,6 +110,36 @@ export const STYLES = () => {
       fontFamily: 'Inter',
       fontWeight: "600",
       color: theme.PRIMARY,
-    }
+    },
+    countryContainer: {
+      flexDirection: "row",
+      alignItems: "center",
+      flexWrap: "wrap",
+      marginVertical: 3,
+      paddingHorizontal: 0,
+      paddingVertical: 10,
+      height: 56,
+      gap: 15,
+    },
+    label: (color) => ({
+      fontFamily: "Inter",
+      fontWeight: "400",
+      fontSize: 16,
+      lineHeight: 19,
+      color: color,
+    }),
+    image: {
+      width: 24,
+      height: 24,
+      marginLeft: 145,
+    },
+    countryInfo: {
+      marginLeft: 15,
+      flexDirection: "row",
+      alignItems: "center",
+      flexWrap: "wrap",
+      //justifyContent: "center",
+    },
   });
+  
 };
