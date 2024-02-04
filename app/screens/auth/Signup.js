@@ -10,8 +10,9 @@ import PageLayout from "../../PageLayout";
 import { useTheme } from "../../components/ThemeProvider";
 import { DARK, LIGHT, STYLES, RoutePaths } from "../../constants";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { Picker } from "@react-native-picker/picker";
 
-export default function ({route, navigation }) {
+export default function ({ route, navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   const styles = STYLES();
@@ -21,7 +22,7 @@ export default function ({route, navigation }) {
 
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
-  const {countryCode} = route.params
+  const { countryCode } = route.params;
 
   const onChange = ({ type }, selectedDate) => {
     const currentDate = selectedDate;
@@ -41,7 +42,6 @@ export default function ({route, navigation }) {
     setOpen((prev) => !prev);
   };
 
-  
   return (
     <PageLayout>
       <View className="mt-2 flex-1">
@@ -105,15 +105,14 @@ export default function ({route, navigation }) {
           <Text style={styles.textLabel}>Gender</Text>
           <TouchableOpacity>
             <View style={styles.textInputContainer}>
-              <TextInput
-                placeholder="M or F"
-                inputMode="text"
+              <Picker
                 style={styles.textInput}
-                cursorColor={theme.TABS_INACTIVE}
-                onChange={(e) => setGender(e.target.value)}
-                placeholderTextColor={theme.TABS_INACTIVE}
-                maxLength={1}
-              />
+                selectedValue={gender}
+                onValueChange={(itemValue, itemIndex) => setGender(itemValue)}
+              >
+                <Picker.Item label="Male" value="M" />
+                <Picker.Item label="Female" value="F" />
+              </Picker>
             </View>
           </TouchableOpacity>
         </View>
@@ -125,16 +124,13 @@ export default function ({route, navigation }) {
             <Text style={styles.textLabel}>Country</Text>
 
             <View style={styles.textInputContainer}>
-              <View style={styles.textInput}>
-                
-              </View>
+              <View style={styles.textInput}></View>
             </View>
           </TouchableOpacity>
         </View>
 
         {/* CHECKBOX */}
-        <View className="mb-5">
-        </View>
+        <View className="mb-5"></View>
 
         {/*BUTTON */}
         <View className="mt-8">

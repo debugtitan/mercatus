@@ -33,7 +33,6 @@ export default function OnboardingScreen({ navigation }) {
 
   const progress = useSharedValue(0);
   useEffect(() => {
-    console.log("Updating progress for page");
     progress.value = withTiming(1, {
       duration: 2000,
       easing: Easing.inOut(Easing.ease),
@@ -60,7 +59,7 @@ export default function OnboardingScreen({ navigation }) {
           </View>
         </View>
 
-        <Reanimated.View className="flex flex-1 " entering={BounceInRight} style={[animatedStyle]} >
+        <Reanimated.View className="flex flex-1 " entering={BounceInRight} >
           <OnboardFlow
             textStyle={styles.textContainer}
             paginationSelectedColor={isDarkMode ? "#07FFB1" : "#006042"}

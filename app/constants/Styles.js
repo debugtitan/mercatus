@@ -89,7 +89,7 @@ export const STYLES = () => {
       borderColor: theme.PRIMARY,
       borderWidth: 2,
       backgroundColor: isDarkMode ? "#F9FAF9" : "#FFFFFF",
-      height:37
+      height:44
     },
     textInput: {
       paddingVertical: 7,
