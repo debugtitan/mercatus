@@ -10,8 +10,9 @@ export default function CountryRadioPicker({navigation}) {
   const [countryCode, setCountryCode] = useState("+234");
 
   const handleSelect = (index,item) => {
-    console.log(index,item)
+    //console.log(index,item.code)
     setSelectedCountry(index);
+    setCountryCode(item.code)
   };
 
   const { isDarkMode } = useTheme();
@@ -23,7 +24,7 @@ export default function CountryRadioPicker({navigation}) {
     <PageLayout>
       <View>
         {countries.map((item, index) => (
-          <View key={index} style={styles.container}>
+          <View key={index} style={styles.countryContainer}>
             <RadioButton
               selected={selectedCountry === index}
               onSelect={() => handleSelect(index,item)}
@@ -42,7 +43,7 @@ export default function CountryRadioPicker({navigation}) {
       </View>
 
       {/*BUTTON */}
-      <View className="mt-8">
+      <View className="mt-10">
         <View className="my-5">
           <TouchableOpacity
             style={styles.button}
