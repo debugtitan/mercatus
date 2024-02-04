@@ -4,11 +4,12 @@ import {
   TextInput,
   TouchableOpacity,
   Platform,
+  Image
 } from "react-native";
 import React, { useState } from "react";
 import PageLayout from "../../PageLayout";
 import { useTheme } from "../../components/ThemeProvider";
-import { DARK, LIGHT, STYLES, RoutePaths } from "../../constants";
+import { DARK, LIGHT, STYLES, RoutePaths, IMAGES } from "../../constants";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Picker } from "@react-native-picker/picker";
 import CountryPicker from 'react-native-country-picker-modal'
@@ -19,8 +20,8 @@ export default function ({ route, navigation }) {
   const styles = STYLES();
   
 
-  const [dob, setDob] = useState("");
-  const [gender, setGender] = useState("");
+  const [dob, setDob] = useState(null);
+  const [gender, setGender] = useState(null);
 
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
@@ -28,9 +29,15 @@ export default function ({ route, navigation }) {
   const [country, setCountry] = useState()
   const [countryCode,setCountryCode] = useState(route.params.countryCode);
 
+  const [terms, setTerms] = useState(false)
+
   const onSelect = (country) => {
     setCountryCode(country.cca2)
     setCountry(country)
+  }
+
+  const onTermsAccepted = () => {
+    setTerms(!terms)
   }
 
   const onChange = ({ type }, selectedDate) => {
@@ -50,6 +57,14 @@ export default function ({ route, navigation }) {
   const toggleDatePicker = () => {
     setOpen((prev) => !prev);
   };
+
+
+  const goToNextRoute = () => {
+    if(terms && dob && gender){
+      navigation.navigate(RoutePaths.HOME_PAGE)
+    }
+    alert('fix the errors')
+  }
 
   return (
     <PageLayout>
@@ -141,7 +156,7 @@ export default function ({ route, navigation }) {
 
         {/* CHECKBOX */}
         <View className=" mt-48 flex-row items-center">
-          <CheckBox />
+          <CheckBox checked={terms} checkedImage={<Image source={IMAGES.CHECKBOX} tintColor={theme.PRIMARY}/>} onSelect={onTermsAccepted}/>
           <View style={{width:290}} className='ml-4'>
           <Text style={styles.paragraph}> I agree to Mercatus <Text style={styles.terms}>Terms of Use</Text> and <Text style={styles.terms}>Privacy Policy</Text>.</Text>
           </View>
@@ -153,7 +168,7 @@ export default function ({ route, navigation }) {
             <TouchableOpacity
               style={styles.button}
               className=""
-              onPress={() => navigation.navigate(RoutePaths.HOME_PAGE)}
+              onPress={goToNextRoute}
             >
               <Text style={(styles.paragraph, { color: theme.SHADES })}>
                 Next
