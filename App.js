@@ -21,7 +21,7 @@ import { ThemeProvider, useTheme } from "./app/components/ThemeProvider";
 import { DARK, LIGHT, IMAGES, STYLES } from "./app/constants";
 
 // Keep the splash screen visible while we fetch resources
-//SplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync();
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -174,7 +174,6 @@ const MercatusStackNavigator = () => {
   const theme = isDarkMode ? DARK : LIGHT;
   return (
     <Stack.Navigator
-    initialRouteName="country"
       screenOptions={{
         headerShown: false,
         headerStyle: {
@@ -227,7 +226,7 @@ const MercatusStackNavigator = () => {
       />
 
       <Stack.Screen
-        name="country"
+        name="select-country"
         component={CustomCountryPicker}
         options={{
           headerShown: true,

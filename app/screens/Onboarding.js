@@ -119,7 +119,7 @@ export default function OnboardingScreen({ navigation }) {
           <TouchableOpacity
             style={styles.button}
             className="w-full mb-8"
-            onPress={() => navigation.navigate(RoutePaths.SIGNUP)}
+            onPress={() => navigation.navigate(RoutePaths.COUNTRY_PICKER)}
           >
             <Text style={(styles.paragraph, { color: theme.SHADES })}>
               Get started

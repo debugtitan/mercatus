@@ -4,6 +4,7 @@ import { STYLES } from "./Styles";
 import { Footer } from "./FooterComponent";
 import { Header } from "./HeaderComponent";
 import { RoutePaths } from "./Routes";
+import {countries} from "./Countries"
 export {
   DARK,
   LIGHT,
@@ -15,4 +16,5 @@ export {
   Footer,
   Header,
   RoutePaths,
+  countries
 };
