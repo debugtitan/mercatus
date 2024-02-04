@@ -1,5 +1,6 @@
 import { View,Pressable, StyleSheet } from "react-native";
 import React from "react";
+import Reanimated, { BounceIn, BounceOut } from "react-native-reanimated"
 
 export default function RadioButton({
   selected = false,
@@ -8,12 +9,15 @@ export default function RadioButton({
   size = 24,
 }) {
   return (
-    <Pressable
+    
+    <Reanimated.View entering={BounceIn}>
+      <Pressable
       style={styles.radioButton(size, radioBackground)}
       onPress={() => onSelect()}
     >
       {selected && <View style={styles.selected(size * 0.5, radioBackground)} />}
     </Pressable>
+    </Reanimated.View>
   );
 }
 
