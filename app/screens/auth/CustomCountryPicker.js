@@ -48,7 +48,9 @@ export default function CountryRadioPicker({navigation}) {
           <TouchableOpacity
             style={styles.button}
             className=""
-            onPress={() => navigation.navigate(RoutePaths.SIGNUP)}
+            onPress={() => navigation.navigate(RoutePaths.SIGNUP,{
+              countryCode: countryCode
+            })}
           >
             <Text style={(styles.paragraph, { color: theme.SHADES })}>
               Next

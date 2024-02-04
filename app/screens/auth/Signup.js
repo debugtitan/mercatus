@@ -11,7 +11,7 @@ import { useTheme } from "../../components/ThemeProvider";
 import { DARK, LIGHT, STYLES, RoutePaths } from "../../constants";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
-export default function ({ navigation }) {
+export default function ({route, navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   const styles = STYLES();
@@ -21,6 +21,7 @@ export default function ({ navigation }) {
 
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
+  const {countryCode} = route.params
 
   const onChange = ({ type }, selectedDate) => {
     const currentDate = selectedDate;
@@ -39,8 +40,6 @@ export default function ({ navigation }) {
   const toggleDatePicker = () => {
     setOpen((prev) => !prev);
   };
-
-  console.log(gender)
 
   
   return (
