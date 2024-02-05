@@ -4,7 +4,7 @@ import {
   TextInput,
   TouchableOpacity,
   Platform,
-  Image
+  Image,
 } from "react-native";
 import React, { useState } from "react";
 import PageLayout from "../../PageLayout";
@@ -12,13 +12,13 @@ import { useTheme } from "../../components/ThemeProvider";
 import { DARK, LIGHT, STYLES, RoutePaths, IMAGES } from "../../constants";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Picker } from "@react-native-picker/picker";
-import CountryPicker from 'react-native-country-picker-modal'
-import CheckBox from "../../components/CheckBox"
+import CountryPicker from "react-native-country-picker-modal";
+import CheckBox from "../../components/CheckBox";
+import Dropdown from "../../components/DropDown";
 export default function ({ route, navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   const styles = STYLES();
-  
 
   const [dob, setDob] = useState(null);
   const [gender, setGender] = useState(null);
@@ -26,19 +26,22 @@ export default function ({ route, navigation }) {
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
 
-  const [country, setCountry] = useState()
-  const [countryCode,setCountryCode] = useState(route.params.countryCode);
+  const [country, setCountry] = useState();
+  const [countryCode, setCountryCode] = useState(route.params.countryCode);
 
-  const [terms, setTerms] = useState(false)
+  const [terms, setTerms] = useState(false);
+
+  const options = ["Option 1", "Option 2", "Option 3"];
+  const [selectedValue, setSelectedValue] = useState(options[0]);
 
   const onSelect = (country) => {
-    setCountryCode(country.cca2)
-    setCountry(country)
-  }
+    setCountryCode(country.cca2);
+    setCountry(country);
+  };
 
   const onTermsAccepted = () => {
-    setTerms(!terms)
-  }
+    setTerms(!terms);
+  };
 
   const onChange = ({ type }, selectedDate) => {
     const currentDate = selectedDate;
@@ -58,13 +61,12 @@ export default function ({ route, navigation }) {
     setOpen((prev) => !prev);
   };
 
-
   const goToNextRoute = () => {
-    if(terms && dob && gender){
-      navigation.navigate(RoutePaths.HOME_PAGE)
+    if (terms && dob && gender) {
+      navigation.navigate(RoutePaths.HOME_PAGE);
     }
-    alert('fix the errors')
-  }
+    alert("fix the errors");
+  };
 
   return (
     <PageLayout>
@@ -127,18 +129,12 @@ export default function ({ route, navigation }) {
         {/* GENDER */}
         <View className="mb-4">
           <Text style={styles.textLabel}>Gender</Text>
-          <TouchableOpacity>
-            <View style={styles.textInputContainer}>
-              <Picker
-                style={styles.textInput}
-                selectedValue={gender}
-                onValueChange={(itemValue, itemIndex) => setGender(itemValue)}
-              >
-                <Picker.Item label="Male" value="M" />
-                <Picker.Item label="Female" value="F" />
-              </Picker>
-            </View>
-          </TouchableOpacity>
+
+          <Dropdown
+            options={options}
+            onSelect={setSelectedValue}
+            selectedValue={selectedValue}
+          />
         </View>
 
         {/* Country */}
@@ -148,7 +144,12 @@ export default function ({ route, navigation }) {
             <Text style={styles.textLabel}>Country</Text>
             <View style={styles.textInputContainer}>
               <View style={styles.textInput}>
-                <CountryPicker countryCode={countryCode} withCountryNameButton={true} withCloseButton={false} onSelect={onSelect}/>
+                <CountryPicker
+                  countryCode={countryCode}
+                  withCountryNameButton={true}
+                  withCloseButton={false}
+                  onSelect={onSelect}
+                />
               </View>
             </View>
           </TouchableOpacity>
@@ -156,9 +157,21 @@ export default function ({ route, navigation }) {
 
         {/* CHECKBOX */}
         <View className=" mt-48 flex-row items-center">
-          <CheckBox checked={terms} checkedImage={<Image source={IMAGES.CHECKBOX} tintColor={theme.PRIMARY}/>} onSelect={onTermsAccepted}/>
-          <View style={{width:290}} className='ml-4'>
-          <Text style={styles.paragraph}> I agree to Mercatus <Text style={styles.terms}>Terms of Use</Text> and <Text style={styles.terms}>Privacy Policy</Text>.</Text>
+          <CheckBox
+            checked={terms}
+            checkedImage={
+              <Image source={IMAGES.CHECKBOX} tintColor={theme.PRIMARY} />
+            }
+            onSelect={onTermsAccepted}
+          />
+          <View style={{ width: 290 }} className="ml-4">
+            <Text style={styles.paragraph}>
+              {" "}
+              I agree to Mercatus <Text style={styles.terms}>
+                Terms of Use
+              </Text>{" "}
+              and <Text style={styles.terms}>Privacy Policy</Text>.
+            </Text>
           </View>
         </View>
 

@@ -30,7 +30,6 @@ export default function CountryRadioPicker({navigation}) {
               onSelect={() => handleSelect(index,item)}
               radioBackground={theme.PRIMARY}
             />
-
             <View style={styles.countryInfo}>
               <View className=" w-24">
                 <Text style={styles.label(theme.PRIMARY2)}>{item.label}</Text>
