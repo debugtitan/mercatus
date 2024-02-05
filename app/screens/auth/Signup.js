@@ -31,13 +31,14 @@ export default function ({ route, navigation }) {
 
   const [terms, setTerms] = useState(false);
 
-  const options = ["Option 1", "Option 2", "Option 3"];
-  const [selectedValue, setSelectedValue] = useState(options[0]);
+  const options = ['Male', 'Female'];
+  const [selectedValue, setSelectedValue] = useState();
 
   const onSelect = (country) => {
     setCountryCode(country.cca2);
     setCountry(country);
   };
+
 
   const onTermsAccepted = () => {
     setTerms(!terms);
@@ -132,8 +133,9 @@ export default function ({ route, navigation }) {
 
           <Dropdown
             options={options}
-            onSelect={setSelectedValue}
+            onOptionSelect={setSelectedValue}
             selectedValue={selectedValue}
+            borderColor={theme.PRIMARY}
           />
         </View>
 
