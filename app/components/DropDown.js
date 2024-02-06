@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
 
   chevron: {
     marginLeft: 210,
+    padding: 10
   },
   modalContainer: {
     flex: 1,
