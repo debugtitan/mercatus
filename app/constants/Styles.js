@@ -98,11 +98,11 @@ export const STYLES = () => {
       color: theme.TABS_INACTIVE
     },
     resetAccount: {
-      fontSize: 14,
+      fontSize: 16,
       lineHeight: 19,
       fontFamily: 'Inter',
       color: isDarkMode ? "#B2BEBB" : "#7F938D",
-      fontWeight: "400",
+      fontWeight: "bold",
     },
     resetPassword:{
       fontSize: 16,

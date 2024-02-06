@@ -11,15 +11,18 @@ import PageLayout from "../../PageLayout";
 import { useTheme } from "../../components/ThemeProvider";
 import { DARK, LIGHT, STYLES, RoutePaths, IMAGES } from "../../constants";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { Picker } from "@react-native-picker/picker";
 import CountryPicker from "react-native-country-picker-modal";
 import CheckBox from "../../components/CheckBox";
 import Dropdown from "../../components/DropDown";
+import CustomTextInput from "../../components/CustomTextInput";
+
 export default function ({ route, navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   const styles = STYLES();
 
+  const [name, setName] = useState();
+  const [email, setEmail] = useState()
   const [dob, setDob] = useState(null);
   const [gender, setGender] = useState(null);
 
@@ -27,18 +30,19 @@ export default function ({ route, navigation }) {
   const [open, setOpen] = useState(false);
 
   const [country, setCountry] = useState();
-  const [countryCode, setCountryCode] = useState(route.params.countryCode);
+  const [countryCode, setCountryCode] = useState(
+    route.params?.countryCode || "NG"
+  );
 
   const [terms, setTerms] = useState(false);
 
-  const options = ['Male', 'Female'];
+  const options = ["Male", "Female"];
   const [selectedValue, setSelectedValue] = useState();
 
   const onSelect = (country) => {
     setCountryCode(country.cca2);
     setCountry(country);
   };
-
 
   const onTermsAccepted = () => {
     setTerms(!terms);
@@ -74,32 +78,34 @@ export default function ({ route, navigation }) {
       <View className="mt-2 flex-1">
         {/* NAME */}
         <View className="mb-4">
-          <Text style={styles.textLabel}>Name</Text>
-          <View style={styles.textInputContainer}>
-            <TextInput
-              placeholder="Enter Name"
-              inputMode="text"
-              keyboardType="name-phone-pad"
-              style={styles.textInput}
-              cursorColor={theme.TABS_INACTIVE}
-              placeholderTextColor={theme.TABS_INACTIVE}
-            />
-          </View>
+          <Text style={styles.textLabel} className="mb-1">
+            Name
+          </Text>
+          <CustomTextInput
+            placeholder="Enter Name"
+            inputMode="text"
+            textStyle={styles.textInput}
+            cursorColor={theme.TABS_INACTIVE}
+            placeholderTextColor={theme.TABS_INACTIVE}
+            onChangeText={(e) => setName(e)}
+          />
         </View>
 
         {/*EMAIL */}
         <View className="mb-4">
-          <Text style={styles.textLabel}>Email</Text>
-          <View style={styles.textInputContainer}>
-            <TextInput
-              placeholder="Enter Email"
-              inputMode="email"
-              keyboardType="email-address"
-              style={styles.textInput}
-              cursorColor={theme.TABS_INACTIVE}
-              placeholderTextColor={theme.TABS_INACTIVE}
-            />
-          </View>
+          <Text style={styles.textLabel} className="mb-1">
+            Email
+          </Text>
+
+          <CustomTextInput
+            placeholder="Enter Email"
+            inputMode="email"
+            keyboardType="email-address"
+            textStyle={styles.textInput}
+            cursorColor={theme.TABS_INACTIVE}
+            placeholderTextColor={theme.TABS_INACTIVE}
+            onChangeText={(e)=> setEmail(e)}
+          />
         </View>
 
         {/*DOB */}
@@ -112,7 +118,7 @@ export default function ({ route, navigation }) {
           />
         )}
         <View className="mb-4">
-          <Text style={styles.textLabel}>Date of birth</Text>
+          <Text style={styles.textLabel} className='mb-1'>Date of birth</Text>
           <TouchableOpacity onPress={toggleDatePicker}>
             <View style={styles.textInputContainer}>
               <TextInput
@@ -129,7 +135,7 @@ export default function ({ route, navigation }) {
 
         {/* GENDER */}
         <View className="mb-4">
-          <Text style={styles.textLabel}>Gender</Text>
+          <Text style={styles.textLabel} className='mb-1'>Gender</Text>
 
           <Dropdown
             options={options}
@@ -143,7 +149,7 @@ export default function ({ route, navigation }) {
 
         <View className="mb-4">
           <TouchableOpacity>
-            <Text style={styles.textLabel}>Country</Text>
+            <Text style={styles.textLabel} className='mb-1'>Country</Text>
             <View style={styles.textInputContainer}>
               <View style={styles.textInput}>
                 <CountryPicker
@@ -179,7 +185,7 @@ export default function ({ route, navigation }) {
 
         {/*BUTTON */}
         <View className="mb-1">
-          <View className="my-5">
+          <View className="my-3">
             <TouchableOpacity
               style={styles.button}
               className=""

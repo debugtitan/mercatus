@@ -14,7 +14,7 @@ export default function ({ onKeyPress, onClear }) {
   };
 
   return (
-    <View className="m-3 mt-20">
+    <View className="mt-20">
       <View style={styles.container}>
         <View>
           <TouchableOpacity onPress={() => handleKeyPress("1")}>
@@ -126,7 +126,7 @@ const STYLES = () => {
       color: theme.PRIMARY2,
       borderBottomWidth: 0.5,
       borderColor: "#C5CECC",
-      padding: 10,
+      padding: 30,
       textAlign: "center",
       justifyContent: "center",
       paddingTop: 29,

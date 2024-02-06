@@ -5,46 +5,74 @@ import { useTheme } from "../../components/ThemeProvider";
 import { DARK, LIGHT, STYLES, RoutePaths } from "../../constants";
 import Keyboard from "../../components/Keyboard";
 import Password from "../../components/Password";
+import CustomTextInput from "../../components/CustomTextInput";
+
 export default function ({ navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   const styles = STYLES();
-  const [input, setInput] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(null);
   const [showPassword, setShowPassword] = useState(true);
+  const [valid, setValid] = useState({
+    email: true,
+    password: true,
+  });
 
   const handleKeyPress = (key) => {
-    setInput((prevInput) => prevInput + key);
+    setPassword((prevInput) => prevInput + key);
   };
 
   const clearInput = () => {
-    setInput((prev) => prev.slice(0, -1));
+    setPassword((prev) => prev.slice(0, -1));
   };
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
+  onHandleEmail = (e) => {
+    setValid((prev) => ({
+      ...prev,
+      email: true,
+    }));
+    setEmail(e);
+  };
+
+  const handleNextView = () => {
+    if (!email) {
+      return setValid((prev) => ({
+        ...prev,
+        email: false,
+      }));
+    }
+    if (!password){
+      return alert('enter login password')
+    }
+    navigation.navigate(RoutePaths.HOME_PAGE);
+  };
+
   return (
     <PageLayout>
       <View className="mt-5 flex-1">
         <View className="mb-4">
-          <Text style={styles.textLabel}>Email</Text>
-          <View style={styles.textInputContainer}>
-            <TextInput
-              placeholder="Enter Email"
-              inputMode="email"
-              keyboardType="email-address"
-              style={styles.textInput}
-              cursorColor={theme.TABS_INACTIVE}
-              placeholderTextColor={theme.TABS_INACTIVE}
-            />
-          </View>
+          <Text style={styles.textLabel} className='mb-1'>Email</Text>
+          <CustomTextInput
+            placeholder="Enter Email"
+            inputMode="email"
+            keyboardType="email-address"
+            textStyle={styles.textInput}
+            cursorColor={theme.TABS_INACTIVE}
+            placeholderTextColor={theme.TABS_INACTIVE}
+            onChangeText={onHandleEmail}
+            validated={valid.email}
+          />
         </View>
 
         {/*Password*/}
         <Password
           label="Password"
-          value={input}
+          value={password}
           placeholder="Enter Your Password"
           hide={showPassword}
           onToggle={toggleShowPassword}
@@ -59,12 +87,12 @@ export default function ({ navigation }) {
         <Keyboard onKeyPress={handleKeyPress} onClear={clearInput} />
 
         {/*LOGIN BUTTON */}
-        <View className="mt-8">
-          <View className="my-5">
+        <View className="mt-6">
+          <View>
             <TouchableOpacity
               style={styles.button}
               className=""
-              onPress={() => navigation.navigate(RoutePaths.HOME_PAGE)}
+              onPress={handleNextView}
             >
               <Text style={(styles.paragraph, { color: theme.SHADES })}>
                 Log In
@@ -74,7 +102,7 @@ export default function ({ navigation }) {
 
           <View
             style={{ width: 300, height: 20, alignItems: "center", left: 0 }}
-            className="mb-2"
+            className="mt-3"
           >
             <Text style={styles.paragraph}>
               Don't have an account?{" "}
@@ -83,7 +111,7 @@ export default function ({ navigation }) {
                 style={{
                   fontSize: 16,
                   lineHeight: 19,
-                  fontWeight: "500",
+                  fontWeight: "bold",
                   color: theme.PRIMARY, //isDarkMode ? "#FFFFFF" : "#00100B",
                 }}
               >

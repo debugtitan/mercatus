@@ -48,7 +48,7 @@ export default function OnboardingScreen({ navigation }) {
 
   return (
     <PageLayout>
-      <View className="mt-10" >
+      <View className="mt-10">
         <View className="">
           <View className="justify-end items-end mt-3">
             <TouchableOpacity
@@ -59,7 +59,7 @@ export default function OnboardingScreen({ navigation }) {
           </View>
         </View>
 
-        <Reanimated.View className="flex flex-1 " entering={BounceInRight} >
+        <View className="flex flex-1 " entering={BounceInRight}>
           <OnboardFlow
             textStyle={styles.textContainer}
             paginationSelectedColor={isDarkMode ? "#07FFB1" : "#006042"}
@@ -75,7 +75,7 @@ export default function OnboardingScreen({ navigation }) {
                   </Text>
                 ),
                 titleStyle: styles.textContainer,
-                subtitleStyle: styles.paragraphContainer,
+                subtitleStyle: { width: 280, height: 38 },
                 subtitle: (
                   <Text style={styles.paragraph}>
                     No more switching between apps to stay updated, it's all
@@ -87,7 +87,7 @@ export default function OnboardingScreen({ navigation }) {
                 imageComponent: <Onboarding2 />,
                 title: <Text style={styles.title}>Bank - Grade Security</Text>,
                 titleStyle: { width: 200, height: 70 },
-                subtitleStyle: { width: 310, height: 58, marginBottom: 25 },
+                subtitleStyle: { width: 298, height: 98},
                 subtitle: (
                   <Text style={styles.paragraph}>
                     256-bit encryption, 2FA & Biometrics, all to ensure only 1
@@ -101,7 +101,7 @@ export default function OnboardingScreen({ navigation }) {
                   <Text style={styles.title}>Unlock the Global Market</Text>
                 ),
                 titleStyle: { width: 200, height: 70 },
-                subtitleStyle: { width: 350, height: 57 },
+                subtitleStyle: { width: 290, height: 57 },
                 subtitle: (
                   <Text style={styles.paragraph}>
                     Unrestricted access to the massive opportunities in the U.S.
@@ -112,12 +112,12 @@ export default function OnboardingScreen({ navigation }) {
             ]}
             type="inline"
           />
-        </Reanimated.View>
+        </View>
 
         <View className="mb-2 justify-center items-center">
           <TouchableOpacity
             style={styles.button}
-            className="w-full mb-8"
+            className="w-full mb-4"
             onPress={() => navigation.navigate(RoutePaths.COUNTRY_PICKER)}
           >
             <Text style={(styles.paragraph, { color: theme.SHADES })}>
@@ -132,8 +132,8 @@ export default function OnboardingScreen({ navigation }) {
               style={{
                 fontSize: 19,
                 lineHeight: 19,
-                fontWeight: "600",
-                fontFamily: 'Inter',
+                fontWeight: "bold",
+                fontFamily: "Inter",
                 color: theme.PRIMARY, //isDarkMode ? "#FFFFFF" : "#00100B",
               }}
             >
