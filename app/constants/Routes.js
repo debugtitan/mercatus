@@ -6,5 +6,6 @@ export const RoutePaths = Object.freeze({
     NOT_FOUND_ERROR_PAGE: "not-found-error",
     COUNTRY_PICKER: "select-country",
     LOGIN: "auth-login",
-    SIGNUP: "auth-signup"
+    SIGNUP: "auth-signup",
+    SET_PASWORD: "set-password"
 })

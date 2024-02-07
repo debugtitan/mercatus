@@ -22,9 +22,9 @@ export default function ({ route, navigation }) {
   const styles = STYLES();
 
   const [name, setName] = useState();
-  const [email, setEmail] = useState()
+  const [email, setEmail] = useState();
   const [dob, setDob] = useState(null);
-  const [gender, setGender] = useState(null);
+  const [gender, setGender] = useState('Male');
 
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
@@ -35,10 +35,8 @@ export default function ({ route, navigation }) {
   );
 
   const [terms, setTerms] = useState(false);
-
   const options = ["Male", "Female"];
   const [selectedValue, setSelectedValue] = useState();
-
   const onSelect = (country) => {
     setCountryCode(country.cca2);
     setCountry(country);
@@ -57,9 +55,8 @@ export default function ({ route, navigation }) {
         toggleDatePicker();
         setDob(currentDate.toDateString());
       }
-    } else {
-      toggleDatePicker();
     }
+    toggleDatePicker();
   };
 
   const toggleDatePicker = () => {
@@ -67,10 +64,20 @@ export default function ({ route, navigation }) {
   };
 
   const goToNextRoute = () => {
-    if (terms && dob && gender) {
-      navigation.navigate(RoutePaths.HOME_PAGE);
+    if(!terms){
+      return alert('accept privacy policy')
     }
-    alert("fix the errors");
+    if(!email){
+      return alert('enter your email')
+    }
+    if(!name){
+      return alert('enter your name')
+    }
+    if(!dob){
+      return alert('set date of birth')
+    }
+    console.log(name,email,dob,country,gender)
+    navigation.navigate(RoutePaths.SET_PASWORD)
   };
 
   return (
@@ -104,7 +111,7 @@ export default function ({ route, navigation }) {
             textStyle={styles.textInput}
             cursorColor={theme.TABS_INACTIVE}
             placeholderTextColor={theme.TABS_INACTIVE}
-            onChangeText={(e)=> setEmail(e)}
+            onChangeText={(e) => setEmail(e)}
           />
         </View>
 
@@ -115,10 +122,13 @@ export default function ({ route, navigation }) {
             mode="date"
             display="spinner"
             onChange={onChange}
+            maximumDate={new Date(2006, 12, 31)}
           />
         )}
         <View className="mb-4">
-          <Text style={styles.textLabel} className='mb-1'>Date of birth</Text>
+          <Text style={styles.textLabel} className="mb-1">
+            Date of birth
+          </Text>
           <TouchableOpacity onPress={toggleDatePicker}>
             <View style={styles.textInputContainer}>
               <TextInput
@@ -135,7 +145,9 @@ export default function ({ route, navigation }) {
 
         {/* GENDER */}
         <View className="mb-4">
-          <Text style={styles.textLabel} className='mb-1'>Gender</Text>
+          <Text style={styles.textLabel} className="mb-1">
+            Gender
+          </Text>
 
           <Dropdown
             options={options}
@@ -149,7 +161,9 @@ export default function ({ route, navigation }) {
 
         <View className="mb-4">
           <TouchableOpacity>
-            <Text style={styles.textLabel} className='mb-1'>Country</Text>
+            <Text style={styles.textLabel} className="mb-1">
+              Country
+            </Text>
             <View style={styles.textInputContainer}>
               <View style={styles.textInput}>
                 <CountryPicker
