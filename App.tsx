@@ -5,20 +5,20 @@
  * @format
  */
 
-import React from 'react';
-//import SystemNavigationBar from 'react-native-system-navigation-bar'; //to control navigation bar
-
+import React, { useEffect } from 'react';
+import SystemNavigationBar from 'react-native-system-navigation-bar';
+import SplashScreen from 'react-native-splash-screen';
 import { ThemeProvider } from './components';
 import { SplashScreenComponent } from './screens';
 
-//SystemNavigationBar.stickyImmersive();
-
-function App(): React.JSX.Element {
+SystemNavigationBar.navigationHide();
+export default function App(): React.JSX.Element {
+  useEffect(() => {
+    SplashScreen.hide();
+  });
   return (
     <ThemeProvider>
       <SplashScreenComponent />
     </ThemeProvider>
   );
 }
-
-export default App;
