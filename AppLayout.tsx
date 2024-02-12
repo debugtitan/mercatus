@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View, StatusBar } from 'react-native';
-import { LayoutProps, styles, DARK, LIGHT } from './constants';
+import { LayoutProps, Styles, DARK, LIGHT } from './constants';
 import { useTheme } from './components';
 
 export const PageLayout: React.FC<LayoutProps> = ({
@@ -10,13 +10,13 @@ export const PageLayout: React.FC<LayoutProps> = ({
   const theme = isDarkMode ? DARK : LIGHT;
   return (
     <SafeAreaView
-      style={[styles.appLayout, { backgroundColor: theme.PRIMARY }]}
+      style={[Styles().appLayout, { backgroundColor: theme.PRIMARY }]}
     >
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={theme.PRIMARY}
       />
-      <View style={styles.layoutContainer}>{children}</View>
+      <View style={Styles().layoutContainer}>{children}</View>
     </SafeAreaView>
   );
 };

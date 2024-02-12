@@ -1,3 +1,7 @@
+import React from 'react';
+import { Image } from 'react-native';
+import { useTheme } from '../components';
+
 export const IMAGES = {
   LOGO: require('../assets/media/Logo.png'),
   CHECKBOX: require('../assets/icons/checkbox.png'),
@@ -53,4 +57,63 @@ export const IMAGES = {
       FINGERPRINT: require('../assets/media/auth/fingerprint-light.png'),
     },
   },
+};
+
+export const Onboarding1 = () => {
+  const { isDarkMode } = useTheme();
+  return (
+    <Image
+      source={
+        isDarkMode
+          ? IMAGES.ONBOARDING.DARK.INVESTMENT
+          : IMAGES.ONBOARDING.LIGHT.INVESTMENT
+      }
+      // eslint-disable-next-line react-native/no-inline-styles
+      style={{
+        alignSelf: 'center',
+        width: 310,
+        height: 300,
+        marginVertical: 55,
+      }}
+    />
+  );
+};
+
+export const Onboarding2 = () => {
+  const { isDarkMode } = useTheme();
+  return (
+    <Image
+      source={
+        isDarkMode
+          ? IMAGES.ONBOARDING.DARK.ENCRYPTION
+          : IMAGES.ONBOARDING.LIGHT.ENCRYPTION
+      }
+      // eslint-disable-next-line react-native/no-inline-styles
+      style={{
+        alignSelf: 'center',
+        width: 310,
+        height: 315,
+        marginVertical: 55,
+      }}
+    />
+  );
+};
+
+export const Onboarding3 = () => {
+  const { isDarkMode } = useTheme();
+  return (
+    <Image
+      source={
+        isDarkMode
+          ? IMAGES.ONBOARDING.DARK.CONNECTED_WORLD
+          : IMAGES.ONBOARDING.LIGHT.CONNECTED_WORLD
+      }
+      style={{
+        alignSelf: 'center',
+        width: 310,
+        height: 315,
+        marginVertical: 55,
+      }}
+    />
+  );
 };

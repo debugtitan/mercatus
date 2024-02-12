@@ -1,3 +1,3 @@
 import { useTheme, ThemeProvider } from './ThemeProvider';
-
-export { useTheme, ThemeProvider };
+import OnboardSwipper from './onboard';
+export { useTheme, ThemeProvider, OnboardSwipper };

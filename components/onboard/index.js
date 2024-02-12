@@ -1,19 +1,24 @@
 import React, { useRef, useState } from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import { DotPagination } from './Pagination';
 import { Swiper } from './Swipper';
 import Page from './Page';
-export const Onboard = ({
+
+export default function OnboardSwipper({
   enableScroll = false,
   pages,
+  titleContainerStyle,
+  subtitleContainerStyle,
   titleStyle,
   subtitleStyle,
+  imageContainerStyle,
   PaginationComponent = DotPagination,
   currentPage,
   setCurrentPage,
   textStyle,
   ...props
-}) => {
+}) {
+  //console.log(enableScroll, pages);
   const swipperViewRef = useRef();
   const [currentPageInternal, setCurrentPageInternal] = useState(0);
   const currentPageValue = currentPage ?? currentPageInternal;
@@ -53,7 +58,7 @@ export const Onboard = ({
 
   return (
     <Swiper
-      ref={swipperViewRef}
+      //ref={swipperViewRef}
       disableGesture={enableScroll}
       onChangeIndex={handleIndexChange}
       index={currentPageValue}
@@ -77,4 +82,4 @@ export const Onboard = ({
       ))}
     </Swiper>
   );
-};
+}

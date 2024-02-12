@@ -13,7 +13,7 @@ export const Swiper = ({
 }) => {
   return (
     <ScrollView
-      ref={ref}
+      //ref={ref}
       horizontal
       pagingEnabled
       showsHorizontalScrollIndicator={false}

@@ -9,7 +9,7 @@ import React, { useEffect } from 'react';
 import SystemNavigationBar from 'react-native-system-navigation-bar';
 import SplashScreen from 'react-native-splash-screen';
 import { ThemeProvider } from './components';
-import { SplashScreenComponent } from './screens';
+import { SplashScreenComponent, OnboardingScreen } from './screens';
 
 SystemNavigationBar.navigationHide();
 export default function App(): React.JSX.Element {
@@ -18,7 +18,7 @@ export default function App(): React.JSX.Element {
   });
   return (
     <ThemeProvider>
-      <SplashScreenComponent />
+      <OnboardingScreen />
     </ThemeProvider>
   );
 }

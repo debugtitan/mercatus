@@ -5,6 +5,7 @@ export default function ({
   style,
   titleContainerStyle,
   subtitleContainerStyle,
+  imageContainerStyle,
   titleStyles,
   subtitleStyles,
   pageData,
@@ -14,23 +15,29 @@ export default function ({
   goToNextPage,
   goToPreviousPage,
 }) {
+  console.log(pageData);
+  function ImageComponent() {
+    if (pageData.imageComponent) {
+      return pageData.imageComponent;
+    }
+    return null;
+  }
   return (
-    <View>
-      <View style={styles.imageContainerStyle}>
-        <ImageComponent
-          style={{ ...(imageComponentStyle ?? styles.imageComponentStyle) }}
-        />
+    <View style={[styles.container]}>
+      <View>
+        <ImageComponent />
       </View>
 
       <View style={styles.bottomContainer}>
-        <View style={[titleContainerStyles ?? styles.titleStyles]}>
-          <Text style={[titleStyles ?? '']}>{title}</Text>
+        <View style={[styles.titleContainerStyles, titleContainerStyle]}>
+          <Text style={[styles.titleStyles, titleStyles]}>
+            {pageData?.title}
+          </Text>
         </View>
-        <View
-          style={[subTitleContainerStyles ?? styles.subTitleContainerStyle]}
-        >
-          <Text style={[subTitleStyles ?? styles.subTitleStyles]}>
-            {subTitle}
+
+        <View style={[styles.subTitleContainerStyle, subtitleContainerStyle]}>
+          <Text style={[styles.subTitleStyles, subtitleStyles]}>
+            {pageData?.subtitle}
           </Text>
         </View>
       </View>
@@ -39,6 +46,10 @@ export default function ({
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+  },
   imageContainerStyle: {
     alignItems: 'center',
   },

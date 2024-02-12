@@ -1,6 +1,16 @@
 import { LayoutProps } from './types';
-import { styles } from './Styles';
+import { Styles } from './Styles';
 import { DARK, LIGHT } from './Theme';
-import { IMAGES } from './Medias';
-
-export { LayoutProps, styles, DARK, LIGHT, IMAGES };
+import { IMAGES, Onboarding1, Onboarding2, Onboarding3 } from './Medias';
+import { RoutePaths } from './Routes';
+export {
+  LayoutProps,
+  Styles,
+  DARK,
+  LIGHT,
+  IMAGES,
+  RoutePaths,
+  Onboarding1,
+  Onboarding2,
+  Onboarding3,
+};
