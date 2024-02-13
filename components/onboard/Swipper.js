@@ -1,42 +1,25 @@
 import React from 'react';
-import { ScrollView, View, StyleSheet, Dimensions } from 'react-native';
-
-const SCREEN_WIDTH = Dimensions.get('window').width;
-
-export const Swiper = ({
-  children,
-  disableGesture,
-  onChangeIndex,
-  ref,
-  index,
-  autoplay,
-}) => {
+import {
+  ScrollView,
+  Text,
+  View,
+  StyleSheet,
+  Dimensions,
+  FlatList,
+} from 'react-native';
+import Page from './Page';
+export const Swipper = ({ pageData, titleStyles, subtitleStyles }) => {
   return (
-    <ScrollView
-      //ref={ref}
-      horizontal
-      pagingEnabled
-      showsHorizontalScrollIndicator={false}
-      scrollEnabled={!disableGesture}
-      onMomentumScrollEnd={event => {
-        const pageIndex = Math.round(
-          event.nativeEvent.contentOffset.x / SCREEN_WIDTH
-        );
-        onChangeIndex({ index: pageIndex, prevIndex: index });
-      }}
-      contentOffset={{ x: SCREEN_WIDTH * index, y: 0 }}
-    >
-      {children.map((child, id) => (
-        <View key={id} style={styles.page}>
-          {child}
-        </View>
-      ))}
-    </ScrollView>
+    <View>
+      <FlatList
+        data={pageData}
+        renderItem={({ item }) => (
+          <Page pageData={item} titleStyles={titleStyles} subtitleStyles={subtitleStyles}/>
+        )}
+        horizontal={true}
+        pagingEnabled={true}
+        showsHorizontalScrollIndicator={false}
+      />
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  page: {
-    width: SCREEN_WIDTH,
-  },
-});

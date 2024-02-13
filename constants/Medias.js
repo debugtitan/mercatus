@@ -70,10 +70,9 @@ export const Onboarding1 = () => {
       }
       // eslint-disable-next-line react-native/no-inline-styles
       style={{
-        alignSelf: 'center',
         width: 310,
         height: 300,
-        marginVertical: 55,
+        marginVertical: 45,
       }}
     />
   );
@@ -90,10 +89,9 @@ export const Onboarding2 = () => {
       }
       // eslint-disable-next-line react-native/no-inline-styles
       style={{
-        alignSelf: 'center',
         width: 310,
         height: 315,
-        marginVertical: 55,
+        marginVertical: 45,
       }}
     />
   );
@@ -108,11 +106,11 @@ export const Onboarding3 = () => {
           ? IMAGES.ONBOARDING.DARK.CONNECTED_WORLD
           : IMAGES.ONBOARDING.LIGHT.CONNECTED_WORLD
       }
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
-        alignSelf: 'center',
         width: 310,
         height: 315,
-        marginVertical: 55,
+        marginVertical: 45,
       }}
     />
   );

@@ -1,45 +1,39 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import React from 'react';
 
 export default function ({
-  style,
-  titleContainerStyle,
-  subtitleContainerStyle,
+  pageData,
   imageContainerStyle,
   titleStyles,
   subtitleStyles,
-  pageData,
-  pageIndex,
-  currentPage,
-  totalPages,
-  goToNextPage,
-  goToPreviousPage,
 }) {
-  console.log(pageData);
+  const width = Dimensions.get('window').width;
+  console.log(pageData.titleContainerStyle);
   function ImageComponent() {
     if (pageData.imageComponent) {
       return pageData.imageComponent;
     }
     return null;
   }
+
   return (
-    <View style={[styles.container]}>
-      <View>
+    <View style={[styles.container, { width: width }]}>
+      <View style={imageContainerStyle ?? styles.imageContainerStyle}>
         <ImageComponent />
       </View>
 
-      <View style={styles.bottomContainer}>
-        <View style={[styles.titleContainerStyles, titleContainerStyle]}>
-          <Text style={[styles.titleStyles, titleStyles]}>
-            {pageData?.title}
-          </Text>
-        </View>
+      <View style={pageData.titleContainerStyle ?? styles.titleContainerStyles}>
+        <Text style={titleStyles ?? styles.titleStyles}>{pageData?.title}</Text>
+      </View>
 
-        <View style={[styles.subTitleContainerStyle, subtitleContainerStyle]}>
-          <Text style={[styles.subTitleStyles, subtitleStyles]}>
-            {pageData?.subtitle}
-          </Text>
-        </View>
+      <View
+        style={
+          pageData?.subtitleContainerStyle ?? styles.subTitleContainerStyle
+        }
+      >
+        <Text style={subtitleStyles ?? styles.subtitleStyles}>
+          {pageData?.subtitle}
+        </Text>
       </View>
     </View>
   );
@@ -48,37 +42,31 @@ export default function ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
   },
   imageContainerStyle: {
-    alignItems: 'center',
-  },
-  imageComponentStyle: {
     alignSelf: 'center',
-    width: 310,
-    height: 300,
-    marginVertical: 55,
   },
   titleContainerStyles: {
-    width: 200,
-    height: 70,
+    width: 291,
+    height: 80,
   },
   titleStyles: {
-    fontFamily: 'Inter',
+    //fontFamily: 'Inter',
+    //textAlign: 'left',
     fontSize: 33,
     lineHeight: 40,
     color: '#00100B',
-    fontWeight: '700',
+    fontWeight: '600',
   },
   subTitleContainerStyle: {
-    width: 290,
-    height: 57,
+    width: 280,
+    height: 38,
   },
-  subTitleStyles: {
-    fontSize: 14,
-    lineHeight: 17,
+  subtitleStyles: {
+    fontSize: 16,
+    lineHeight: 19,
     fontWeight: '400',
     color: '#00100B',
-    fontFamily: 'Inter',
+    //fontFamily: 'Inter',
   },
 });

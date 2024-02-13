@@ -13,7 +13,7 @@ export const Styles = () => {
     },
 
     layoutContainer: {
-      marginHorizontal: 4,
+      marginHorizontal: 8,
     },
 
     centerImage: {

@@ -1,25 +1,21 @@
 import React, { useRef, useState } from 'react';
-import { Text, View } from 'react-native';
 import { DotPagination } from './Pagination';
-import { Swiper } from './Swipper';
+import { Swipper } from './Swipper';
 import Page from './Page';
+import { Text } from 'react-native';
 
 export default function OnboardSwipper({
-  enableScroll = false,
+  //enableScroll = false,
   pages,
-  titleContainerStyle,
-  subtitleContainerStyle,
   titleStyle,
   subtitleStyle,
   imageContainerStyle,
   PaginationComponent = DotPagination,
   currentPage,
   setCurrentPage,
-  textStyle,
-  ...props
 }) {
   //console.log(enableScroll, pages);
-  const swipperViewRef = useRef();
+  /*const swipperViewRef = useRef();
   const [currentPageInternal, setCurrentPageInternal] = useState(0);
   const currentPageValue = currentPage ?? currentPageInternal;
   const setCurrentPageValue = setCurrentPage ?? setCurrentPageInternal;
@@ -54,32 +50,7 @@ export default function OnboardSwipper({
       //onBack && onBack()
       return;
     }
-  }
+  }*/
 
-  return (
-    <Swiper
-      //ref={swipperViewRef}
-      disableGesture={enableScroll}
-      onChangeIndex={handleIndexChange}
-      index={currentPageValue}
-    >
-      {pages?.map((pageData, index) => (
-        <View key={index}>
-          <Page
-            //formElementTypes={formElementTypes}
-            //style={[pageStyle]}
-            pageData={pageData}
-            titleStyle={[titleStyle]}
-            subtitleStyle={[subtitleStyle]}
-            textStyle={[textStyle]}
-            pageIndex={index}
-            currentPage={currentPageValue}
-            totalPages={pages?.length}
-            goToNextPage={goToNextPage}
-            goToPreviousPage={goToPreviousPage}
-          />
-        </View>
-      ))}
-    </Swiper>
-  );
+  return <Swipper pageData={pages} titleStyles={titleStyle} subtitleStyles={subtitleStyle}></Swipper>;
 }

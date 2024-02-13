@@ -10,13 +10,13 @@ export const PageLayout: React.FC<LayoutProps> = ({
   const theme = isDarkMode ? DARK : LIGHT;
   return (
     <SafeAreaView
-      style={[Styles().appLayout, { backgroundColor: theme.PRIMARY }]}
+      style={[Styles().appLayout, { backgroundColor: theme.BACKGROUND }]}
     >
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={theme.PRIMARY}
+        backgroundColor={theme.BACKGROUND}
       />
-      <View style={Styles().layoutContainer}>{children}</View>
+      <View style={{ marginHorizontal: 14 }}>{children}</View>
     </SafeAreaView>
   );
 };
