@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, StatusBar } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
 import { LayoutProps, Styles, DARK, LIGHT } from './constants';
 import { useTheme } from './components';
 
@@ -16,7 +16,7 @@ export const PageLayout: React.FC<LayoutProps> = ({
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={theme.BACKGROUND}
       />
-      <View style={{ marginHorizontal: 14 }}>{children}</View>
+      {children}
     </SafeAreaView>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import { useTheme } from '../components';
 
 export const IMAGES = {
@@ -70,8 +70,8 @@ export const Onboarding1 = () => {
       }
       // eslint-disable-next-line react-native/no-inline-styles
       style={{
-        width: 310,
-        height: 300,
+        width: 364,
+        height: 353,
         marginVertical: 45,
       }}
     />
@@ -89,8 +89,8 @@ export const Onboarding2 = () => {
       }
       // eslint-disable-next-line react-native/no-inline-styles
       style={{
-        width: 310,
-        height: 315,
+        width: 344,
+        height: 350,
         marginVertical: 45,
       }}
     />
@@ -108,8 +108,8 @@ export const Onboarding3 = () => {
       }
       // eslint-disable-next-line react-native/no-inline-styles
       style={{
-        width: 310,
-        height: 315,
+        width: 354,
+        height: 345,
         marginVertical: 45,
       }}
     />

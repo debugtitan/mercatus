@@ -8,7 +8,7 @@ export default function ({
   subtitleStyles,
 }) {
   const width = Dimensions.get('window').width;
-  console.log(pageData.titleContainerStyle);
+  //console.log(pageData.titleContainerStyle);
   function ImageComponent() {
     if (pageData.imageComponent) {
       return pageData.imageComponent;
@@ -22,18 +22,24 @@ export default function ({
         <ImageComponent />
       </View>
 
-      <View style={pageData.titleContainerStyle ?? styles.titleContainerStyles}>
-        <Text style={titleStyles ?? styles.titleStyles}>{pageData?.title}</Text>
-      </View>
+      <View style={{ paddingHorizontal: 16 }}>
+        <View
+          style={pageData.titleContainerStyle ?? styles.titleContainerStyles}
+        >
+          <Text style={titleStyles ?? styles.titleStyles}>
+            {pageData?.title}
+          </Text>
+        </View>
 
-      <View
-        style={
-          pageData?.subtitleContainerStyle ?? styles.subTitleContainerStyle
-        }
-      >
-        <Text style={subtitleStyles ?? styles.subtitleStyles}>
-          {pageData?.subtitle}
-        </Text>
+        <View
+          style={
+            pageData?.subtitleContainerStyle ?? styles.subTitleContainerStyle
+          }
+        >
+          <Text style={subtitleStyles ?? styles.subtitleStyles}>
+            {pageData?.subtitle}
+          </Text>
+        </View>
       </View>
     </View>
   );
