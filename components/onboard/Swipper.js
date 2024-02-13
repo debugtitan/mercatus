@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { View, FlatList } from 'react-native';
 import Page from './Page';
+import { DotPagination } from './Pagination';
 export const Swipper = ({
   pageData,
   titleStyles,
@@ -12,7 +13,18 @@ export const Swipper = ({
   footerTitle,
   onHeaderClick,
   onFooterClick,
+  PaginationComponent,
 }) => {
+  const swipperRef = useRef();
+  const [currentPageValue, setCurrentPageValue] = useState(0);
+
+  function handleIndexChange(event) {
+    const { contentOffset, layoutMeasurement } = event.nativeEvent;
+    const pageWidth = layoutMeasurement.width;
+    const currentPageIndex = Math.floor(contentOffset.x / pageWidth);
+    setCurrentPageValue(currentPageIndex)
+  }
+
   return (
     <View>
       <HeaderComponent
@@ -20,6 +32,8 @@ export const Swipper = ({
         onHeaderClick={onHeaderClick}
       />
       <FlatList
+        ref={swipperRef}
+        onScroll={handleIndexChange}
         data={pageData}
         renderItem={({ item, index }) => (
           <Page
@@ -30,11 +44,17 @@ export const Swipper = ({
             subtitleStyles={subtitleStyles}
             imageContainerStyle={imageContainerStyle}
             headerTitle={headerTitle}
+            //totalPages={pageData.length}
           />
         )}
         horizontal={true}
         pagingEnabled={true}
         showsHorizontalScrollIndicator={false}
+      />
+      <PaginationComponent totalPages={pageData} />
+      <DotPagination
+        totalPages={pageData.length}
+        currentPage={currentPageValue}
       />
       <FooterComponent
         footerTitle={footerTitle}

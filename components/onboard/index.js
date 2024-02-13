@@ -12,7 +12,7 @@ export default function OnboardSwipper({
   titleStyle,
   subtitleStyle,
   imageContainerStyle,
-  PaginationComponent = DotPagination,
+  PaginationComponent,
   currentPage,
   setCurrentPage,
   HeaderComponent,
@@ -71,6 +71,7 @@ export default function OnboardSwipper({
       footerTitle={footerTitle}
       onFooterClick={onFooterClick}
       onHeaderClick={onHeaderClick}
+      PaginationComponent={PaginationComponent ?? DotPagination}
     />
   );
 }

@@ -1,12 +1,10 @@
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import React from 'react';
-
 export default function ({
   pageData,
   imageContainerStyle,
   titleStyles,
   subtitleStyles,
-  currentPage,
 }) {
   const width = Dimensions.get('window').width;
   //console.log(pageData.titleContainerStyle);
