@@ -6,6 +6,7 @@ export default function ({
   imageContainerStyle,
   titleStyles,
   subtitleStyles,
+  currentPage,
 }) {
   const width = Dimensions.get('window').width;
   //console.log(pageData.titleContainerStyle);

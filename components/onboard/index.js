@@ -3,6 +3,8 @@ import { DotPagination } from './Pagination';
 import { Swipper } from './Swipper';
 import Page from './Page';
 import { Text } from 'react-native';
+import { Header } from './Header';
+import { Footer } from './Footer';
 
 export default function OnboardSwipper({
   //enableScroll = false,
@@ -13,6 +15,12 @@ export default function OnboardSwipper({
   PaginationComponent = DotPagination,
   currentPage,
   setCurrentPage,
+  HeaderComponent,
+  headerTitle,
+  FooterComponent,
+  footerTitle,
+  onHeaderClick,
+  onFooterClick,
 }) {
   //console.log(enableScroll, pages);
   /*const swipperViewRef = useRef();
@@ -52,5 +60,17 @@ export default function OnboardSwipper({
     }
   }*/
 
-  return <Swipper pageData={pages} titleStyles={titleStyle} subtitleStyles={subtitleStyle}></Swipper>;
+  return (
+    <Swipper
+      pageData={pages}
+      titleStyles={titleStyle}
+      subtitleStyles={subtitleStyle}
+      HeaderComponent={HeaderComponent ?? Header}
+      headerTitle={headerTitle}
+      FooterComponent={FooterComponent ?? Footer}
+      footerTitle={footerTitle}
+      onFooterClick={onFooterClick}
+      onHeaderClick={onHeaderClick}
+    />
+  );
 }

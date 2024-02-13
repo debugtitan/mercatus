@@ -70,8 +70,8 @@ export const Onboarding1 = () => {
       }
       // eslint-disable-next-line react-native/no-inline-styles
       style={{
-        width: 364,
-        height: 353,
+        width: 340,
+        height: 328,
         marginVertical: 45,
       }}
     />

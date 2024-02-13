@@ -30,5 +30,14 @@ export const Styles = () => {
       color: theme.PRIMARY2,
       // fontFamily: 'Inter'
     },
+
+    button: {
+      backgroundColor: theme.PRIMARY,
+      borderRadius: 50,
+      alignItems: 'center',
+      lineHeight: 22,
+      padding: 14,
+      paddingHorizontal: 20,
+    },
   });
 };

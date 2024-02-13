@@ -72,6 +72,8 @@ export default function OnboardingScreen() {
             ),
           },
         ]}
+        headerTitle="Skip"
+        footerTitle="Continue"
       />
     </PageLayout>
   );
