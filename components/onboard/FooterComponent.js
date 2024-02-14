@@ -19,12 +19,12 @@ export const CustomPaginatorComponent = ({
     <View
       // eslint-disable-next-line react-native/no-inline-styles
       style={{
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
+        //flex: 1,
+        //flexDirection: 'row',
+        //justifyContent: 'space-evenly',
+        //alignItems: 'center',
         //height: 50,
-        //paddingHorizontal: 1,
+        paddingHorizontal: 25,
       }}
     >
       {currentPage === 1 ? (
@@ -88,12 +88,12 @@ export const CustomPaginatorComponent = ({
 const styles = StyleSheet.create({
   toggle_right: {
     position: 'absolute',
-    bottom: 22,
-    right: 35,
+    bottom: 12,
+    right: 40,
   },
   toggle_left: {
     position: 'absolute',
-    bottom: 20,
-    left: 35,
+    bottom: 12,
+    left: 40,
   },
 });
