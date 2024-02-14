@@ -3,16 +3,14 @@ import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { IMAGES, DARK, LIGHT } from '../../constants';
 import { useTheme } from '..';
 
-
-export const Footer = ({
-  Components,
+export const CustomPaginatorComponent = ({
+  Component,
   paginationSelectedColor,
   paginationColor,
   currentPage,
   goToNextPage,
   pages,
   goToPreviousPage,
-  ...props
 }) => {
   const totalPages = pages?.length ?? 0;
   const { isDarkMode } = useTheme();
@@ -25,10 +23,9 @@ export const Footer = ({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        height: 50,
-        paddingHorizontal: 1,
+        //height: 50,
+        //paddingHorizontal: 1,
       }}
-      {...props}
     >
       {currentPage === 1 ? (
         <TouchableOpacity
@@ -62,7 +59,7 @@ export const Footer = ({
         </TouchableOpacity>
       ) : null}
 
-      <Components.PaginationComponent
+      <Component.PaginationComponent
         paginationColor={paginationColor}
         paginationSelectedColor={paginationSelectedColor}
         currentPage={currentPage}

@@ -2,12 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet, View } from 'react-native';
 import { useTheme } from '..';
 import { DARK, LIGHT } from '../../constants';
-
 function Dot({ selected, paginationSelectedColor, paginationColor }) {
   const sizeAnim = useRef(new Animated.Value(8)).current;
-  const [isSelected, setIsSelected] = useState(selected);
+  //const [isSelected, setIsSelected] = useState(selected);
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (selected) {
       Animated.timing(sizeAnim, {
         toValue: 11,
@@ -23,8 +22,8 @@ function Dot({ selected, paginationSelectedColor, paginationColor }) {
         easing: Easing.ease,
       }).start();
     }
-    setIsSelected(selected);
-  }, [selected]);
+    //setIsSelected(selected);
+  }, []);*/
 
   return (
     <Animated.View
@@ -68,6 +67,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 22,
     marginBottom: 16,
     height: 16,
   },

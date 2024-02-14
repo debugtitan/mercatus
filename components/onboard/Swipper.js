@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { View, FlatList } from 'react-native';
 import Page from './Page';
-import { DotPagination } from './Pagination';
+import { CustomPaginatorComponent } from './FooterComponent';
 export const Swipper = ({
   pageData,
   titleStyles,
@@ -13,7 +13,7 @@ export const Swipper = ({
   footerTitle,
   onHeaderClick,
   onFooterClick,
-  PaginationComponent,
+  Component,
 }) => {
   const swipperRef = useRef();
   const [currentPageValue, setCurrentPageValue] = useState(0);
@@ -22,7 +22,27 @@ export const Swipper = ({
     const { contentOffset, layoutMeasurement } = event.nativeEvent;
     const pageWidth = layoutMeasurement.width;
     const currentPageIndex = Math.floor(contentOffset.x / pageWidth);
-    setCurrentPageValue(currentPageIndex)
+    setCurrentPageValue(currentPageIndex);
+  }
+
+  function goToNextPage() {
+    if (currentPageValue >= pageData?.length - 1) {
+      //pages finished
+      return;
+    }
+    const nextIndex = currentPageValue + 1;
+    setCurrentPageValue(nextIndex);
+    swipperRef.current?.scrollToIndex({ index: nextIndex });
+  }
+
+  function goToPreviousPage() {
+    const nextIndex = currentPageValue - 1;
+    if (nextIndex < 0) {
+      // can't go back again
+      return;
+    }
+    setCurrentPageValue(nextIndex);
+    swipperRef.current?.scrollToIndex({ index: nextIndex });
   }
 
   return (
@@ -51,15 +71,17 @@ export const Swipper = ({
         pagingEnabled={true}
         showsHorizontalScrollIndicator={false}
       />
-      <PaginationComponent totalPages={pageData} />
-      <DotPagination
-        totalPages={pageData.length}
+      <CustomPaginatorComponent
+        Component={Component}
         currentPage={currentPageValue}
+        goToNextPage={goToNextPage}
+        goToPreviousPage={goToPreviousPage}
+        pages={pageData}
       />
-      <FooterComponent
+      {/*<FooterComponent
         footerTitle={footerTitle}
         onFooterClick={onFooterClick}
-      />
+        />*/}
     </View>
   );
 };
