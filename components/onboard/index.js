@@ -17,6 +17,8 @@ export default function OnboardSwipper({
   onHeaderClick,
   onFooterClick,
   PaginationComponent = DotPagination,
+  onDone = () => alert('done'),
+  enableScroll = false,
 }) {
   const component = {
     PaginationComponent,
@@ -34,6 +36,8 @@ export default function OnboardSwipper({
       onFooterClick={onFooterClick}
       onHeaderClick={onHeaderClick}
       Component={component}
+      onDone={onDone}
+      enableScroll={enableScroll}
     />
   );
 }

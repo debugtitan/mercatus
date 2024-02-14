@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, TouchableOpacity } from 'react-native';
 import Page from './Page';
 import { CustomPaginatorComponent } from './FooterComponent';
 export const Swipper = ({
@@ -14,6 +14,8 @@ export const Swipper = ({
   onHeaderClick,
   onFooterClick,
   Component,
+  enableScroll,
+  onDone,
 }) => {
   const swipperRef = useRef();
   const [currentPageValue, setCurrentPageValue] = useState(0);
@@ -28,6 +30,7 @@ export const Swipper = ({
   function goToNextPage() {
     if (currentPageValue >= pageData?.length - 1) {
       //pages finished
+      onDone();
       return;
     }
     const nextIndex = currentPageValue + 1;
@@ -70,6 +73,7 @@ export const Swipper = ({
         horizontal={true}
         pagingEnabled={true}
         showsHorizontalScrollIndicator={false}
+        scrollEnabled={enableScroll}
       />
       <CustomPaginatorComponent
         Component={Component}
@@ -78,10 +82,12 @@ export const Swipper = ({
         goToPreviousPage={goToPreviousPage}
         pages={pageData}
       />
-      {/*<FooterComponent
-        footerTitle={footerTitle}
-        onFooterClick={onFooterClick}
-        />*/}
+      <TouchableOpacity onPress={onDone}>
+        <FooterComponent
+          footerTitle={footerTitle}
+          onFooterClick={onFooterClick}
+        />
+      </TouchableOpacity>
     </View>
   );
 };

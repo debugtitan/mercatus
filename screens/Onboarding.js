@@ -51,7 +51,7 @@ export default function OnboardingScreen() {
             imageComponent: <Onboarding2 />,
             title: <Text>Bank - Grade Security</Text>,
             titleContainerStyle: { width: 200, height: 80 },
-            subtitleContainerStyle: { width: 298, height: 38 },
+            subtitleContainerStyle: { width: 308, height: 38 },
             subtitle: (
               <Text>
                 256-bit encryption, 2FA & Biometrics, all to ensure only 1
@@ -62,8 +62,8 @@ export default function OnboardingScreen() {
           {
             imageComponent: <Onboarding3 />,
             title: <Text>Unlock the Global Market</Text>,
-            titleContainerStyle: { width: 200, height: 80 },
-            subtitleContainerStyle: { width: 298, height: 48 },
+            titleContainerStyle: { width: 190, height: 80 },
+            subtitleContainerStyle: { width: 328, height: 48 },
             subtitle: (
               <Text>
                 Unrestricted access to the massive opportunities in the U.S.
@@ -74,6 +74,7 @@ export default function OnboardingScreen() {
         ]}
         headerTitle="Skip"
         footerTitle="Continue"
+        enableScroll={false}
       />
     </PageLayout>
   );
