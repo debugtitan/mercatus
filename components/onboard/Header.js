@@ -3,7 +3,10 @@ import React from 'react';
 
 export function Header({ headerTitle, onHeaderClick }) {
   return (
-    <TouchableOpacity style={{ paddingHorizontal: 16, marginTop: 20 }} onPress={onHeaderClick ?? null}>
+    <TouchableOpacity
+      style={{ paddingHorizontal: 16, marginTop: 3 }}
+      onPress={onHeaderClick}
+    >
       <View>
         <Text
           // eslint-disable-next-line react-native/no-inline-styles

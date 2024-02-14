@@ -9,10 +9,9 @@ export const CustomPaginatorComponent = ({
   paginationColor,
   currentPage,
   goToNextPage,
-  pages,
+  totalPages,
   goToPreviousPage,
 }) => {
-  const totalPages = pages?.length ?? 0;
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   return (
@@ -24,7 +23,7 @@ export const CustomPaginatorComponent = ({
         //justifyContent: 'space-evenly',
         //alignItems: 'center',
         //height: 50,
-        marginBottom: 8
+        marginBottom: 8,
       }}
     >
       {currentPage === 1 ? (

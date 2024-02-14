@@ -15,7 +15,6 @@ export const Swipper = ({
   onFooterClick,
   Component,
   enableScroll,
-  onDone,
 }) => {
   const swipperRef = useRef();
   const [currentPageValue, setCurrentPageValue] = useState(0);
@@ -26,13 +25,9 @@ export const Swipper = ({
     const currentPageIndex = Math.floor(contentOffset.x / pageWidth);
     setCurrentPageValue(currentPageIndex);
   }
+  //console.log(currentPageValue)
 
   function goToNextPage() {
-    if (currentPageValue >= pageData?.length - 1) {
-      //pages finished
-      onDone();
-      return;
-    }
     const nextIndex = currentPageValue + 1;
     setCurrentPageValue(nextIndex);
     swipperRef.current?.scrollToIndex({ index: nextIndex });
@@ -80,13 +75,11 @@ export const Swipper = ({
         currentPage={currentPageValue}
         goToNextPage={goToNextPage}
         goToPreviousPage={goToPreviousPage}
-        pages={pageData}
+        totalPages={pageData.length}
       />
-      <TouchableOpacity onPress={onDone}>
-        <FooterComponent
-          footerTitle={footerTitle}
-          onFooterClick={onFooterClick}
-        />
+
+      <TouchableOpacity onPress={onFooterClick}>
+        <FooterComponent footerTitle={footerTitle} />
       </TouchableOpacity>
     </View>
   );
