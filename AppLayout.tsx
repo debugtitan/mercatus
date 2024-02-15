@@ -13,6 +13,7 @@ export const PageLayout: React.FC<LayoutProps> = ({
       style={[Styles().appLayout, { backgroundColor: theme.BACKGROUND }]}
     >
       <StatusBar
+        //translucent={true}
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={theme.BACKGROUND}
       />

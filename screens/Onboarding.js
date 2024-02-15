@@ -1,4 +1,5 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+/* eslint-disable react-native/no-inline-styles */
+import { Text, Pressable } from 'react-native';
 import React from 'react';
 
 import { PageLayout } from '../AppLayout';
@@ -11,12 +12,20 @@ import {
   Onboarding1,
   Onboarding2,
   Onboarding3,
+  Styles,
   //styles,
 } from '../constants';
 
-export default function OnboardingScreen() {
+export default function OnboardingScreen({ navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
+
+  const onFooterClick = () => {
+    navigation.navigate(RoutePaths.NETWORK_ERROR_PAGE);
+  };
+  const onHeaderClick = () => {
+    navigation.navigate(RoutePaths.DECLINE_ERROR_PAGE);
+  };
 
   return (
     <PageLayout>
@@ -74,8 +83,22 @@ export default function OnboardingScreen() {
         ]}
         headerTitle="Skip"
         footerTitle="Continue"
-        enableScroll={false}
+        onFooterClick={onFooterClick}
+        onHeaderClick={onHeaderClick}
+        //enableScroll={false}
       />
+      <Text style={[Styles().regularParagraph, { textAlign: 'center' }]}>
+        Already have an account?{' '}
+        <Text
+          onPress={() => navigation.navigate(RoutePaths.NOT_FOUND_ERROR_PAGE)}
+          style={[
+            Styles().paragraph,
+            { color: theme.PRIMARY, textAlign: 'center' },
+          ]}
+        >
+          Log in
+        </Text>
+      </Text>
     </PageLayout>
   );
 }

@@ -23,7 +23,7 @@ export const CustomPaginatorComponent = ({
         //justifyContent: 'space-evenly',
         //alignItems: 'center',
         //height: 50,
-        marginBottom: 8,
+        marginVertical: 18,
       }}
     >
       {currentPage === 1 ? (

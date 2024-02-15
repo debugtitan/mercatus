@@ -22,13 +22,34 @@ export const Styles = () => {
       justifyContent: 'center',
       alignItems: 'center',
     },
+    imageContainer: {
+      alignSelf: 'center',
+    },
+    paragraphContainer: {
+      width: 290,
+      height: 78,
+    },
+
+    ErrorContainer: {
+      flex: 1,
+      width: 288.59,
+      height: 80,
+      paddingHorizontal: 8,
+      paddingVertical: 0,
+    },
 
     paragraph: {
       fontSize: 16,
       lineHeight: 19,
-      fontWeight: '400',
+      fontWeight: '500',
       color: theme.PRIMARY2,
       // fontFamily: 'Inter'
+    },
+    regularParagraph: {
+      fontSize: 14,
+      lineHeight: 17,
+      fontWeight: '400',
+      color: theme.NEUTRAL,
     },
 
     button: {

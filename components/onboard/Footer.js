@@ -7,7 +7,9 @@ export function Footer({ footerTitle }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   return (
-    <View style={[Styles().button, { marginHorizontal: 20 }]}>
+    <View
+      style={[Styles().button, { marginHorizontal: 20, marginVertical: 10 }]}
+    >
       <Text
         // eslint-disable-next-line react-native/no-inline-styles
         style={{
