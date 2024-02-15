@@ -1,3 +1,5 @@
 import { useTheme, ThemeProvider } from './ThemeProvider';
 import OnboardSwipper from './onboard';
-export { useTheme, ThemeProvider, OnboardSwipper };
+import Password from './Password';
+import Keyboard from './Keyboard';
+export { useTheme, ThemeProvider, OnboardSwipper, Keyboard, Password };
