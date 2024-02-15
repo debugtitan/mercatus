@@ -52,7 +52,7 @@ export default function ({ navigation }) {
 
   return (
     <PageLayout>
-      <View style={{ marginBottom: 5 }}>
+      <View style={{ marginBottom: 5, paddingHorizontal: 14 }}>
         <View style={{ marginBottom: 4 }}>
           <Text style={styles.textLabel}>Email</Text>
           <TextInput

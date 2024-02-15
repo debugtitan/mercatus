@@ -26,7 +26,7 @@ export default function ({
 
   // Animation configuration
   const animationConfig = {
-    duration: 2000,
+    duration: 1000,
     easing: Easing.bounce,
   };
 
@@ -46,7 +46,7 @@ export default function ({
   return (
     <Animated.View
       style={[styles.container, { width: width }, animatedStyle]}
-      entering={BounceInRight.duration(2000)}
+      entering={BounceInRight.duration(1000)}
     >
       <View style={imageContainerStyle ?? styles.imageContainerStyle}>
         <ImageComponent />

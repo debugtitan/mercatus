@@ -103,6 +103,6 @@ const styles = StyleSheet.create({
     padding: 14,
     paddingHorizontal: 20,
     marginHorizontal: 20,
-    marginVertical: 120,
+    marginVertical: 140,
   },
 });
