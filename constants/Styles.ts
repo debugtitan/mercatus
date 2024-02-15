@@ -60,5 +60,12 @@ export const Styles = () => {
       padding: 14,
       paddingHorizontal: 20,
     },
+    textLabel: {
+      color: theme.PRIMARY2,
+      fontSize: 14,
+      fontWeight: '400',
+      marginBottom: 1,
+      //fontFamily: 'Inter',
+    },
   });
 };

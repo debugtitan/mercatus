@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   titleContainerStyles: {
-    width: 291,
-    height: 80,
+    width: 251,
+    height: 70,
   },
   titleStyles: {
     //fontFamily: 'Inter',

@@ -10,5 +10,5 @@ export {
   NetworkError,
   DeclineError,
   NotFound,
-  Login
+  Login,
 };

@@ -52,11 +52,9 @@ export default function ({ navigation }) {
 
   return (
     <PageLayout>
-      <View className="mt-5 flex-1">
-        <View className="mb-4">
-          <Text style={styles.textLabel} className="mb-1">
-            Email
-          </Text>
+      <View style={{ marginBottom: 5 }}>
+        <View style={{ marginBottom: 4 }}>
+          <Text style={styles.textLabel}>Email</Text>
           <TextInput
             placeholder="Enter Email"
             inputMode="email"
@@ -86,7 +84,7 @@ export default function ({ navigation }) {
         <Keyboard onKeyPress={handleKeyPress} onClear={clearInput} />
 
         {/*LOGIN BUTTON */}
-        <View className="mt-6">
+        <View style={{ marginBottom: 6 }}>
           <View>
             <TouchableOpacity
               style={styles.button}
@@ -100,8 +98,13 @@ export default function ({ navigation }) {
           </View>
 
           <View
-            style={{ width: 300, height: 20, alignItems: 'center', left: 0 }}
-            className="mt-3"
+            style={{
+              width: 300,
+              height: 20,
+              alignItems: 'center',
+              left: 0,
+              marginBottom: 3,
+            }}
           >
             <Text style={styles.paragraph}>
               Don't have an account?{' '}

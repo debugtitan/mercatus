@@ -50,7 +50,7 @@ export default function ({ navigation }) {
 
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.PRIMARY }]}
-        onPress={() => navigation.navigate(RoutePaths.NOT_FOUND_ERROR_PAGE)}
+        onPress={() => navigation.navigate(RoutePaths.LOGIN)}
       >
         <Text
           style={{

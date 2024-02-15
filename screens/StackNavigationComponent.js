@@ -6,7 +6,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { useTheme } from '../components';
 import { IMAGES, DARK, LIGHT, Styles } from '../constants';
-import { OnboardingScreen, NetworkError, DeclineError, NotFound } from '.';
+import {
+  OnboardingScreen,
+  NetworkError,
+  DeclineError,
+  NotFound,
+  Login,
+} from '.';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +45,7 @@ export const MercatusStackNavigator = () => {
         <Stack.Screen name="network-error" component={NetworkError} />
         <Stack.Screen name="not-found-error" component={NotFound} />
         <Stack.Screen name="decline-error" component={DeclineError} />
+        <Stack.Screen name="auth-login" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
   );

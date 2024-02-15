@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { View, FlatList, TouchableOpacity } from 'react-native';
+import Animated, { BounceInDown, FadeInRight } from 'react-native-reanimated';
 import Page from './Page';
 import { CustomPaginatorComponent } from './FooterComponent';
 export const Swipper = ({
@@ -52,16 +53,15 @@ export const Swipper = ({
       <FlatList
         ref={swipperRef}
         onScroll={handleIndexChange}
+        entering={FadeInRight}
         data={pageData}
         renderItem={({ item, index }) => (
           <Page
-            currentPage={index}
-            HeaderComponent={HeaderComponent}
+            currentPage={currentPageValue}
             pageData={item}
             titleStyles={titleStyles}
             subtitleStyles={subtitleStyles}
             imageContainerStyle={imageContainerStyle}
-            headerTitle={headerTitle}
             //totalPages={pageData.length}
           />
         )}

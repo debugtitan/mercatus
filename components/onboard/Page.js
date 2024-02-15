@@ -1,6 +1,14 @@
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Animated, {
+  withTiming,
+  useSharedValue,
+  useAnimatedStyle,
+  Easing,
+  BounceInRight,
+} from 'react-native-reanimated';
 export default function ({
+  currentPage,
   pageData,
   imageContainerStyle,
   titleStyles,
@@ -14,9 +22,32 @@ export default function ({
     }
     return null;
   }
+  const enteringAnimation = useSharedValue(0);
+
+  // Animation configuration
+  const animationConfig = {
+    duration: 2000,
+    easing: Easing.bounce,
+  };
+
+  useEffect(() => {
+    // Reset animation to 0 when currentPage changes
+    enteringAnimation.value = 0;
+    enteringAnimation.value = withTiming(1, animationConfig);
+  });
+
+  // Animated style for controlling opacity
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: enteringAnimation.value,
+    };
+  });
 
   return (
-    <View style={[styles.container, { width: width }]}>
+    <Animated.View
+      style={[styles.container, { width: width }, animatedStyle]}
+      entering={BounceInRight.duration(2000)}
+    >
       <View style={imageContainerStyle ?? styles.imageContainerStyle}>
         <ImageComponent />
       </View>
@@ -40,7 +71,7 @@ export default function ({
           </Text>
         </View>
       </View>
-    </View>
+    </Animated.View>
   );
 }
 
