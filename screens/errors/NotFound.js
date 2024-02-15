@@ -34,7 +34,7 @@ export default function ({ navigation }) {
       </View>
 
       <View style={{ paddingHorizontal: 16 }}>
-        <View style={styles.titleContainerStyles}>
+        <View style={[styles.titleContainerStyles, { height: 48 }]}>
           <Text style={[styles.titleStyles, { color: theme.PRIMARY2 }]}>
             Item not found
           </Text>
