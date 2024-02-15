@@ -26,7 +26,7 @@ export default function ({ navigation }) {
               : IMAGES.ERROR.LIGHT.DECLINED
           }
           style={{
-            width: 344,
+            //width: 344,
             height: 350,
             marginVertical: 45,
           }}
@@ -105,6 +105,6 @@ const styles = StyleSheet.create({
     padding: 14,
     paddingHorizontal: 20,
     marginHorizontal: 20,
-    marginVertical: 120,
+    marginVertical: 160,
   },
 });
