@@ -21,21 +21,16 @@ export default function CountryRadioPicker({ navigation }) {
 
   return (
     <PageLayout>
-      <View>
+      <View style={{ marginTop: 20, paddingHorizontal: 16 }}>
         {countries.map((item, index) => (
-          <View key={index} style={styles.countryContainer}>
+          <View key={index} style={{ marginBottom: 35 }}>
             <RadioButton
               selected={selectedCountry === index}
               onSelect={() => handleSelect(index, item)}
               radioBackground={theme.PRIMARY}
+              label={<Text style={styles.paragraph}>{item.label}</Text>}
+              image={<Image source={item.flag} style={styles.image} />}
             />
-            <View style={styles.countryInfo}>
-              <View style={{ width: 24 }}>
-                <Text style={styles.paragraph}>{item.label}</Text>
-              </View>
-
-              <Image source={item.flag} style={styles.image} />
-            </View>
           </View>
         ))}
       </View>

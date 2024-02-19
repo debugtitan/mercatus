@@ -91,7 +91,7 @@ export const Styles = () => {
     image: {
       width: 24,
       height: 24,
-      marginLeft: 145,
+      //resizeMode: 'contain',
     },
   });
 };
