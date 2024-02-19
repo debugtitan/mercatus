@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState, useEffect, useCallback } from 'react';
 import { Image, View, Text, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -16,6 +17,17 @@ import {
 
 const Stack = createNativeStackNavigator();
 
+const AuthHeaderLeft = ({ isDarkMode }) => {
+  const navigation = useNavigation();
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate('onboarding')}>
+      <Image
+        source={isDarkMode ? IMAGES.AUTH.DARK.CANCEL : IMAGES.AUTH.LIGHT.CANCEL}
+        style={{ width: 24, height: 24, marginRight: 15 }}
+      />
+    </TouchableOpacity>
+  );
+};
 export const MercatusStackNavigator = () => {
   //const navigation = useNavigation();
   const { isDarkMode } = useTheme();
@@ -23,7 +35,7 @@ export const MercatusStackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-      initialRouteName='auth-login'
+        initialRouteName="auth-login"
         screenOptions={{
           headerShown: false,
           headerStyle: {
@@ -46,7 +58,15 @@ export const MercatusStackNavigator = () => {
         <Stack.Screen name="network-error" component={NetworkError} />
         <Stack.Screen name="not-found-error" component={NotFound} />
         <Stack.Screen name="decline-error" component={DeclineError} />
-        <Stack.Screen name="auth-login" component={Login} />
+        <Stack.Screen
+          name="auth-login"
+          component={Login}
+          options={{
+            headerShown: true,
+            title: 'Log In',
+            headerLeft: () => <AuthHeaderLeft isDarkMode={isDarkMode} />,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

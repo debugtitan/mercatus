@@ -45,7 +45,7 @@ export default function ({
   return (
     <Animated.View
       style={[styles.container, { width: width }, animatedStyle]}
-      entering={BounceInRight.duration(5000)}
+      entering={BounceInRight.duration(2000)}
     >
       <View style={imageContainerStyle ?? styles.imageContainerStyle}>
         <ImageComponent />

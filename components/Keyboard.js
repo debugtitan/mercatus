@@ -13,7 +13,7 @@ export default function ({ onKeyPress, onClear }) {
   };
 
   return (
-    <View style={{ marginTop: 180, paddingHorizontal: 30 }}>
+    <View style={{ marginTop: 170, paddingHorizontal: 30 }}>
       <View style={styles.container}>
         <View>
           <TouchableOpacity onPress={() => handleKeyPress('1')}>

@@ -103,7 +103,7 @@ export default function ({ navigation }) {
               marginVertical: 10,
             }}
           >
-            <Text style={styles.paragraph}>
+            <Text style={(styles.paragraph, { color: theme.NEUTRAL })}>
               Don't have an account?{' '}
               <Text
                 onPress={() => navigation.navigate(RoutePaths.SIGNUP)}
