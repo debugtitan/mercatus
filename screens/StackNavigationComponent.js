@@ -13,6 +13,7 @@ import {
   DeclineError,
   NotFound,
   Login,
+  CountryRadioPicker,
 } from '.';
 
 const Stack = createNativeStackNavigator();
@@ -35,7 +36,6 @@ export const MercatusStackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="auth-login"
         screenOptions={{
           headerShown: false,
           headerStyle: {
@@ -65,6 +65,14 @@ export const MercatusStackNavigator = () => {
             headerShown: true,
             title: 'Log In',
             headerLeft: () => <AuthHeaderLeft isDarkMode={isDarkMode} />,
+          }}
+        />
+        <Stack.Screen
+          name="select-country"
+          component={CountryRadioPicker}
+          options={{
+            headerShown: true,
+            title: 'Select country',
           }}
         />
       </Stack.Navigator>

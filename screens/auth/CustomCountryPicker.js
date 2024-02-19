@@ -17,7 +17,7 @@ export default function CountryRadioPicker({ navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
 
-  const styles = STYLES();
+  const styles = Styles();
 
   return (
     <PageLayout>
@@ -30,8 +30,8 @@ export default function CountryRadioPicker({ navigation }) {
               radioBackground={theme.PRIMARY}
             />
             <View style={styles.countryInfo}>
-              <View className=" w-24">
-                <Text style={styles.label(theme.PRIMARY2)}>{item.label}</Text>
+              <View style={{ width: 24 }}>
+                <Text style={styles.paragraph}>{item.label}</Text>
               </View>
 
               <Image source={item.flag} style={styles.image} />
@@ -41,22 +41,17 @@ export default function CountryRadioPicker({ navigation }) {
       </View>
 
       {/*BUTTON */}
-      <View className="mt-10">
-        <View className="my-5">
-          <TouchableOpacity
-            style={styles.button}
-            className=""
-            onPress={() =>
-              navigation.navigate(RoutePaths.SIGNUP, {
-                countryCode: countryCode,
-              })
-            }
-          >
-            <Text style={(styles.paragraph, { color: theme.SHADES })}>
-              Next
-            </Text>
-          </TouchableOpacity>
-        </View>
+      <View style={{ marginHorizontal: 15 }}>
+        <TouchableOpacity
+          style={[styles.button, { backgroundColor: theme.PRIMARY }]}
+          onPress={() =>
+            navigation.navigate(RoutePaths.SIGNUP, {
+              countryCode: countryCode,
+            })
+          }
+        >
+          <Text style={styles.buttonText}>Next</Text>
+        </TouchableOpacity>
       </View>
     </PageLayout>
   );

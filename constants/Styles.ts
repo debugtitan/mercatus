@@ -88,5 +88,10 @@ export const Styles = () => {
       paddingRight: 12,
       color: theme.TABS_INACTIVE,
     },
+    image: {
+      width: 24,
+      height: 24,
+      marginLeft: 145,
+    },
   });
 };

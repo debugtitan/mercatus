@@ -89,7 +89,7 @@ export default function ({ navigation }) {
         <View style={{ marginTop: 28 }}>
           <TouchableOpacity
             style={[styles.button, { backgroundColor: theme.PRIMARY }]}
-            //onPress={handleNextView}
+            onPress={() => navigation.navigate(RoutePaths.COUNTRY_PICKER)}
           >
             <Text style={styles.buttonText}>Log In</Text>
           </TouchableOpacity>
