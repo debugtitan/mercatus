@@ -40,7 +40,7 @@ export default function CountryRadioPicker({ navigation }) {
       </View>
 
       {/*BUTTON */}
-      <View style={{ marginTop: 5 }}>
+      <View style={{ marginTop: 35, paddingHorizontal: 18 }}>
         <TouchableOpacity
           style={[styles.button, { backgroundColor: theme.PRIMARY }]}
           onPress={() =>

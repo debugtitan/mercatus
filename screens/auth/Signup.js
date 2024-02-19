@@ -5,16 +5,13 @@ import {
   TouchableOpacity,
   Platform,
   Image,
-} from "react-native";
-import React, { useState } from "react";
-import PageLayout from "../../PageLayout";
-import { useTheme } from "../../components/ThemeProvider";
-import { DARK, LIGHT, STYLES, RoutePaths, IMAGES } from "../../constants";
-import DateTimePicker from "@react-native-community/datetimepicker";
-import CountryPicker from "react-native-country-picker-modal";
-import CheckBox from "../../components/CheckBox";
-import Dropdown from "../../components/DropDown";
-import CustomTextInput from "../../components/CustomTextInput";
+} from 'react-native';
+import React, { useState } from 'react';
+import PageLayout from '../../AppLayout';
+import { useTheme, CheckBox, Dropdown } from '../../components';
+import { DARK, LIGHT, STYLES, RoutePaths, IMAGES } from '../../constants';
+import DateTimePicker from '@react-native-community/datetimepicker';
+//import CountryPicker from "react-native-country-picker-modal";
 
 export default function ({ route, navigation }) {
   const { isDarkMode } = useTheme();
@@ -31,13 +28,13 @@ export default function ({ route, navigation }) {
 
   const [country, setCountry] = useState();
   const [countryCode, setCountryCode] = useState(
-    route.params?.countryCode || "NG"
+    route.params?.countryCode || 'NG'
   );
 
   const [terms, setTerms] = useState(false);
-  const options = ["Male", "Female"];
+  const options = ['Male', 'Female'];
   const [selectedValue, setSelectedValue] = useState();
-  const onSelect = (country) => {
+  const onSelect = country => {
     setCountryCode(country.cca2);
     setCountry(country);
   };
@@ -48,10 +45,10 @@ export default function ({ route, navigation }) {
 
   const onChange = ({ type }, selectedDate) => {
     const currentDate = selectedDate;
-    if (type == "set") {
+    if (type == 'set') {
       setDate(currentDate);
 
-      if (Platform.OS === "android") {
+      if (Platform.OS === 'android') {
         toggleDatePicker();
         setDob(currentDate.toDateString());
       }
@@ -60,24 +57,24 @@ export default function ({ route, navigation }) {
   };
 
   const toggleDatePicker = () => {
-    setOpen((prev) => !prev);
+    setOpen(prev => !prev);
   };
 
   const goToNextRoute = () => {
-    if(!terms){
-      return alert('accept privacy policy')
+    if (!terms) {
+      return alert('accept privacy policy');
     }
-    if(!email){
-      return alert('enter your email')
+    if (!email) {
+      return alert('enter your email');
     }
-    if(!name){
-      return alert('enter your name')
+    if (!name) {
+      return alert('enter your name');
     }
-    if(!dob){
-      return alert('set date of birth')
+    if (!dob) {
+      return alert('set date of birth');
     }
-    console.log(name,email,dob,country,gender)
-    navigation.navigate(RoutePaths.SET_PASWORD)
+    console.log(name, email, dob, country, gender);
+    navigation.navigate(RoutePaths.SET_PASWORD);
   };
 
   return (
@@ -94,7 +91,7 @@ export default function ({ route, navigation }) {
             textStyle={styles.textInput}
             cursorColor={theme.TABS_INACTIVE}
             placeholderTextColor={theme.TABS_INACTIVE}
-            onChangeText={(e) => setName(e)}
+            onChangeText={e => setName(e)}
           />
         </View>
 
@@ -111,7 +108,7 @@ export default function ({ route, navigation }) {
             textStyle={styles.textInput}
             cursorColor={theme.TABS_INACTIVE}
             placeholderTextColor={theme.TABS_INACTIVE}
-            onChangeText={(e) => setEmail(e)}
+            onChangeText={e => setEmail(e)}
           />
         </View>
 
@@ -188,10 +185,10 @@ export default function ({ route, navigation }) {
           />
           <View style={{ width: 290 }} className="ml-4">
             <Text style={styles.paragraph}>
-              {" "}
+              {' '}
               I agree to Mercatus <Text style={styles.terms}>
                 Terms of Use
-              </Text>{" "}
+              </Text>{' '}
               and <Text style={styles.terms}>Privacy Policy</Text>.
             </Text>
           </View>
