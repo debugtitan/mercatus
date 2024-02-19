@@ -1,24 +1,23 @@
-import { View, Text, StyleSheet, Image,TouchableOpacity } from "react-native";
-import React, { useState } from "react";
-import PageLayout from "../../PageLayout";
-import RadioButton from "../../components/RadioButton";
-import { useTheme } from "../../components/ThemeProvider";
-import { DARK, LIGHT, countries,RoutePaths,STYLES } from "../../constants";
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { PageLayout } from '../../AppLayout';
+import { RadioButton, useTheme } from '../../components';
+import { DARK, LIGHT, countries, RoutePaths, Styles } from '../../constants';
 
-export default function CountryRadioPicker({navigation}) {
+export default function CountryRadioPicker({ navigation }) {
   const [selectedCountry, setSelectedCountry] = useState(0);
-  const [countryCode, setCountryCode] = useState("NG");
+  const [countryCode, setCountryCode] = useState('NG');
 
-  const handleSelect = (index,item) => {
+  const handleSelect = (index, item) => {
     //console.log(index,item.code)
     setSelectedCountry(index);
-    setCountryCode(item.code)
+    setCountryCode(item.code);
   };
 
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
 
-  const styles = STYLES()
+  const styles = STYLES();
 
   return (
     <PageLayout>
@@ -27,7 +26,7 @@ export default function CountryRadioPicker({navigation}) {
           <View key={index} style={styles.countryContainer}>
             <RadioButton
               selected={selectedCountry === index}
-              onSelect={() => handleSelect(index,item)}
+              onSelect={() => handleSelect(index, item)}
               radioBackground={theme.PRIMARY}
             />
             <View style={styles.countryInfo}>
@@ -47,9 +46,11 @@ export default function CountryRadioPicker({navigation}) {
           <TouchableOpacity
             style={styles.button}
             className=""
-            onPress={() => navigation.navigate(RoutePaths.SIGNUP,{
-              countryCode: countryCode
-            })}
+            onPress={() =>
+              navigation.navigate(RoutePaths.SIGNUP, {
+                countryCode: countryCode,
+              })
+            }
           >
             <Text style={(styles.paragraph, { color: theme.SHADES })}>
               Next
@@ -60,4 +61,3 @@ export default function CountryRadioPicker({navigation}) {
     </PageLayout>
   );
 }
-
