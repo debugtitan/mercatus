@@ -8,37 +8,25 @@ export default function RadioButton({
   radioBackground = '#006042',
   size = 24,
   label,
-  image,
 }) {
   return (
     <Reanimated.View entering={BounceIn}>
-      <View style={styles.container}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', width: 104 }}>
         <Pressable
-          style={styles.radioButtonContainer}
+          style={styles.radioButton(size, radioBackground)}
           onPress={() => onSelect()}
         >
-          <View style={styles.radioButton(size, radioBackground)}>
-            {selected && (
-              <View style={styles.selected(size * 0.5, radioBackground)} />
-            )}
-          </View>
+          {selected && (
+            <View style={styles.selected(size * 0.5, radioBackground)} />
+          )}
         </Pressable>
-        <Text style={styles.label}>{label}</Text>
-      
+        <Text style={{ marginLeft: 18 }}>{label}</Text>
       </View>
     </Reanimated.View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: 8,
-  },
-  radioButtonContainer: {
-    marginRight: 8,
-  },
   radioButton: (size, radioBackground) => ({
     width: size || 24,
     height: size || 24,

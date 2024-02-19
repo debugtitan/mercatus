@@ -23,20 +23,24 @@ export default function CountryRadioPicker({ navigation }) {
     <PageLayout>
       <View style={{ marginTop: 20, paddingHorizontal: 16 }}>
         {countries.map((item, index) => (
-          <View key={index} style={{ marginBottom: 35 }}>
-            <RadioButton
-              selected={selectedCountry === index}
-              onSelect={() => handleSelect(index, item)}
-              radioBackground={theme.PRIMARY}
-              label={<Text style={styles.paragraph}>{item.label}</Text>}
-              image={<Image source={item.flag} style={styles.image} />}
-            />
+          <View key={index} style={{ marginBottom: 40 }}>
+            <View style={{ flexDirection: 'row' }}>
+              <RadioButton
+                selected={selectedCountry === index}
+                onSelect={() => handleSelect(index, item)}
+                radioBackground={theme.PRIMARY}
+                label={<Text style={styles.paragraph}>{item.label}</Text>}
+              />
+              <View style={{ marginLeft: 200 }}>
+                <Image source={item.flag} style={styles.image} />
+              </View>
+            </View>
           </View>
         ))}
       </View>
 
       {/*BUTTON */}
-      <View style={{ marginHorizontal: 15 }}>
+      <View style={{ marginTop: 5 }}>
         <TouchableOpacity
           style={[styles.button, { backgroundColor: theme.PRIMARY }]}
           onPress={() =>
