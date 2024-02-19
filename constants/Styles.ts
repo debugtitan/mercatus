@@ -60,12 +60,33 @@ export const Styles = () => {
       padding: 14,
       paddingHorizontal: 20,
     },
+    buttonText: {
+      lineHeight: 22,
+      fontSize: 18,
+      fontWeight: '600',
+      color: theme.BACKGROUND,
+    },
     textLabel: {
       color: theme.PRIMARY2,
       fontSize: 14,
       fontWeight: '400',
       marginBottom: 1,
       //fontFamily: 'Inter',
+    },
+
+    formContainer: {
+      borderWidth: 2,
+      borderColor: theme.PRIMARY,
+      borderRadius: 4,
+      height: 44,
+      flexDirection: 'row',
+      backgroundColor: isDarkMode ? '#F9FAF9' : '#FFFFFF',
+    },
+    textInput: {
+      paddingVertical: 7,
+      paddingLeft: 10,
+      paddingRight: 12,
+      color: theme.TABS_INACTIVE,
     },
   });
 };

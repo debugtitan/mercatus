@@ -23,6 +23,7 @@ export const MercatusStackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
+      initialRouteName='auth-login'
         screenOptions={{
           headerShown: false,
           headerStyle: {

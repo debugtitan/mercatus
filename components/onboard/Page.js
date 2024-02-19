@@ -8,7 +8,6 @@ import Animated, {
   BounceInRight,
 } from 'react-native-reanimated';
 export default function ({
-  currentPage,
   pageData,
   imageContainerStyle,
   titleStyles,
@@ -26,7 +25,7 @@ export default function ({
 
   // Animation configuration
   const animationConfig = {
-    duration: 1000,
+    duration: 3000,
     easing: Easing.bounce,
   };
 
@@ -46,7 +45,7 @@ export default function ({
   return (
     <Animated.View
       style={[styles.container, { width: width }, animatedStyle]}
-      entering={BounceInRight.duration(1000)}
+      entering={BounceInRight.duration(5000)}
     >
       <View style={imageContainerStyle ?? styles.imageContainerStyle}>
         <ImageComponent />

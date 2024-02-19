@@ -91,12 +91,7 @@ export const STYLES = () => {
       backgroundColor: isDarkMode ? "#F9FAF9" : "#FFFFFF",
       height:44
     },
-    textInput: {
-      paddingVertical: 7,
-      paddingLeft: 10,
-      paddingRight: 12,
-      color: theme.TABS_INACTIVE
-    },
+    
     resetAccount: {
       fontSize: 16,
       lineHeight: 19,

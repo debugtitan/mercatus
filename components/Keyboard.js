@@ -6,7 +6,6 @@ import { DARK, IMAGES, LIGHT } from '../constants';
 
 export default function ({ onKeyPress, onClear }) {
   const { isDarkMode } = useTheme();
-  const theme = isDarkMode ? DARK : LIGHT;
   const styles = STYLES();
 
   const handleKeyPress = key => {
@@ -14,7 +13,7 @@ export default function ({ onKeyPress, onClear }) {
   };
 
   return (
-    <View className="mt-20">
+    <View style={{ marginTop: 180, paddingHorizontal: 30 }}>
       <View style={styles.container}>
         <View>
           <TouchableOpacity onPress={() => handleKeyPress('1')}>
@@ -74,7 +73,7 @@ export default function ({ onKeyPress, onClear }) {
 
       {/*  FINGERPRINT SECTION */}
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity style={{ marginLeft: 10 }}>
           <Image
             source={
               isDarkMode
@@ -89,7 +88,7 @@ export default function ({ onKeyPress, onClear }) {
           <Text style={styles.buttonLabel}>0</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => onClear()}>
+        <TouchableOpacity onPress={() => onClear()} style={{ marginRight: 10 }}>
           <Image
             source={
               isDarkMode
@@ -110,24 +109,23 @@ const STYLES = () => {
   return StyleSheet.create({
     container: {
       flexDirection: 'row',
-      justifyContent: 'space-evenly',
+      justifyContent: 'space-between',
       alignItems: 'center',
     },
 
     buttonLabel: {
       fontWeight: '500',
       fontSize: 20,
-      fontFamily: 'Inter',
+      //fontFamily: 'Inter',
       lineHeight: 24,
       alignSelf: 'center',
       color: theme.PRIMARY2,
-      borderBottomWidth: 0.5,
+      borderBottomWidth: 0.3,
       borderColor: '#C5CECC',
-      padding: 30,
+      padding: 18,
       textAlign: 'center',
       justifyContent: 'center',
-      paddingTop: 29,
-      paddingBottom: 29,
+      marginTop: 15,
     },
   });
 };

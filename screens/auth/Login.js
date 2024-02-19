@@ -8,7 +8,6 @@ import { DARK, LIGHT, Styles, RoutePaths } from '../../constants';
 export default function ({ navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
-  const styles = Styles();
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState(null);
   const [showPassword, setShowPassword] = useState(true);
@@ -49,21 +48,24 @@ export default function ({ navigation }) {
     }
     navigation.navigate(RoutePaths.HOME_PAGE);
   };
+  const styles = Styles();
 
   return (
     <PageLayout>
-      <View style={{ marginBottom: 5, paddingHorizontal: 14 }}>
-        <View style={{ marginBottom: 4 }}>
+      <View style={{ marginBottom: 5, paddingHorizontal: 14, marginTop: 20 }}>
+        <View style={{ marginBottom: 18 }}>
           <Text style={styles.textLabel}>Email</Text>
-          <TextInput
-            placeholder="Enter Email"
-            inputMode="email"
-            keyboardType="email-address"
-            textStyle={styles.textInput}
-            cursorColor={theme.TABS_INACTIVE}
-            placeholderTextColor={theme.TABS_INACTIVE}
-            onChangeText={onHandleEmail}
-          />
+          <View style={styles.formContainer}>
+            <TextInput
+              placeholder="Enter Email"
+              inputMode="email"
+              keyboardType="email-address"
+              cursorColor={theme.TABS_INACTIVE}
+              placeholderTextColor={theme.TABS_INACTIVE}
+              onChangeText={onHandleEmail}
+              style={styles.textInput}
+            />
+          </View>
         </View>
 
         {/*Password*/}
@@ -84,18 +86,13 @@ export default function ({ navigation }) {
         <Keyboard onKeyPress={handleKeyPress} onClear={clearInput} />
 
         {/*LOGIN BUTTON */}
-        <View style={{ marginBottom: 6 }}>
-          <View>
-            <TouchableOpacity
-              style={styles.button}
-              className=""
-              onPress={handleNextView}
-            >
-              <Text style={(styles.paragraph, { color: theme.SHADES })}>
-                Log In
-              </Text>
-            </TouchableOpacity>
-          </View>
+        <View style={{ marginTop: 28 }}>
+          <TouchableOpacity
+            style={[styles.button, { backgroundColor: theme.PRIMARY }]}
+            //onPress={handleNextView}
+          >
+            <Text style={styles.buttonText}>Log In</Text>
+          </TouchableOpacity>
 
           <View
             style={{
@@ -103,7 +100,7 @@ export default function ({ navigation }) {
               height: 20,
               alignItems: 'center',
               left: 0,
-              marginBottom: 3,
+              marginVertical: 10,
             }}
           >
             <Text style={styles.paragraph}>
