@@ -6,8 +6,8 @@ import { RoutePaths } from './Routes';
 import { countries } from './Countries';
 
 const genderOptions = [
-  { label: 'Male', value: 'M' },
-  { label: 'Female', value: 'F' },
+  { label: 'Male', value: 'MALE' },
+  { label: 'Female', value: 'FEMALE' },
 ];
 export {
   LayoutProps,

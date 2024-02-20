@@ -42,7 +42,7 @@ export const Dropdown = ({
   const [height, setHeight] = React.useState(200);
   const animatedvalue = React.useRef(new Animated.Value(0)).current;
   const [filtereddata, setFilteredData] = React.useState(data);
-  const styles2 = Styles()
+  const styles2 = Styles();
 
   const slidedown = () => {
     setDropdown(true);
@@ -222,6 +222,22 @@ export const Dropdown = ({
 };
 
 const styles = StyleSheet.create({
+  wrapper: {
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: 'gray',
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  dropdown: {
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: 'gray',
+    marginTop: 10,
+    overflow: 'hidden',
+  },
   option: { paddingHorizontal: 20, paddingVertical: 8, overflow: 'hidden' },
   disabledoption: {
     paddingHorizontal: 20,
