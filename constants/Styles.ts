@@ -93,5 +93,26 @@ export const Styles = () => {
       height: 24,
       //resizeMode: 'contain',
     },
+    dropDown: {
+      borderWidth: 2,
+      borderColor: theme.PRIMARY,
+      borderRadius: 10,
+      marginTop: 10,
+      overflow: 'hidden',
+      //height: 44,
+      backgroundColor: isDarkMode ? '#F9FAF9' : '#FFFFFF',
+    },
+    dropDownWrapper: {
+      borderWidth: 2,
+      borderRadius: 4,
+      borderColor: theme.PRIMARY,
+      paddingHorizontal: 20,
+      paddingVertical: 12,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    placeholderStyles: {
+      color: theme.TABS_INACTIVE,
+    },
   });
 };

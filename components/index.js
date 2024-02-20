@@ -3,6 +3,7 @@ import OnboardSwipper from './onboard';
 import Password from './Password';
 import Keyboard from './Keyboard';
 import RadioButton from './RadioButton';
+import { Dropdown } from './DropDown';
 export {
   useTheme,
   ThemeProvider,
@@ -10,4 +11,5 @@ export {
   Keyboard,
   Password,
   RadioButton,
+  Dropdown,
 };

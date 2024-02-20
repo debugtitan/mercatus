@@ -2,9 +2,8 @@
 import { View, Text, TextInput } from 'react-native';
 import React, { useState } from 'react';
 import { PageLayout } from '../../AppLayout';
-import { useTheme } from '../../components';
-import { DARK, LIGHT, Styles } from '../../constants';
-import { Dropdown } from 'react-native-element-dropdown';
+import { useTheme, Dropdown } from '../../components';
+import { DARK, LIGHT, Styles, genderOptions } from '../../constants';
 //import DateTimePicker from '@react-native-community/datetimepicker';
 //import CountryPicker from "react-native-country-picker-modal";
 
@@ -52,12 +51,11 @@ export default function Signup() {
         <View style={{ marginBottom: 18 }}>
           <Text style={styles.textLabel}>Gender</Text>
           <Dropdown
-            data={[
-              { label: 'Male', value: 'M' },
-              { label: 'Female', value: 'F' },
-            ]}
+            data={genderOptions}
             placeholder="Select Gender"
+            valueField="value"
             value={gender}
+            style={styles.dropDown}
             onChange={item => {
               setGender(item.value);
             }}
