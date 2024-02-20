@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 import { CheckIcon } from 'react-native-heroicons/outline';
-import Icon from 'react-native-vector-icons/'
+import Icon from 'react-native-vector-icons/';
 
 export default function Checkbox({
   checked = false,
@@ -14,7 +14,7 @@ export default function Checkbox({
     if (checkedImage) {
       return checkedImage;
     }
-    return <Icon color={boxOutlineColor} size={size} name=''/>;
+    return <CheckIcon color={boxOutlineColor} size={size} name="" />;
   };
   return (
     <Pressable

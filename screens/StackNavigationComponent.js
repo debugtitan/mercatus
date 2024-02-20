@@ -1,12 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useState, useEffect, useCallback } from 'react';
-import { Image, View, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { Image, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { useTheme } from '../components';
-import { IMAGES, DARK, LIGHT, Styles } from '../constants';
+import { IMAGES, DARK, LIGHT } from '../constants';
 import {
   OnboardingScreen,
   NetworkError,
@@ -14,6 +14,7 @@ import {
   NotFound,
   Login,
   CountryRadioPicker,
+  Signup,
 } from '.';
 
 const Stack = createNativeStackNavigator();
@@ -73,6 +74,15 @@ export const MercatusStackNavigator = () => {
           options={{
             headerShown: true,
             title: 'Select country',
+          }}
+        />
+
+        <Stack.Screen
+          name="auth-signup"
+          component={Signup}
+          options={{
+            headerShown: true,
+            title: 'Account details',
           }}
         />
       </Stack.Navigator>

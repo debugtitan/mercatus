@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { PageLayout } from '../../AppLayout';

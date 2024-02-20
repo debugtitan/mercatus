@@ -5,6 +5,7 @@ import DeclineError from './errors/DeclineError';
 import NotFound from './errors/NotFound';
 import Login from './auth/Login';
 import CountryRadioPicker from './auth/CustomCountryPicker';
+import Signup from './auth/Signup';
 export {
   SplashScreenComponent,
   OnboardingScreen,
@@ -13,4 +14,5 @@ export {
   NotFound,
   Login,
   CountryRadioPicker,
+  Signup,
 };
