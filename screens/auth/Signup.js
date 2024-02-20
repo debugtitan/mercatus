@@ -1,10 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { PageLayout } from '../../AppLayout';
 import { useTheme, Dropdown } from '../../components';
 import { DARK, LIGHT, Styles, genderOptions } from '../../constants';
-import DateTimePicker from 'react-native-ui-datepicker';
+import DatePicker from 'react-native-date-picker';
 //import CountryPicker from "react-native-country-picker-modal";
 
 export default function Signup() {
@@ -15,6 +15,11 @@ export default function Signup() {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [gender, setGender] = useState(null);
+  const [dob, setDob] = useState(null);
+
+  //Date of birth
+  const [date, setDate] = useState(new Date());
+  const [open, setOpen] = useState(false);
 
   return (
     <PageLayout>
@@ -49,8 +54,25 @@ export default function Signup() {
         </View>
 
         {/* Date Of Birth */}
+
+        <DatePicker
+          value={date}
+          date={date}
+          maximumDate={new Date(2006, 12, 31)}
+        />
+
         <View style={{ marginBottom: 18 }}>
           <Text style={styles.textLabel}>Date of birth</Text>
+          <TouchableOpacity style={styles.formContainer}>
+            <TextInput
+              placeholder="DD/MM/YY"
+              editable={false}
+              style={styles.textInput}
+              value={dob}
+              cursorColor={theme.TABS_INACTIVE}
+              placeholderTextColor={theme.TABS_INACTIVE}
+            />
+          </TouchableOpacity>
         </View>
 
         {/* GENDER */}
