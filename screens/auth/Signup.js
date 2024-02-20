@@ -5,7 +5,6 @@ import { PageLayout } from '../../AppLayout';
 import { useTheme, Dropdown } from '../../components';
 import { DARK, LIGHT, Styles, genderOptions } from '../../constants';
 import DateTimePicker from 'react-native-ui-datepicker';
-import dayjs from 'dayjs';
 //import CountryPicker from "react-native-country-picker-modal";
 
 export default function Signup() {
@@ -16,7 +15,6 @@ export default function Signup() {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [gender, setGender] = useState(null);
-  const [date, setDate] = useState(dayjs());
 
   return (
     <PageLayout>
@@ -53,11 +51,6 @@ export default function Signup() {
         {/* Date Of Birth */}
         <View style={{ marginBottom: 18 }}>
           <Text style={styles.textLabel}>Date of birth</Text>
-          <DateTimePicker
-        mode="single"
-        date={date}
-        onChange={(params) => setDate(params.date)}
-      />
         </View>
 
         {/* GENDER */}
