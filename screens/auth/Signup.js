@@ -5,11 +5,19 @@ import {
   TextInput,
   TouchableOpacity,
   Platform,
+  Image,
 } from 'react-native';
 import React, { useState } from 'react';
 import { PageLayout } from '../../AppLayout';
-import { useTheme, Dropdown } from '../../components';
-import { DARK, LIGHT, Styles, genderOptions } from '../../constants';
+import { useTheme, Dropdown, Checkbox } from '../../components';
+import {
+  DARK,
+  LIGHT,
+  Styles,
+  genderOptions,
+  IMAGES,
+  RoutePaths,
+} from '../../constants';
 import DateTimePicker from '@react-native-community/datetimepicker';
 //import CountryPicker from "react-native-country-picker-modal";
 
@@ -22,6 +30,7 @@ export default function Signup() {
   const [email, setEmail] = useState(null);
   const [gender, setGender] = useState(null);
   const [dob, setDob] = useState(null);
+  const [terms, setTerms] = useState(false);
 
   //Date of birth
   const [date, setDate] = useState(new Date());
@@ -130,6 +139,35 @@ export default function Signup() {
             //onSelect={selectedGender}
             setSelected={userGender => setGender(userGender)}
           />
+        </View>
+
+        {/* TERMS AND POLICY */}
+        <View style={{ marginTop: 220, flexDirection: 'row' }}>
+          <Checkbox
+            checked={terms}
+            checkedImage={
+              <Image source={IMAGES.CHECKBOX} tintColor={theme.PRIMARY} />
+            }
+            onSelect={() => setTerms(!terms)}
+          />
+          <View style={{ width: 290, marginLeft: 12 }}>
+            <Text style={styles.paragraph}>
+              {' '}
+              I agree to Mercatus <Text style={styles.terms}>
+                Terms of Use
+              </Text>{' '}
+              and <Text style={styles.terms}>Privacy Policy</Text>.
+            </Text>
+          </View>
+        </View>
+
+        {/*BUTTON */}
+        <View style={{ marginTop: 45, paddingHorizontal: 8 }}>
+          <TouchableOpacity
+            style={[styles.button, { backgroundColor: theme.PRIMARY }]}
+          >
+            <Text style={styles.buttonText}>Next</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </PageLayout>

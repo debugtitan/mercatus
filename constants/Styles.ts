@@ -94,12 +94,12 @@ export const Styles = () => {
       //resizeMode: 'contain',
     },
     dropDown: {
-      borderWidth: 1,
-      borderColor: 'gray',
+      //borderWidth: 2,
+      //borderColor: 'gray',
       borderRadius: 10,
-      marginTop: 10,
+      marginTop: 3,
       overflow: 'hidden',
-      backgroundColor: isDarkMode ? '#F9FAF9' : '#FFFFFF',
+      //backgroundColor: isDarkMode ? '#F9FAF9' : '#FFFFFF',
     },
     dropDownWrapper: {
       borderWidth: 2,
@@ -116,6 +116,14 @@ export const Styles = () => {
     },
     placeholderStyles: {
       color: theme.TABS_INACTIVE,
+    },
+    terms: {
+      fontSize: 14,
+      lineHeight: 17,
+      //fontFamily: 'Inter',
+      fontWeight: 'bold',
+      color: theme.PRIMARY,
+      textDecorationLine: 'underline',
     },
   });
 };
