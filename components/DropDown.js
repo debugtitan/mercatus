@@ -14,19 +14,12 @@ import { Styles } from '../constants';
 export const Dropdown = ({
   setSelected,
   placeholder,
-  boxStyles,
-  inputStyles,
-  dropdownStyles,
   dropdownItemStyles,
   dropdownTextStyles,
   maxHeight,
   data,
   defaultOption,
-  searchicon = false,
   arrowicon = false,
-  closeicon = false,
-  search = true,
-  searchPlaceholder = 'search',
   notFoundText = 'No data found',
   disabledItemStyles,
   disabledTextStyles,
@@ -110,7 +103,7 @@ export const Dropdown = ({
   return (
     <View>
       <TouchableOpacity
-        style={[styles2.dropDownWrapper, boxStyles]}
+        style={[styles2.dropDownWrapper]}
         onPress={() => {
           if (!dropdown) {
             Keyboard.dismiss();
@@ -120,7 +113,7 @@ export const Dropdown = ({
           }
         }}
       >
-        <Text style={[{ fontFamily }, inputStyles]}>
+        <Text style={[{ fontFamily }, styles2.dropText]}>
           {selectedval === ''
             ? placeholder
               ? placeholder
@@ -143,7 +136,6 @@ export const Dropdown = ({
           style={[
             { maxHeight: animatedvalue },
             styles2.dropDown,
-            dropdownStyles,
           ]}
         >
           <ScrollView

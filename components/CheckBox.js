@@ -1,8 +1,6 @@
 import React from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 import { CheckIcon } from 'react-native-heroicons/outline';
-import Icon from 'react-native-vector-icons/';
-
 export default function Checkbox({
   checked = false,
   onSelect = () => null,
