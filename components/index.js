@@ -5,6 +5,7 @@ import Keyboard from './Keyboard';
 import RadioButton from './RadioButton';
 import { Dropdown } from './DropDown';
 import Checkbox from './CheckBox';
+import CustomModal from './CustomModal';
 export {
   useTheme,
   ThemeProvider,
@@ -13,5 +14,6 @@ export {
   Password,
   RadioButton,
   Dropdown,
-  Checkbox
+  Checkbox,
+  CustomModal,
 };

@@ -19,9 +19,9 @@ import {
   RoutePaths,
 } from '../../constants';
 import DateTimePicker from '@react-native-community/datetimepicker';
-//import CountryPicker from "react-native-country-picker-modal";
+import CountryPicker, { DARK_THEME } from 'react-native-country-picker-modal';
 
-export default function Signup() {
+export default function Signup({ route, navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   const styles = Styles();
@@ -31,6 +31,13 @@ export default function Signup() {
   const [gender, setGender] = useState(null);
   const [dob, setDob] = useState(null);
   const [terms, setTerms] = useState(false);
+  const [country, setCountry] = useState();
+  const [countryCode, setCountryCode] = useState('NG');
+
+  const onSelect = country => {
+    setCountryCode(country.cca2);
+    setCountry(country);
+  };
 
   //Date of birth
   const [date, setDate] = useState(new Date());
@@ -141,8 +148,22 @@ export default function Signup() {
           />
         </View>
 
+        {/* Country Picker */}
+        <View style={{ marginBottom: 18 }}>
+          <Text style={styles.textLabel}>Country</Text>
+          <View style={styles.formContainer}>
+            <View style={{ padding: 8 }}>
+              <CountryPicker
+                countryCode={countryCode}
+                withCountryNameButton={true}
+                withCloseButton={false}
+                onSelect={onSelect}
+              />
+            </View>
+          </View>
+        </View>
         {/* TERMS AND POLICY */}
-        <View style={{ marginTop: 220, flexDirection: 'row' }}>
+        <View style={{ marginTop: 150, flexDirection: 'row' }}>
           <Checkbox
             checked={terms}
             checkedImage={
@@ -162,7 +183,7 @@ export default function Signup() {
         </View>
 
         {/*BUTTON */}
-        <View style={{ marginTop: 45, paddingHorizontal: 8 }}>
+        <View style={{ marginTop: 35, paddingHorizontal: 8 }}>
           <TouchableOpacity
             style={[styles.button, { backgroundColor: theme.PRIMARY }]}
           >

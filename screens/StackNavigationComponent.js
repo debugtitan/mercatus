@@ -37,7 +37,6 @@ export const MercatusStackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-      initialRouteName='auth-signup'
         screenOptions={{
           headerShown: false,
           headerStyle: {
