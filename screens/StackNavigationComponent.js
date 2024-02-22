@@ -15,6 +15,7 @@ import {
   Login,
   CountryRadioPicker,
   Signup,
+  SetPassword,
 } from '.';
 
 const Stack = createNativeStackNavigator();
@@ -83,6 +84,15 @@ export const MercatusStackNavigator = () => {
           options={{
             headerShown: true,
             title: 'Account details',
+          }}
+        />
+
+        <Stack.Screen
+          name="auth-setup-password"
+          component={SetPassword}
+          options={{
+            headerShown: true,
+            title: 'Set password',
           }}
         />
       </Stack.Navigator>

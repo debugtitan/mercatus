@@ -90,7 +90,7 @@ export default function OnboardingScreen({ navigation }) {
       <Text style={[Styles().regularParagraph, { textAlign: 'center' }]}>
         Already have an account?{' '}
         <Text
-          onPress={() => navigation.navigate(RoutePaths.NOT_FOUND_ERROR_PAGE)}
+          onPress={() => navigation.navigate(RoutePaths.LOGIN)}
           style={[
             Styles().paragraph,
             { color: theme.PRIMARY, textAlign: 'center' },

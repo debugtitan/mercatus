@@ -7,5 +7,5 @@ export const RoutePaths = Object.freeze({
   COUNTRY_PICKER: 'select-country',
   LOGIN: 'auth-login',
   SIGNUP: 'auth-signup',
-  SET_PASWORD: 'set-password',
+  SET_PASWORD: 'auth-setup-password',
 });

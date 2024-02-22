@@ -185,6 +185,7 @@ export default function Signup({ route, navigation }) {
         {/*BUTTON */}
         <View style={{ marginTop: 35, paddingHorizontal: 8 }}>
           <TouchableOpacity
+            onPress={() => navigation.navigate(RoutePaths.SET_PASWORD)}
             style={[styles.button, { backgroundColor: theme.PRIMARY }]}
           >
             <Text style={styles.buttonText}>Next</Text>

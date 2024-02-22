@@ -6,6 +6,7 @@ import NotFound from './errors/NotFound';
 import Login from './auth/Login';
 import CountryRadioPicker from './auth/CustomCountryPicker';
 import Signup from './auth/Signup';
+import SetPassword from './auth/SetPassword';
 export {
   SplashScreenComponent,
   OnboardingScreen,
@@ -15,4 +16,5 @@ export {
   Login,
   CountryRadioPicker,
   Signup,
+  SetPassword
 };
