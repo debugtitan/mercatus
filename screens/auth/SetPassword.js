@@ -1,5 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
-import { View, Text, TextInput } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { PageLayout } from '../../AppLayout';
@@ -55,14 +61,23 @@ export default function SetPassword() {
               style={styles.textInput}
               secureTextEntry={!showPassword}
             />
-            <Icon
-              name={showPassword ? 'eye-outline' : 'eye-off-outline'}
-              color={theme.TABS_INACTIVE}
-              size={16}
-            />
+            <TouchableOpacity style={pass_styles.icon}>
+              <Icon
+                name={showPassword ? 'eye-outline' : 'eye-off-outline'}
+                color={theme.TABS_INACTIVE}
+                size={20}
+              />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
     </PageLayout>
   );
 }
+
+const pass_styles = StyleSheet.create({
+  icon: {
+    padding: 10,
+    left: 215,
+  },
+});
