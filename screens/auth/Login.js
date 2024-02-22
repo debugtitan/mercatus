@@ -86,7 +86,7 @@ export default function ({ navigation }) {
         <Keyboard onKeyPress={handleKeyPress} onClear={clearInput} />
 
         {/*LOGIN BUTTON */}
-        <View style={{ marginTop: 28 }}>
+        <View style={{ marginTop: 28, paddingHorizontal:18 }}>
           <TouchableOpacity
             style={[styles.button, { backgroundColor: theme.PRIMARY }]}
             onPress={() => navigation.navigate(RoutePaths.COUNTRY_PICKER)}

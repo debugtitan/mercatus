@@ -171,7 +171,7 @@ export default function Signup({ route, navigation }) {
             }
             onSelect={() => setTerms(!terms)}
           />
-          <View style={{ width: 290, marginLeft: 12 }}>
+          <View style={{ width: 270, marginLeft: 10 }}>
             <Text style={styles.paragraph}>
               {' '}
               I agree to Mercatus <Text style={styles.terms}>
