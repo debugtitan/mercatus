@@ -10,6 +10,7 @@ export default function OTPComponent({ navigation }) {
   const styles = Styles();
 
   const [otp, setOtp] = useState(null);
+  const [otpSent, setOtpSent] = (true);
   return (
     <PageLayout>
       <View style={{ marginTop: 10, paddingHorizontal: 16 }}>
