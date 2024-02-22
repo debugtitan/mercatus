@@ -8,17 +8,19 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
+import CountryPicker from 'react-native-country-picker-modal';
+
 import { PageLayout } from '../../AppLayout';
-import { useTheme, Password } from '../../components';
-import { DARK, LIGHT, Styles } from '../../constants';
-export default function SetPassword() {
+import { useTheme } from '../../components';
+import { DARK, LIGHT, Styles, RoutePaths } from '../../constants';
+export default function SetPassword({ navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   const styles = Styles();
 
   const [phone, setPhone] = useState(null);
-  const [countryCode, setCountryCode] = '+234';
-  const [country, setCountry] = useState('NG');
+  const [countryCode, setCountryCode] = useState('NG');
+  const [country, setCountry] = useState(null);
 
   const [showPassword, setShowPassword] = useState(true);
   const [password, setPassword] = useState(null);
@@ -28,6 +30,11 @@ export default function SetPassword() {
     setShowPassword(!showPassword);
   };
 
+  const onSelect = userCountry => {
+    setCountryCode(userCountry.cca2);
+    setCountry(userCountry.callingCode);
+  };
+
   return (
     <PageLayout>
       <View style={{ marginTop: 10, paddingHorizontal: 16 }}>
@@ -35,6 +42,14 @@ export default function SetPassword() {
         <View style={{ marginBottom: 18 }}>
           <Text style={styles.textLabel}>Phone</Text>
           <View style={styles.formContainer}>
+            <View style={{ left: 5, top: 5 }}>
+              <CountryPicker
+                countryCode={countryCode}
+                //withCountryNameButton={true}
+                withCloseButton={false}
+                onSelect={onSelect}
+              />
+            </View>
             <TextInput
               placeholder="Enter Phone number"
               cursorColor={theme.TABS_INACTIVE}
@@ -61,7 +76,10 @@ export default function SetPassword() {
               style={styles.textInput}
               secureTextEntry={!showPassword}
             />
-            <TouchableOpacity style={pass_styles.icon}>
+            <TouchableOpacity
+              style={pass_styles.icon}
+              onPress={toggleShowPassword}
+            >
               <Icon
                 name={showPassword ? 'eye-outline' : 'eye-off-outline'}
                 color={theme.TABS_INACTIVE}
@@ -69,6 +87,43 @@ export default function SetPassword() {
               />
             </TouchableOpacity>
           </View>
+        </View>
+
+        {/*Confirm Password */}
+        <View style={{ marginBottom: 18 }}>
+          <Text style={styles.textLabel}>Confirm Password</Text>
+          <View style={styles.formContainer}>
+            <TextInput
+              placeholder="Confirm password"
+              cursorColor={theme.TABS_INACTIVE}
+              placeholderTextColor={theme.TABS_INACTIVE}
+              keyboardType="number-pad"
+              maxLength={10}
+              onChangeText={userPassword => setConfirmPassword(userPassword)}
+              style={styles.textInput}
+              secureTextEntry={!showPassword}
+            />
+            <TouchableOpacity
+              style={{ padding: 10, left: 190 }}
+              onPress={toggleShowPassword}
+            >
+              <Icon
+                name={showPassword ? 'eye-outline' : 'eye-off-outline'}
+                color={theme.TABS_INACTIVE}
+                size={20}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/*BUTTON */}
+        <View style={{ marginTop: 370, paddingHorizontal: 8 }}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(RoutePaths.OTP)}
+            style={[styles.button, { backgroundColor: theme.PRIMARY }]}
+          >
+            <Text style={styles.buttonText}>Next</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </PageLayout>

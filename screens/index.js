@@ -7,6 +7,7 @@ import Login from './auth/Login';
 import CountryRadioPicker from './auth/CustomCountryPicker';
 import Signup from './auth/Signup';
 import SetPassword from './auth/SetPassword';
+import OTPComponent from './auth/OTP';
 export {
   SplashScreenComponent,
   OnboardingScreen,
@@ -16,5 +17,6 @@ export {
   Login,
   CountryRadioPicker,
   Signup,
-  SetPassword
+  SetPassword,
+  OTPComponent
 };

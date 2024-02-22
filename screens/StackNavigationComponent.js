@@ -16,6 +16,7 @@ import {
   CountryRadioPicker,
   Signup,
   SetPassword,
+  OTPComponent,
 } from '.';
 
 const Stack = createNativeStackNavigator();
@@ -93,6 +94,14 @@ export const MercatusStackNavigator = () => {
           options={{
             headerShown: true,
             title: 'Set password',
+          }}
+        />
+        <Stack.Screen
+          name="otp"
+          component={OTPComponent}
+          options={{
+            headerShown: true,
+            title: 'Authorize Device',
           }}
         />
       </Stack.Navigator>

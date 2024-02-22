@@ -8,4 +8,5 @@ export const RoutePaths = Object.freeze({
   LOGIN: 'auth-login',
   SIGNUP: 'auth-signup',
   SET_PASWORD: 'auth-setup-password',
+  OTP: 'otp',
 });

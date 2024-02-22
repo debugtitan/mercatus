@@ -22,7 +22,7 @@ export default function ({ label, value, placeholder, hide, onToggle }) {
             <Icon
               name={hide ? 'eye-outline' : 'eye-off-outline'}
               color={theme.TABS_INACTIVE}
-              size={16}
+              size={20}
             />
           </TouchableOpacity>
         </View>

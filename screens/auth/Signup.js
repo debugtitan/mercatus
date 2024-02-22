@@ -19,7 +19,7 @@ import {
   RoutePaths,
 } from '../../constants';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import CountryPicker, { DARK_THEME } from 'react-native-country-picker-modal';
+import CountryPicker from 'react-native-country-picker-modal';
 
 export default function Signup({ route, navigation }) {
   const { isDarkMode } = useTheme();
