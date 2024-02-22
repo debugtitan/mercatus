@@ -1,16 +1,50 @@
 /* eslint-disable react-native/no-inline-styles */
-import { View, Text, TextInput } from 'react-native';
-import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { XMarkIcon, PaperAirplaneIcon } from 'react-native-heroicons/solid';
 import { PageLayout } from '../../AppLayout';
-import { useTheme } from '../../components';
-import { DARK, LIGHT, Styles } from '../../constants';
+import { useTheme, Keyboard } from '../../components';
+import { DARK, LIGHT, Styles, RoutePaths } from '../../constants';
+const DELAY = 30;
 export default function OTPComponent({ navigation }) {
   const { isDarkMode } = useTheme();
   const theme = isDarkMode ? DARK : LIGHT;
   const styles = Styles();
 
-  const [otp, setOtp] = useState(null);
-  const [otpSent, setOtpSent] = (true);
+  const [otp, setOtp] = useState();
+  const [otpSent, setOtpSent] = useState(true);
+  const [delay, setDelay] = useState(30);
+  const minutes = Math.floor(delay / 60);
+  const seconds = Math.floor(delay % 60);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDelay(delay - 1);
+    }, 1000);
+
+    if (delay === 0) {
+      clearInterval(timer);
+      setOtpSent(false);
+    }
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [delay]);
+
+  const sendOtp = () => {
+    setOtpSent(true);
+    setDelay(DELAY);
+  };
+
+  const handleKeyPress = key => {
+    setOtp(prevInput => prevInput + key);
+  };
+
+  const clearInput = () => {
+    setOtp(prev => prev.slice(0, -1));
+  };
+
   return (
     <PageLayout>
       <View style={{ marginTop: 10, paddingHorizontal: 16 }}>
@@ -25,8 +59,47 @@ export default function OTPComponent({ navigation }) {
               maxLength={6}
               onChangeText={OTP => setOtp(OTP)}
               style={styles.textInput}
+              editable={false}
+              value={otp}
             />
+            <View
+              style={{ padding: 10, left: 240 }}
+              //onPress={toggleShowPassword}
+            >
+              {otpSent ? (
+                <XMarkIcon size={18} color={theme.TABS_INACTIVE} />
+              ) : (
+                <TouchableOpacity onPress={sendOtp}>
+                  <PaperAirplaneIcon size={18} color={theme.TABS_INACTIVE} />
+                </TouchableOpacity>
+              )}
+            </View>
           </View>
+        </View>
+
+        <Text
+          style={{
+            textAlign: 'right',
+            lineHeight: 17,
+            fontWeight: '600',
+            fontSize: 14,
+            color: theme.PRIMARY,
+            marginBottom: 28,
+          }}
+        >
+          ({minutes}:{seconds})
+        </Text>
+
+        <Keyboard onKeyPress={handleKeyPress} onClear={clearInput} />
+
+        {/*BUTTON */}
+        <View style={{ marginTop: 90, paddingHorizontal: 8 }}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(RoutePaths.OTP)}
+            style={[styles.button, { backgroundColor: theme.PRIMARY }]}
+          >
+            <Text style={styles.buttonText}>Next</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </PageLayout>
