@@ -125,5 +125,19 @@ export const Styles = () => {
       color: theme.PRIMARY,
       textDecorationLine: 'underline',
     },
+    otpContainer: {
+      //flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    otpInput: {
+      borderWidth: 1,
+      borderRadius: 4,
+      width: 44,
+      height: 44,
+      textAlign: 'center',
+      fontSize: 20,
+      color: theme.PRIMARY,
+    },
   });
 };

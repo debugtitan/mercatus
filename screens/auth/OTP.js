@@ -11,7 +11,7 @@ export default function OTPComponent({ navigation }) {
   const theme = isDarkMode ? DARK : LIGHT;
   const styles = Styles();
 
-  const [otp, setOtp] = useState();
+  const [otp, setOtp] = useState('');
   const [otpSent, setOtpSent] = useState(true);
   const [delay, setDelay] = useState(30);
   const minutes = Math.floor(delay / 60);
@@ -83,7 +83,7 @@ export default function OTPComponent({ navigation }) {
             lineHeight: 17,
             fontWeight: '600',
             fontSize: 14,
-            color: theme.PRIMARY,
+            color: theme.PRIMARY2,
             marginBottom: 28,
           }}
         >
@@ -93,9 +93,9 @@ export default function OTPComponent({ navigation }) {
         <Keyboard onKeyPress={handleKeyPress} onClear={clearInput} />
 
         {/*BUTTON */}
-        <View style={{ marginTop: 90, paddingHorizontal: 8 }}>
+        <View style={{ marginTop: 90, paddingHorizontal: 18 }}>
           <TouchableOpacity
-            onPress={() => navigation.navigate(RoutePaths.OTP)}
+            onPress={() => navigation.navigate(RoutePaths.SECURE_ACCOUNT)}
             style={[styles.button, { backgroundColor: theme.PRIMARY }]}
           >
             <Text style={styles.buttonText}>Next</Text>

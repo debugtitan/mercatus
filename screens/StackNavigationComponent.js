@@ -17,6 +17,7 @@ import {
   Signup,
   SetPassword,
   OTPComponent,
+  SecureAccount,
 } from '.';
 
 const Stack = createNativeStackNavigator();
@@ -102,6 +103,14 @@ export const MercatusStackNavigator = () => {
           options={{
             headerShown: true,
             title: 'Authorize Device',
+          }}
+        />
+        <Stack.Screen
+          name="secure-account"
+          component={SecureAccount}
+          options={{
+            headerShown: true,
+            title: 'Secure Account',
           }}
         />
       </Stack.Navigator>

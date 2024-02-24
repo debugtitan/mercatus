@@ -6,6 +6,7 @@ import RadioButton from './RadioButton';
 import { Dropdown } from './DropDown';
 import Checkbox from './CheckBox';
 import CustomModal from './CustomModal';
+import { OTPInput } from './OtpInput';
 export {
   useTheme,
   ThemeProvider,
@@ -16,4 +17,5 @@ export {
   Dropdown,
   Checkbox,
   CustomModal,
+  OTPInput
 };

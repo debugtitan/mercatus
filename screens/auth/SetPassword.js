@@ -117,7 +117,7 @@ export default function SetPassword({ navigation }) {
         </View>
 
         {/*BUTTON */}
-        <View style={{ marginTop: 390, paddingHorizontal: 8 }}>
+        <View style={{ marginTop: 390, paddingHorizontal: 18 }}>
           <TouchableOpacity
             onPress={() => navigation.navigate(RoutePaths.OTP)}
             style={[styles.button, { backgroundColor: theme.PRIMARY }]}

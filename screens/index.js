@@ -8,6 +8,7 @@ import CountryRadioPicker from './auth/CustomCountryPicker';
 import Signup from './auth/Signup';
 import SetPassword from './auth/SetPassword';
 import OTPComponent from './auth/OTP';
+import SecureAccount from './auth/SecureAccount';
 export {
   SplashScreenComponent,
   OnboardingScreen,
@@ -18,5 +19,6 @@ export {
   CountryRadioPicker,
   Signup,
   SetPassword,
-  OTPComponent
+  OTPComponent,
+  SecureAccount,
 };
